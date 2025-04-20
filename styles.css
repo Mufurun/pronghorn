@@ -1,0 +1,19 @@
+#map {
+    height: 100vh;
+    width: 100%;
+  }
+  
+  .popup-content {
+    max-width: 250px;
+  }
+  
+  .comments {
+    font-size: 0.9em;
+    margin-top: 5px;
+    max-height: 100px;
+    overflow-y: auto;
+  }
+  
+  .comment-box {
+    margin-top: 5px;
+  }

@@ -1,34 +1,23 @@
+/* 
+points stores all the datapoints on the map
+    id: used for the firebase storage
+    name: shown on the popup of the map
+    coords: the point on the map
+    group: group is based on my travel history
+    url: give url if there is 
+    image: pic of the location
+*/
 const points = [
-    { id: 'tokyo', name: "Tokyo, Japan", coords: [35.6895, 139.6917] },
-    { id: 'newyork', name: "New York, USA", coords: [40.7128, -74.0060] },
-    { id: 'paris', name: "Paris, France", coords: [48.8566, 2.3522] }
-  ];
 
-  /*
-  const data_points = [{
-    coordinates:[48.8021, -123.7152],
-    label:'BC FOREST DISCOVERY CENTRE</br><a href = "https://bcforestdiscoverycentre.com" target="_blank"><img src="Pics/IMG_4708.jpg" alt="BC Forest Discovery Centre (Duncan)" style = "width:200px;height:100px;"></a>'
-},{
-    coordinates:[35.7122, 139.4477],
-    label:'My High School Days</br><a href = "https://www.wikidata.org/wiki/Q11525427" target="_blank"><img src="Pics/149.jpg" alt="High School Festival" style = "width:200px;height:100px;"></a>'
-},{
-    coordinates:[-33.4171, 151.3414],
-    label:'Language Exchange Program in High School</br><a href = "https://en.wikipedia.org/wiki/Sydney" target="_blank"><img src="Pics/352.jpg" alt="BC Forest Discovery Centre (Duncan)" style = "width:200px;height:100px;"></a>'
-},{
-    coordinates:[35.0099, 135.7702],
-    label:'Kyoto </br><img src="Pics/639.jpg" alt="Kyoto" style = "width:200px;height:100px;">'
-},{
-    coordinates:[37.0902, 136.9144],
-    label:'Working at Kagaya Hotel </br><img src="Pics/IMG_1666.jpg" alt="Nanao, Ishikawa" style = "width:200px;height:100px;">'
-},{
-    coordinates:[33.8659, 139.606],
-    label:'Vacations at Miyake </br><img src="Pics/114.jpg" alt="Miyake Island" style = "width:200px;height:100px;">'
-},{
-    coordinates:[47.6557, -122.2999],
-    label:'Seattle Trip </br><img src="Pics/IMG_3305.jpg" alt="Seattle" style = "width:200px;height:100px;">'
-},{
-    coordinates:[53.9053, -122.7851],
-    label:'Prince George </br><img src="Pics/IMG_0208.jpg" alt="Winter was around -40" style = "width:200px;height:100px;">'
-}
+    { id: 'bcfdc', name: "BC Forest Discovery Centre", coords: [48.8021, -123.7152], group: 'bc',url: "https://bcforestdiscoverycentre.com", image: "images/IMG_4708.jpg"},
+    { id: 'kokubunji', name: "My High School Days", coords: [35.7122, 139.4477], group: 'tokro', url: "https://www.wikidata.org/wiki/Q11525427", image: "images/149.jpg" },
+    { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'australia', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.jpg" },
+    { id: 'sydney', name: "Opera House Over the Sea", coords: [-33.8600, 151.2214], group: 'australia', url: null,image: "images/352.jpg" },
+    { id: 'kyoto', name: "Kyoto Travel", coords: [35.0099, 135.7702], group: 'kyoto', url: null,image: "images/639.jpg" },
+    { id: 'kagaya', name: "Kagaya Hotel", coords: [37.0902, 136.9144], group: 'hokuriku', url: "https://www.kagaya.co.jp/en/",image: "images/IMG_1666.jpg" },
+    { id: 'miyake', name: "Vacation in Miyake", coords: [33.8659, 139.606], group: 'tisland', url: null,image: "images/114.jpg" },
+    { id: 'gasworks', name: "Gas Works Park", coords: [47.6455, -122.335], group: 'bc', url: null,image: "images/IMG_3305.jpg" },
+    { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'bc', url: null,image: "images/IMG_0208.jpg" },
+    { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'bc', url: null,image: "images/IMG_5340.jpg" }
 ];
-  */
+
