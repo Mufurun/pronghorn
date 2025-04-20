@@ -26,4 +26,4 @@ by Mufurun
 # Distribution
 - My initial interest is inspired by Cecilia Porter in UCalgary (https://profiles.ucalgary.ca/cecilia-porter) as well as an instructor who invited her to UVic to have a presentation about inuit mapping project (https://inuitheritage.gl/map/)
 - My co-op in 2024 also motivated me creating heritage map on the Coastal BC.
-    - I want to apply myskills to this feild
+    - I want to apply my skills to this feild

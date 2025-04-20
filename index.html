@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>World Map with Real-Time Comments</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- Leaflet CSS -->
+  <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>#map { height: 100vh; width: 100%; }
+        .popup-content { max-width: 250px; }
+        .comments { font-size: 0.9em; margin-top: 5px; max-height: 100px; overflow-y: auto; }
+        .comment-box { margin-top: 5px; }
+    </style>
+</head>
+<body>
+
+<div id="map"></div>
+
+<!-- Firebase -->
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.9.0/firebase-database-compat.js"></script>
+
+<!-- Leaflet JS -->
+<script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+
+
+
+<script type="module">
+    // Import the functions you need from the SDKs you need
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
+    // TODO: Add SDKs for Firebase products that you want to use
+    // https://firebase.google.com/docs/web/setup#available-libraries
+  
+    // Your web app's Firebase configuration
+    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
+    const firebaseConfig = {
+      apiKey: "AIzaSyCkWwpGcV25XlzBz8gbzwssOQSWmcxx9Xk",
+      authDomain: "bovidae-7c472.firebaseapp.com",
+      projectId: "bovidae-7c472",
+      databaseURL:"https://bovidae-7c472-default-rtdb.firebaseio.com/",
+      storageBucket: "bovidae-7c472.firebasestorage.app",
+      messagingSenderId: "532403327148",
+      appId: "1:532403327148:web:e087c96b2df10cf1074f09",
+      measurementId: "G-T9J6KN5JRJ"
+    };
+  
+    // Initialize Firebase
+    //const app = initializeApp(firebaseConfig);
+    //var db = getAnalytics(app);
+    firebase.initializeApp(firebaseConfig);
+    const db = firebase.database();
+    console.log(db);
+    console.log("Firebase initialized ✅");
+    
+
+
+    const map = L.map('map').setView([20, 0], 2);
+    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      attribution: '&copy; OpenStreetMap contributors'
+    }).addTo(map);
+  
+    
+  
+    // Create popup content and listeners
+    function createPopupContent(point) {
+      const container = document.createElement('div');
+      container.className = 'popup-content';
+  
+      const title = document.createElement('strong');
+      title.textContent = point.name;
+      container.appendChild(title);
+  
+      const commentsDiv = document.createElement('div');
+      commentsDiv.id = `comments-${point.id}`;
+      commentsDiv.className = 'comments';
+      commentsDiv.innerHTML = "<i>Loading comments...</i>";
+      container.appendChild(commentsDiv);
+  
+      const input = document.createElement('input');
+      input.type = 'text';
+      input.placeholder = 'Add a comment';
+      input.style.width = '90%';
+      input.id = `input-${point.id}`;
+  
+      const button = document.createElement('button');
+      button.textContent = 'Post';
+      button.onclick = () => {
+        const comment = input.value.trim();
+        if (comment) {
+          db.ref(`comments/${point.id}`).push({
+            text: comment,
+            timestamp: Date.now()
+          });
+          input.value = '';
+        }
+      };
+  
+      const box = document.createElement('div');
+      box.className = 'comment-box';
+      box.appendChild(input);
+      box.appendChild(button);
+      container.appendChild(box);
+  
+      // Listen for comments in real time
+      const commentsRef = db.ref(`comments/${point.id}`);
+      commentsRef.on('value', (snapshot) => {
+        const comments = snapshot.val();
+        commentsDiv.innerHTML = '';
+        if (comments) {
+          Object.values(comments).forEach(c => {
+            const div = document.createElement('div');
+            div.textContent = `• ${c.text}`;
+            commentsDiv.appendChild(div);
+          });
+        } else {
+          commentsDiv.innerHTML = "<i>No comments yet.</i>";
+        }
+      });
+  
+      return container;
+    }
+  
+    points.forEach(point => {
+      const marker = L.marker(point.coords).addTo(map);
+      marker.on('click', () => {
+        const popupContent = createPopupContent(point);
+        marker.bindPopup(popupContent).openPopup();
+      });
+    });
+</script>
+
+
+</body>
+</html>
