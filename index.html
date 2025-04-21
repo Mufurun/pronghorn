@@ -88,8 +88,21 @@
 		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
 	}).addTo(map);
 
- // const customControl = L.control({ position: 'topleft' });
-  //customControl.addTo(map);
+  const customControl = L.control({ position: 'topleft' });
+  customControl.onAdd = function (map) {
+  const btn = L.DomUtil.create('button', 'my-custom-button');
+  btn.innerHTML = 'Click Me';
+
+  // Prevent map from moving when clicking the button
+  L.DomEvent.disableClickPropagation(btn);
+
+  btn.onclick = () => {
+    alert('Button clicked!');
+    // You can add more logic here, like map.flyTo(), addMarker(), etc.
+  };
+
+  return btn;
+};customControl.addTo(map);
   
     
   
@@ -221,6 +234,9 @@
   }
 });
      });
+
+
+//Data management if its more than 100 comments, discard them from the beggining 
 </script>
 
 
