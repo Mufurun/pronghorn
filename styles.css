@@ -1,6 +1,8 @@
 #map {
-    height: 100vh;
+    height: 98vh;
     width: 100%;
+    padding: 0;
+    margin: 0;
   }
   
   .popup-content {
@@ -17,7 +19,8 @@
     margin-top: 5px;
     margin-left: 10px;
     max-height: 170px;
-    overflow-y: auto;
+    overflow: auto; 
+    scrollToBottom;
   }
   
   .comment-box {

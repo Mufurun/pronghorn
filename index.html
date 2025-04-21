@@ -1,5 +1,17 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
+
+<!--
+        Thank you for reading this source :))
+        Wanna get this code improved??
+        Contact: 
+
+        お疲れ様です！
+        ソースをご確認いただきありがとうございます！(/ω＼*)
+        問題がある部分や御意見等ございましたら、ご連絡いただければ幸いです。
+        連絡先: 
+        -->
+
 <head>
   <title>Project Pronghorn</title>
   <meta charset="utf-8" />
@@ -25,6 +37,8 @@
 
 
 <script type="module">
+
+//Firebase iitialization
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
@@ -33,15 +47,15 @@
     // Your web app's Firebase configuration
     // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
-  apiKey: "AIzaSyBzWuvmEKysIWChuS4ktZHsOuuknv2fuOU",
-  authDomain: "pronghorn-5f357.firebaseapp.com",
-  projectId: "pronghorn-5f357",
-  databaseURL: "https://pronghorn-5f357-default-rtdb.firebaseio.com/",
-  storageBucket: "pronghorn-5f357.firebasestorage.app",
-  messagingSenderId: "10063193837",
-  appId: "1:10063193837:web:e513d28105eb8b41a80ee4",
-  measurementId: "G-M7FMSS1P71"
-};
+      apiKey: "AIzaSyBzWuvmEKysIWChuS4ktZHsOuuknv2fuOU",
+      authDomain: "pronghorn-5f357.firebaseapp.com",
+      projectId: "pronghorn-5f357",
+      databaseURL: "https://pronghorn-5f357-default-rtdb.firebaseio.com/",
+      storageBucket: "pronghorn-5f357.firebasestorage.app",
+      messagingSenderId: "10063193837",
+      appId: "1:10063193837:web:e513d28105eb8b41a80ee4",
+      measurementId: "G-M7FMSS1P71"
+    };
 
     firebase.initializeApp(firebaseConfig);
     const db = firebase.database();
@@ -49,15 +63,37 @@
     console.log("Firebase initialized ✅");
     
 
+//Map initialization
+    const map = L.map('map',{continuousWorld: true, worldCopyJump: true, zoomControl:false, maxZoom:18, minZoom:2}).setView([20, 0], 2);
 
-    const map = L.map('map').setView([20, 0], 2);
-    L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '&copy; OpenStreetMap contributors'
-    }).addTo(map);
+
+
+//    var hash = new L.Hash(map);
+    map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+    var zoomControl = L.control.zoom({
+            position: 'bottomright'
+        }).addTo(map);
+//I don't know followings
+        var bounds_group = new L.featureGroup([]);
+    function setBounds() {
+        map.setMaxBounds(map.getBounds());
+    }
+//    var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+    
+
+//control
+
+	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+		maxZoom: 20,
+		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+	}).addTo(map);
+
+ // const customControl = L.control({ position: 'topleft' });
+  //customControl.addTo(map);
   
     
   
-    // Create popup content and listeners
+// Create popup content and listeners
     function createPopupContent(point) {
     
     
@@ -155,18 +191,36 @@
         } else {
           commentsDiv.innerHTML = "<i>No comments yet.</i>";
         }
+        commentsDiv.scrollTop = commentsDiv.scrollHeight;
       });
+      
   
       return container;
     }
   
     points.forEach(point => {
-      const marker = L.marker(point.coords).addTo(map);
-      marker.on('click', () => {
+    // const popupContent = createPopupContent(point);
+    // const marker = L.marker(point.coords).addTo(map).bindPopup(popupContent);
+
+      
+       const marker = L.marker(point.coords).addTo(map);
+       marker.bindPopup(() => {
         const popupContent = createPopupContent(point);
-        marker.bindPopup(popupContent).openPopup();
-      });
-    });
+        return popupContent;
+       }) 
+         
+       map.on('popupopen', (e) => {
+  const popupElement = e.popup.getElement();
+  const commentsBox = popupElement.querySelector('.comments');
+
+  if (commentsBox) {
+    // Wait a tick to ensure it's rendered
+    setTimeout(() => {
+      commentsBox.scrollTop = commentsBox.scrollHeight;
+    }, 0);
+  }
+});
+     });
 </script>
 
 
