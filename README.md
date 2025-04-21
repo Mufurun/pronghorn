@@ -12,7 +12,8 @@ by Mufurun
 - [ ] upload most of photoes on my phone, which are not a lot, with the location
 - [ ] add general info about the place with the name
 - [ ] allow people to comment
-  - [ ] with time if there's room in the storage
+  - [x] with time if there's room in the storage
+  - [x] only keep 100 items
   - [ ] allow people to add picture
 - [ ] add the regional filtering buttons to make it easy to change their view.
 - [ ] use something like satelite imagery later, but right now I am using just a normal map

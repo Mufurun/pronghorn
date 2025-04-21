@@ -37,8 +37,11 @@
 
 
 <script type="module">
-
-//Firebase iitialization
+/*
+Firebase iitialization
+  I just copy and past them here. 
+  may want to put them in a separate file
+*/
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
     // TODO: Add SDKs for Firebase products that you want to use
@@ -63,113 +66,201 @@
     console.log("Firebase initialized ✅");
     
 
-//Map initialization
+/*
+Map initialization
+    continuousWorld: true
+    worldCopyJump: true
+    zoomControl: custom -> later
+    maxZoom: 18
+    minZoom: 2
+
+    attribution:  
+      https://github.com/tomchadwin/qgis2web
+      https://leafletjs.com
+      https://qgis.org
+      http://www.openstreetmap.org/copyright
+    
+    Buttons:
+      zoomControl: bottomright
+
+
+
+*/
+  //map
     const map = L.map('map',{continuousWorld: true, worldCopyJump: true, zoomControl:false, maxZoom:18, minZoom:2}).setView([20, 0], 2);
 
-
-
 //    var hash = new L.Hash(map);
+  //attribution
     map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+  
+    //buttons
     var zoomControl = L.control.zoom({
             position: 'bottomright'
         }).addTo(map);
+
+    
+    const refresh = L.control({ position: 'topleft' });
+    refresh.onAdd = function (map) {
+      const btn = L.DomUtil.create('button', 'my-custom-button');
+      btn.innerHTML = 'worldView';
+      // Prevent map from moving when clicking the button
+      L.DomEvent.disableClickPropagation(btn);
+      btn.onclick = () => {
+        map.flyTo([20, 0], 2, {
+        animate: true,
+        duration: 1.5});
+        // You can add more logic here, like map.flyTo(), addMarker(), etc.
+      };
+      return btn;
+    };
+    refresh.addTo(map);
+
+    const jumpButtonBC = L.control({ position: 'topleft' });
+    jumpButtonBC.onAdd = function (map) {
+      const btn = L.DomUtil.create('button', 'my-custom-button');
+      btn.innerHTML = 'BC';
+      // Prevent map from moving when clicking the button
+      L.DomEvent.disableClickPropagation(btn);
+      btn.onclick = () => {
+        map.flyTo([52, -122],6);
+        // You can add more logic here, like map.flyTo(), addMarker(), etc.
+      };
+      return btn;
+    };
+    jumpButtonBC.addTo(map);
+
+    const jumpButtonJpn = L.control({ position: 'topleft' });
+    jumpButtonJpn.onAdd = function (map) {
+      const btn = L.DomUtil.create('button', 'my-custom-button');
+      btn.innerHTML = 'Japan';
+      // Prevent map from moving when clicking the button
+      L.DomEvent.disableClickPropagation(btn);
+      btn.onclick = () => {
+        map.flyTo([35, 137],5);
+        // You can add more logic here, like map.flyTo(), addMarker(), etc.
+      };
+      return btn;
+    };
+    jumpButtonJpn.addTo(map);
+
+    const jumpButtonOg = L.control({ position: 'topleft' });
+    jumpButtonOg.onAdd = function (map) {
+      const btn = L.DomUtil.create('button', 'my-custom-button');
+      btn.innerHTML = 'Sydney';
+      // Prevent map from moving when clicking the button
+      L.DomEvent.disableClickPropagation(btn);
+      btn.onclick = () => {
+        map.flyTo([-33.6809, 151.2419],10);
+        // You can add more logic here, like map.flyTo(), addMarker(), etc.
+      };
+      return btn;
+    };
+    jumpButtonOg.addTo(map);
+
 //I don't know followings
-        var bounds_group = new L.featureGroup([]);
-    function setBounds() {
-        map.setMaxBounds(map.getBounds());
-    }
+    //     var bounds_group = new L.featureGroup([]);
+    // function setBounds() {
+    //     map.setMaxBounds(map.getBounds());
+    //}
 //    var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
     
+	
 
-//control
-
-	L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-		maxZoom: 20,
-		attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-	}).addTo(map);
-
-  const customControl = L.control({ position: 'topleft' });
-  customControl.onAdd = function (map) {
-  const btn = L.DomUtil.create('button', 'my-custom-button');
-  btn.innerHTML = 'Click Me';
-
-  // Prevent map from moving when clicking the button
-  L.DomEvent.disableClickPropagation(btn);
-
-  btn.onclick = () => {
-    alert('Button clicked!');
-    // You can add more logic here, like map.flyTo(), addMarker(), etc.
-  };
-
-  return btn;
-};customControl.addTo(map);
   
     
-  
-// Create popup content and listeners
+/*
+Create popup content and listeners
+    Title:
+    Image: with a url if I have
+    "Comment"
+    comments:
+    input box:
+    post button: link to firebase 
+      data management
+
+*/
     function createPopupContent(point) {
-    
-    
-    //div
+
+  //div
       const container = document.createElement('div');
       container.className = 'popup-content';
 
-      //title
+  //title
       const title = document.createElement('strong');
       title.textContent = point.name;
       container.appendChild(title);
 
-      //image with url
+  //image with url
+      const imageSection = document.createElement('div');
       const image = document.createElement('img');
       image.src= point.image;
       image.className = 'image';
-      image.style = "width:250px;height:125px;";
-
+      
       if(point.url != null){
         const imageUrl = document.createElement('a');
         imageUrl.href = point.url;
         imageUrl.target = '_blank';
         imageUrl.appendChild(image);
-        container.appendChild(imageUrl);
-      }else{container.appendChild(image);
+        imageSection.appendChild(imageUrl);
+      }else{imageSection.appendChild(image);
       }
+      container.appendChild(imageSection);
       
-      //Label
+  //Label
       const label1 = document.createElement('strong');
       label1.textContent = "Comments";
       container.appendChild(label1);
 
-      //Comment
+  //Comment
       const commentsDiv = document.createElement('div');
       commentsDiv.id = `comments-${point.id}`;
       commentsDiv.className = 'comments';
       commentsDiv.innerHTML = "<i>Loading comments...</i>";
       container.appendChild(commentsDiv);
       
-      //text box
+  //text box
       const input = document.createElement('input');
       input.type = 'text';
       input.placeholder = 'Add a comment';
       input.style.width = '90%';
       input.id = `input-${point.id}`;
   
-      //button
+  //button
       const button = document.createElement('button')
       input.addEventListener("keypress", function(event){if (event.keyCode === 13) {
                 // Triggering click event on button when Enter key is pressed
                 button.onclick();
             }});
       button.textContent = 'Post';
+      //save the comment
       button.onclick = () => {
         const comment = input.value.trim();
+        const ref = db.ref(`comments/${point.id}`);
         if (comment) {
             const d = new Date()
-          db.ref(`comments/${point.id}`).push({
+          ref.push({
             text: comment,
             timestamp: d.toTimeString()
           });
           input.value = '';
         }
+      //data management
+      //only keep 100 recent items 
+        ref.once("value", snapshot => {
+          const data = snapshot.val();
+          const keys = Object.keys(data || {});
+          if (keys.length > 100) {
+            // Sort and remove oldest ones
+            const sorted = keys.map(k => ({ key: k, time: data[k].timestamp }))
+            .sort((a, b) => a.time - b.time);
+            const toRemove = sorted.slice(0, keys.length - 10);
+            toRemove.forEach(({ key }) => ref.child(key).remove());
+  }
+});
       };
   
       const box = document.createElement('div');
@@ -177,6 +268,7 @@
       box.appendChild(input);
       box.appendChild(button);
       container.appendChild(box);
+
   
       // Listen for comments in real time
       const commentsRef = db.ref(`comments/${point.id}`);
@@ -191,52 +283,41 @@
             time.className = 'time';
             time.textContent = c.timestamp.toString();
             box.appendChild(time);
-            //const sep = document.createElement('hr');
             commentsDiv.appendChild(box);
-            //commentsDiv.appendChild(time);
-            //commentsDiv.appendChild(sep);
-          }
-/*          Object.values(comments).forEach(c => {
-            const div = document.createElement('div');
-            div.textContent = `• ${c.text}`;
-            commentsDiv.appendChild(div);
-          }*/);
+            }
+          );
         } else {
-          commentsDiv.innerHTML = "<i>No comments yet.</i>";
+          commentsDiv.innerHTML = "<i>Be the first commentor!!</i>";
         }
-        commentsDiv.scrollTop = commentsDiv.scrollHeight;
-      });
-      
-  
+        commentsDiv.scrollTop = commentsDiv.scrollHeight;//need this for the first open of bindPopup
+      });  
       return container;
     }
   
+/*
+Add every points on the map using createPopupContent()
+*/
     points.forEach(point => {
-    // const popupContent = createPopupContent(point);
-    // const marker = L.marker(point.coords).addTo(map).bindPopup(popupContent);
-
-      
        const marker = L.marker(point.coords).addTo(map);
        marker.bindPopup(() => {
         const popupContent = createPopupContent(point);
         return popupContent;
        }) 
          
+       //set up the scrollbar at the bottom.
        map.on('popupopen', (e) => {
-  const popupElement = e.popup.getElement();
-  const commentsBox = popupElement.querySelector('.comments');
-
-  if (commentsBox) {
-    // Wait a tick to ensure it's rendered
-    setTimeout(() => {
-      commentsBox.scrollTop = commentsBox.scrollHeight;
-    }, 0);
-  }
-});
+        const popupElement = e.popup.getElement();
+        const commentsBox = popupElement.querySelector('.comments');
+        if (commentsBox) {
+          // Wait a tick to ensure it's rendered
+          setTimeout(() => {
+            commentsBox.scrollTop = commentsBox.scrollHeight;
+          }, 0);
+        }
+      });
      });
 
 
-//Data management if its more than 100 comments, discard them from the beggining 
 </script>
 
 
