@@ -323,16 +323,17 @@ map.locate({ setView: false });
 
     points.forEach(point => {
        const marker = L.marker(point.coords);
+       
+       marker.bindPopup(() => {
+        const popupContent = createPopupContent(point);
+        return popupContent;
+       }) 
        if(point.group == 'bc'){marker.addTo(bc);}
        if(point.group == 'kyoto'){marker.addTo(kyoto);}
        if(point.group == 'tokyo'){marker.addTo(tokyo);}
        if(point.group == 'australia'){marker.addTo(australia);}
        if(point.group == 'hokuriku'){marker.addTo(hokuriku);}
        if(point.group == 'tisland'){marker.addTo(tisland);}
-       marker.bindPopup(() => {
-        const popupContent = createPopupContent(point);
-        return popupContent;
-       }) 
          
        //set up the scrollbar at the bottom.
        map.on('popupopen', (e) => {

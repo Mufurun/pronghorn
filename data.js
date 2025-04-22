@@ -14,7 +14,7 @@ const points = [
     { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'australia', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
     { id: 'sydney', name: "Opera House Over the Sea", coords: [-33.8600, 151.2214], group: 'australia', url: null,image: "images/352.webp" },
     { id: 'kyoto', name: "Kyoto Travel", coords: [35.0099, 135.7702], group: 'kyoto', url: null,image: "images/639.webp" },
-    { id: 'kagaya', name: "Kagaya Hotel", coords: [37.0902, 136.9144], group: 'kyoto', url: "https://www.kagaya.co.jp/en/",image: "images/IMG_1666.webp" },
+    { id: 'kagaya', name: "Kagaya Hotel", coords: [37.0902, 136.9144], group: 'hokuriku', url: "https://www.kagaya.co.jp/en/",image: "images/IMG_1666.webp" },
     { id: 'miyake', name: "Vacation in Miyake", coords: [33.8659, 139.606], group: 'tisland', url: null,image: "images/114.webp" },
     { id: 'gasworks', name: "Gas Works Park", coords: [47.6455, -122.335], group: 'bc', url: null,image: "images/IMG_3305.webp" },
     { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'bc', url: null,image: "images/IMG_0208.webp" },
