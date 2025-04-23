@@ -320,6 +320,8 @@ map.locate({ setView: false });
      const hokuriku = L.layerGroup();
      const tisland = L.layerGroup();
      const kyoto = L.layerGroup();
+     //const japan = L.layerGroup();
+
 
     points.forEach(point => {
        const marker = L.marker(point.coords);
@@ -329,12 +331,17 @@ map.locate({ setView: false });
         return popupContent;
        }) 
        if(point.group == 'bc'){marker.addTo(bc);}
-       if(point.group == 'kyoto'){marker.addTo(kyoto);}
-       if(point.group == 'tokyo'){marker.addTo(tokyo);}
-       if(point.group == 'australia'){marker.addTo(australia);}
-       if(point.group == 'hokuriku'){marker.addTo(hokuriku);}
-       if(point.group == 'tisland'){marker.addTo(tisland);}
-         
+       else if(point.group == 'kyoto'){marker.addTo(kyoto);}
+       else if(point.group == 'tokyo'){marker.addTo(tokyo);}
+       else if(point.group == 'australia'){marker.addTo(australia);}
+       else if(point.group == 'hokuriku'){marker.addTo(hokuriku);}
+       else if(point.group == 'tisland'){marker.addTo(tisland);}
+       /*
+       if(point.group == 'bc'){marker.addTo(bc);}
+       else if((point.group == 'kyoto')||(point.group == 'tokyo')\\(point.group == 'tisland')||(point.group == 'hokuriku')){marker.addTo(japan);}
+       else if(point.group == 'australia'){marker.addTo(australia);}
+       */
+      else{marker.addTo(map);}
        //set up the scrollbar at the bottom.
        map.on('popupopen', (e) => {
         const popupElement = e.popup.getElement();
@@ -437,6 +444,8 @@ zoomControl: bottomright
      map.addLayer(australia);
      map.addLayer(hokuriku);
      map.addLayer(tisland);
+     //map.addLayer(japan);
+     
 </script>
 
 
