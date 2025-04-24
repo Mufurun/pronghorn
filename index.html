@@ -37,6 +37,33 @@
 <!-- Data for sites -->
 <script src="data.js"></script>
 
+<style>         
+  .custom-control {
+position: relative;
+}
+.custom-control label {
+display: block;
+margin: 3px 0;
+} 
+.custom-control-hover {
+background: white;
+border-radius: 4px;
+padding: 5px;
+font-size: 14px;
+box-shadow: 0 0 5px rgba(0,0,0,0.3);
+cursor: pointer;
+}
+
+.custom-content {
+display: none;
+margin-top: 5px;
+}
+
+.custom-control:hover .custom-content {
+display: block;
+background: white;
+}
+</style>
 
 <script type="module">
 /*
@@ -445,6 +472,27 @@ zoomControl: bottomright
      map.addLayer(hokuriku);
      map.addLayer(tisland);
      //map.addLayer(japan);
+
+
+     const customControl = L.control({ position: 'topright' });
+
+    customControl.onAdd = function () {
+      const div = L.DomUtil.create('div', 'custom-control leaflet-bar');
+      div.innerHTML = `
+              <div class="custom-control-hover">
+          <strong>Layers ⬇</strong>
+          <div class="custom-content">
+            <label><input type="checkbox" id="toggleTokyo" checked> Tokyo</label>
+            <label><input type="checkbox" id="toggleNY" checked> New York</label>
+          </div>
+        </div>
+      `;
+      L.DomEvent.disableClickPropagation(div);
+      return div;
+    };
+
+    customControl.addTo(map);
+
      
 </script>
 
