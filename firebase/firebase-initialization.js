@@ -1,4 +1,3 @@
-console.log("firebase");
 
 /*
 ##############################
@@ -32,5 +31,6 @@ firebase.initializeApp(firebaseConfig);
 const db = firebase.database();
 console.log(db);
 console.log("Firebase initialized ✅");
+
 
 export { db };

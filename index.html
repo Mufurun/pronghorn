@@ -55,8 +55,7 @@
 <!-- Data for sites -->
 <script src="data.js"></script>
 <script type="module">
-  import { db } from "./firebaseInit.js"; 
-
+  import { db } from "./firebase/firebaseInit.js"; 
 
 /*
 #######################
@@ -555,7 +554,7 @@ function createPopupContent(point) {
     Create button to direct the location
   
 */
-    function listMarkers(region, points, map){
+    function listMarkers(region){
       const list = document.getElementById("list_"+region);
       if(list){
         list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
