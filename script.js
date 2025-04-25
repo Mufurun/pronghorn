@@ -1,5 +1,5 @@
 import { db } from "./firebase/firebase-initialization.js"; 
-  import { points, region_categories, regions } from "./data.js"; 
+  import { points, region_categories, regions } from "./src/data.js"; 
 
 /*
 #######################
