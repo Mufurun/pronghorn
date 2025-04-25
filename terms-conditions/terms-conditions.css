@@ -1,0 +1,54 @@
+/*
+Entry Confirmation
+*/
+
+#entryScreen {
+    position: fixed;
+    top: 0; left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: #111;
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+  }
+  
+  .entry-box {
+    text-align: center;
+    padding: 2rem;
+    background: #222;
+    border-radius: 10px;
+    box-shadow: 0 0 15px rgba(0,0,0,0.6);
+  }
+  
+  #enterBtn {
+    margin-top: 1rem;
+    padding: 20px 20px;
+    font-size: 1.1rem;
+    background: #28a745;
+    color: white;
+    border: none;
+    border-radius: 5px;
+  
+  }
+  
+  #goBack {
+    margin-top: 1rem;
+    padding: 10px 20px;
+    font-size: .8rem;
+    background: white;
+    color: black;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  
+  }
+  
+  .button-wrapper {
+    display: flex;
+    justify-content: center; /* centers buttons horizontally */
+    gap: 20px; /* space between buttons */
+  }
+  
