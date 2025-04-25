@@ -37,33 +37,6 @@
 <!-- Data for sites -->
 <script src="data.js"></script>
 
-<style>         
-  .custom-control {
-position: relative;
-}
-.custom-control label {
-display: block;
-margin: 3px 0;
-} 
-.custom-control-hover {
-background: white;
-border-radius: 4px;
-padding: 5px;
-font-size: 14px;
-box-shadow: 0 0 5px rgba(0,0,0,0.3);
-cursor: pointer;
-}
-
-.custom-content {
-display: none;
-margin-top: 5px;
-}
-
-.custom-control:hover .custom-content {
-display: block;
-background: white;
-}
-</style>
 
 <script type="module">
 /*
@@ -106,10 +79,16 @@ I just copy and past them here.
 ##########  FUNCTIONS   ###########
 ###################################
 ###################################
+*/
 
+/*
+#####################################
+#####     Functions for Map     #####
+#####################################
 */
     
 /*
+**********************************************
 *******  FUNCTION createPopupContent()  ******
 **********************************************
 
@@ -132,6 +111,7 @@ Create popup content and listeners
   //title
       const title = document.createElement('strong');
       title.textContent = point.name;
+      title.className = 'title';
       container.appendChild(title);
 
   //image with url
@@ -153,6 +133,7 @@ Create popup content and listeners
   //Label
       const label1 = document.createElement('strong');
       label1.textContent = "Comments";
+      label1.className = 'label';
       container.appendChild(label1);
 
   //Comment
@@ -200,8 +181,8 @@ Create popup content and listeners
             .sort((a, b) => a.time - b.time);
             const toRemove = sorted.slice(0, keys.length - 10);
             toRemove.forEach(({ key }) => ref.child(key).remove());
-  }
-});
+          }
+        });
       };
   
       const box = document.createElement('div');
@@ -235,15 +216,160 @@ Create popup content and listeners
       return container;
     }
 
+
 /*
-******  Function showMarkers()  ******
+######################################################
+######     Functions for Inner HTML Control     ######
+######################################################
 
-filter the markers by the grouup.
-
+    To maintain the folded sections:
+      updateParentHeight();
+      updateSibling();
+      updateChildren();
+    For the button of the list in each region
+      listMarkers()
 */
 
+/*
+*********************************************
+******  Function updateParentHeight()  ******
+*********************************************
+
+  Adjust the size of parent section of the folded content
+    when you click, the parent section open and show the content without hiding by the other section
+*/
+
+    function updateParentHeight(element) {
+      let parent = element.parentElement;
+      while (parent) {
+        if (parent.classList.contains('content') && parent.style.maxHeight) {
+        parent.style.maxHeight = parent.scrollHeight  +" px";
+        }
+        parent = parent.parentElement;
+      }
+    }
+
+/*
+****************************************
+******  Function updateSibling()  ******
+****************************************
+
+  Unfold the other sibling sections
+    This is necessary since the map will zoom up the region where you open the section with
+*/
+
+    function updateSibling(element) {
+        let sibling = element.parentElement.firstElementChild;
+        while (sibling) {
+            if (sibling !== element && sibling.classList.contains("content") && sibling.style.maxHeight) {
+                sibling.style.maxHeight = null;
+                sibling.previousElementSibling.classList.toggle("active");
+                updateChildren(sibling);
+            }
+            sibling = sibling.nextElementSibling;
+        }
+    }
+/*
+*****************************************
+******  Function updateChildren()  ******
+*****************************************
+
+  Unfold the children sections
+    This is necessary since the map will zoom up the region where you open the section with
+*/
+
+    function updateChildren(element) {
+        let child = element.firstElementChild;
+        while (child) {
+            if (child.classList.contains("content") && child.style.maxHeight) {
+                child.style.maxHeight = null;
+                child.previousElementSibling.classList.toggle("active");
+                updateChildren(child);
+            }
+            child = child.nextElementSibling;
+        }
+    }
 
 
+/*
+***************************************
+******  Function listMarker()()  ******
+***************************************
+
+    Make the list of sites on the map
+    Create button to direct the location
+  
+*/
+    function listMarkers(region){
+      const list = document.getElementById("list_"+region);
+      if(list){
+        list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
+
+        if(region == 'hokuriku' || region == 'australia'){
+          list.innerHTML = "List of Other Places in " + region[0].toUpperCase()+ region.slice(1);
+        }
+        else if(region == 'bc'){
+          list.innerHTML = "List of Places in " + region.toUpperCase();
+        }
+        list.classList = 'list-of-region';
+        points.forEach(p =>{
+          if(p.group == region){
+            const title = document.createElement('button');
+            title.textContent = p.name;
+            title.classList = 'list-button';
+            title.onclick = () => {
+              map.flyTo(p.coords, 16);
+            }
+            list.appendChild(document.createElement('br'));
+            list.appendChild(title);
+          }
+        });
+      }
+    }
+
+/*
+####################################################
+######     Functions for Current Position     ######
+#################################################### 
+*/
+
+/*
+******************************************
+******  Function onLocationFound()  ******
+******  Function onLocationError()  ******
+******************************************
+If location is found:
+      add a marker
+      create a button to zoom up the location 
+*/
+    const greenIcon = L.icon({
+          iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
+          shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+          iconSize: [25, 41],
+          iconAnchor: [12, 41],
+          popupAnchor: [1, -34],
+          shadowSize: [41, 41]
+        });
+    function onLocationFound(e) {
+        currentPosition = e.latlng;
+        L.marker(currentPosition, {icon: greenIcon}).addTo(map);
+        const jumpButtonCP = L.control({ position: 'topleft' });
+        jumpButtonCP.onAdd = function (map) {
+        const btn = L.DomUtil.create('button', 'my-custom-button');
+        btn.innerHTML = 'Current Position';
+        // Prevent map from moving when clicking the button
+        L.DomEvent.disableClickPropagation(btn);
+        btn.onclick = () => {
+          map.flyTo(currentPosition,12);
+          // You can add more logic here, like map.flyTo(), addMarker(), etc.
+        };
+        return btn;
+        };
+        jumpButtonCP.addTo(map);
+    }
+    function onLocationError(e) {
+        alert(e.message);
+    }
 
 
 /*
@@ -255,8 +381,9 @@ filter the markers by the grouup.
 */
 
 /*
-******   Map initialization   *******
-*************************************
+#####################################
+######   Map initialization   #######
+#####################################
 
     continuousWorld: true
     worldCopyJump: true
@@ -277,9 +404,8 @@ filter the markers by the grouup.
 
 */
   //map
-  const map = L.map('map',{continuousWorld: true, worldCopyJump: true, zoomControl:false, maxZoom:18, minZoom:2}).setView([20, 0], 2);
+    const map = L.map('map',{continuousWorld: true, worldCopyJump: true, zoomControl:false, maxZoom:18, minZoom:2}).setView([20, 0], 2);
 
-//    var hash = new L.Hash(map);
   //attribution
     map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
@@ -289,6 +415,7 @@ filter the markers by the grouup.
   
 
 //I don't know followings
+    //var hash = new L.Hash(map);
     //     var bounds_group = new L.featureGroup([]);
     // function setBounds() {
     //     map.setMaxBounds(map.getBounds());
@@ -299,57 +426,13 @@ filter the markers by the grouup.
 
 
 /*
-
-******   Markers   ******
-*************************
+#########################
+######   Markers   ######
+#########################
 
     Add every points on the map using createPopupContent()
     Group them to filter
 */
-const greenIcon = L.icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
-
-var currentPosition = null;
-function onLocationFound(e) {
-    currentPosition = e.latlng;
-    L.marker(currentPosition, {icon: greenIcon}).addTo(map);
-    const jumpButtonCP = L.control({ position: 'topleft' });
-    jumpButtonCP.onAdd = function (map) {
-    const btn = L.DomUtil.create('button', 'my-custom-button');
-    btn.innerHTML = 'Current Position';
-    // Prevent map from moving when clicking the button
-    L.DomEvent.disableClickPropagation(btn);
-    btn.onclick = () => {
-      map.flyTo(currentPosition,12);
-      // You can add more logic here, like map.flyTo(), addMarker(), etc.
-    };
-    return btn;
-    };
-    jumpButtonCP.addTo(map);
-}
-function onLocationError(e) {
-    alert(e.message);
-}
-map.on('locationerror', onLocationError);
-map.on('locationfound', onLocationFound);
-
-map.locate({ setView: false });
-
-     const bc = L.layerGroup();
-     const tokyo = L.layerGroup();
-     const australia = L.layerGroup();
-     const hokuriku = L.layerGroup();
-     const tisland = L.layerGroup();
-     const kyoto = L.layerGroup();
-     //const japan = L.layerGroup();
-
-
     points.forEach(point => {
        const marker = L.marker(point.coords);
        
@@ -357,18 +440,7 @@ map.locate({ setView: false });
         const popupContent = createPopupContent(point);
         return popupContent;
        }) 
-       if(point.group == 'bc'){marker.addTo(bc);}
-       else if(point.group == 'kyoto'){marker.addTo(kyoto);}
-       else if(point.group == 'tokyo'){marker.addTo(tokyo);}
-       else if(point.group == 'australia'){marker.addTo(australia);}
-       else if(point.group == 'hokuriku'){marker.addTo(hokuriku);}
-       else if(point.group == 'tisland'){marker.addTo(tisland);}
-       /*
-       if(point.group == 'bc'){marker.addTo(bc);}
-       else if((point.group == 'kyoto')||(point.group == 'tokyo')\\(point.group == 'tisland')||(point.group == 'hokuriku')){marker.addTo(japan);}
-       else if(point.group == 'australia'){marker.addTo(australia);}
-       */
-      else{marker.addTo(map);}
+       marker.addTo(map);
        //set up the scrollbar at the bottom.
        map.on('popupopen', (e) => {
         const popupElement = e.popup.getElement();
@@ -385,115 +457,191 @@ map.locate({ setView: false });
 
 
 /*
-******   Buttons    ******
-**************************
+##########################################
+######     All Kinds of Controls     #####
+##########################################
+     Zoom control:
+     Current Position:
+     Layer Control:
+     Region COntrol:
+*/
 
-zoomControl: bottomright
-
+/*
+******************************
+******   zoomControl    ******
+******************************
 */
 
     var zoomControl = L.control.zoom({
             position: 'bottomright'
         }).addTo(map);
 
-    
-    const refresh = L.control({ position: 'topleft' });
-    refresh.onAdd = function (map) {
-      const btn = L.DomUtil.create('button', 'my-custom-button');
-      btn.innerHTML = 'worldView';
-      // Prevent map from moving when clicking the button
-      L.DomEvent.disableClickPropagation(btn);
-      btn.onclick = () => {
-        map.flyTo([20, 0], 2, {
-        animate: true,
-        duration: 1.5});
-        // You can add more logic here, like map.flyTo(), addMarker(), etc.
-      };
-      return btn;
-    };
-    refresh.addTo(map);
+     
 
-
-    const jumpButtonBC = L.control({ position: 'topleft' });
-    jumpButtonBC.onAdd = function (map) {
-      const btn = L.DomUtil.create('button', 'my-custom-button');
-      btn.innerHTML = 'BC';
-      // Prevent map from moving when clicking the button
-      L.DomEvent.disableClickPropagation(btn);
-      btn.onclick = () => {
-        map.flyTo([52, -122],6);
-        // You can add more logic here, like map.flyTo(), addMarker(), etc.
-      };
-      return btn;
-    };
-    jumpButtonBC.addTo(map);
-
-    const jumpButtonJpn = L.control({ position: 'topleft' });
-    jumpButtonJpn.onAdd = function (map) {
-      const btn = L.DomUtil.create('button', 'my-custom-button');
-      btn.innerHTML = 'Japan';
-      // Prevent map from moving when clicking the button
-      L.DomEvent.disableClickPropagation(btn);
-      btn.onclick = () => {
-        map.flyTo([35, 137],5);
-        // You can add more logic here, like map.flyTo(), addMarker(), etc.
-      };
-      return btn;
-    };
-    jumpButtonJpn.addTo(map);
-
-    const jumpButtonOg = L.control({ position: 'topleft' });
-    jumpButtonOg.onAdd = function (map) {
-      const btn = L.DomUtil.create('button', 'my-custom-button');
-      btn.innerHTML = 'Sydney';
-      // Prevent map from moving when clicking the button
-      L.DomEvent.disableClickPropagation(btn);
-      btn.onclick = () => {
-        map.flyTo([-33.6809, 151.2419],10);
-        // You can add more logic here, like map.flyTo(), addMarker(), etc.
-      };
-      return btn;
-    };
-    jumpButtonOg.addTo(map);
-     const overlays = {
-      'Tokyo': tokyo,
-      'Tokyo Islands': tisland,
-      'Australia': australia,
-      'Kyoto': kyoto,
-      'Hokuriku': hokuriku,
-      'BC': bc
-     };
-     const layerControl = L.control.layers(null,overlays, { position: 'topleft' }).addTo(map);
-
-     map.addLayer(bc);
-     map.addLayer(tokyo);
-     map.addLayer(kyoto);
-     map.addLayer(australia);
-     map.addLayer(hokuriku);
-     map.addLayer(tisland);
-     //map.addLayer(japan);
-
-
-     const customControl = L.control({ position: 'topright' });
-
-    customControl.onAdd = function () {
-      const div = L.DomUtil.create('div', 'custom-control leaflet-bar');
-      div.innerHTML = `
-              <div class="custom-control-hover">
-          <strong>Layers ⬇</strong>
-          <div class="custom-content">
-            <label><input type="checkbox" id="toggleTokyo" checked> Tokyo</label>
-            <label><input type="checkbox" id="toggleNY" checked> New York</label>
-          </div>
-        </div>
-      `;
-      L.DomEvent.disableClickPropagation(div);
-      return div;
-    };
-
-    customControl.addTo(map);
+/*
+***********************************
+******   Current Position    ******
+***********************************
+*/
 
      
+
+    var currentPosition = null;
+    
+    map.on('locationerror', onLocationError);
+    map.on('locationfound', onLocationFound);
+
+    map.locate({ setView: false });
+
+/*
+*****************************
+******   Inner HTML    ******
+*****************************
+
+zoomControl: bottomright
+
+*/
+     const customControl = L.Control.extend({
+      onAdd: function (map) {
+        const container = L.DomUtil.create('div', 'custom-control leaflet-bar');
+        container.innerHTML = `
+        <div class = "custom-control-hover">
+            <strong>Region Control</strong>
+            <div class="custom-content">
+              <button class = 'button' id = 'world'><i>Go Back to the World View</i></button>
+        
+              <button class="collapsible" id = 'japan'>Japan</button>
+              <div class="content">
+                <button class="collapsible" id = 'tokyo'>Tokyo</button>
+                <div class="content">
+                    <div id = 'list_tokyo'></div>
+                </div>
+                <button class="collapsible" id = 'kyoto'>Kyoto</button>
+                <div class="content">
+                    <div id = 'list_kyoto'></div>
+                </div>
+                <button class="collapsible" id = 'hokuriku'>Hokuriku</button>
+                    <div class="content">
+                    <button class="collapsible" id = 'noto'>Noto</button>
+                    <div class="content">
+                        <div id = 'list_noto'></div>
+                    </div>
+                    <div id = 'list_hokuriku'></div>
+                    </div>
+                <button class="collapsible" id = 'fuji'>Fuji</button>
+                <div class="content">
+                    <div id = 'list_fuji'></div>
+                </div>
+              </div>
+
+              <button class="collapsible" id = 'canada'>Canada</button>
+              <div class="content">
+                <button class="collapsible" id = 'bc'>BC</button>
+                <div class="content">
+                  <button class="collapsible" id = 'southern bc'>Southern BC</button>
+                  <div class="content">
+                      <button class="collapsible" id = 'victoria'>Victoria</button>
+                      <div class="content">
+                          <div id = 'list_victoria'></div>
+                      </div>
+                      <button class="collapsible" id = 'vancouver'>Vancouver</button>
+                      <div class="content">
+                          <div id = 'list_victoria'></div>
+                      </div>
+                      <div id = 'list_bc'></div>
+                  </div>  
+                  <button class="collapsible" id = "pg">PG</button>
+                  <div class="content">
+                      <div id = 'list_pg'></div>
+                  </div>
+                </div>
+              </div>
+              
+
+              <button class="collapsible" id = 'australia'>Australia</button>
+              <div class="content">
+                <button class="collapsible" id = 'eastern nsw'>Eastern New South Wales</button>
+                <div class="content">
+                    <button class="collapsible" id = 'sydney'>Sydney</button>
+                    <div class="content">
+                        <div id = 'list_sydney'></div>
+                    </div>
+                    <button class="collapsible" id = 'gosford'>Gosford</button>
+                    <div class="content">
+                        <div id = 'list_gosford'></div>
+                    </div>
+                    <div id = "list_australia"></div>
+                </div>
+              </div>
+
+              <button class="collapsible" id = 'usa'>USA</button>
+              <div class="content">
+                <button class="collapsible" id = 'seattle'>Seattle</button>
+                <div class="content">
+                    <div id = 'list_seattle'></div>
+                </div>
+                <button class="collapsible" id = 'orland'>Orland</button>
+                <div class="content">
+                    <div id = 'list_orland'></div>
+                </div>
+              </div>
+            </div>
+        </div>
+          `;
+
+        // Prevent map click propagation
+        L.DomEvent.disableClickPropagation(container);
+        L.DomEvent.disableScrollPropagation(container);
+
+        
+
+        // Delay attaching the event until the DOM is ready
+        setTimeout(() => {
+          regions.forEach(region =>{
+            const btn = document.getElementById(region.id);
+            if(btn){
+              btn.addEventListener("click", () => {
+                map.flyTo(region.zoom,region.size);
+              });
+            }
+          })
+          
+          const collapsibles = document.querySelectorAll(".collapsible");
+          collapsibles.forEach(button => {
+            button.addEventListener("click", function () {
+              const content = this.nextElementSibling;
+              if (content.style.maxHeight) {
+                updateChildren(content);  
+              } else {
+              this.classList.toggle("active");
+                content.style.maxHeight = 350 + "px";
+                updateSibling(content);  
+                updateParentHeight(content);
+              }
+            });
+          });
+          const world = document.querySelectorAll(".button");
+          world.forEach(button => {
+            button.addEventListener("click", function () {
+              const content = this.nextElementSibling;
+              updateSibling(content);  
+                
+            });
+          });
+
+          region_categories.forEach(location =>{
+              listMarkers(location);
+          });
+        }, 0);
+
+        return container;
+      }
+    });
+
+    map.addControl(new customControl({ position: 'topleft' }));
+
+    
+
 </script>
 
 

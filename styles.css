@@ -1,10 +1,20 @@
+/*
+######################
+####  Map Styles  ####
+######################
+*/
+
 #map {
     height: 98vh;
     width: 100%;
     padding: 0;
     margin: 0;
   }
-  
+
+/*
+####  Popup Styles  ####
+*/
+
   .popup-content {
     width: 250px;
   }
@@ -17,7 +27,12 @@
     max-width: 300px; /* Default is 300px */
     max-height: 425px; /* Default is 300px */
   }
-  
+  .title{
+    font-size: 20px;
+  }
+  .label{
+    font-size: 16px;
+  }
   .comments {
     font-size: 1em;
     margin-top: 5px;
@@ -44,6 +59,10 @@
     margin: auto;
     }
 
+/*
+####  Popup Styel (Dark Mode)  ####
+*/
+
   @media (prefers-color-scheme: dark) {
     .leaflet-popup-content-wrapper{
       background-color: black;
@@ -64,60 +83,123 @@
       text-align: right;
       border-bottom: 0.5px solid seashell;
     }
+}
 
-/* Inner HTML: base */
-.custom-control {
-  position: relative;
-  }
-  .custom-control label {
-  display: block;
-  margin: 3px 0;
-  } 
-  .custom-control-hover {
-  background: white;
-  border-radius: 4px;
-  padding: 5px;
-  font-size: 14px;
-  box-shadow: 0 0 5px rgba(0,0,0,0.3);
-  cursor: pointer;
-  }
+/*
+#########################
+####   Inner HTML    ####
+#########################
+*/
+
+/* 
+********************
+****    Base    ****
+********************
+  Open up when the carsol hovers on 
+*/
+    .custom-control {
+      position: relative;
+    }
+    .custom-control label {
+      display: block;
+      margin: 3px 0;
+    } 
+    .custom-control-hover {
+      background: rgb(255, 255, 255);
+      border-radius: 4px;
+      padding: 5px;
+      font-size: 10px;
+      box-shadow: 0 0 5px rgba(0,0,0,0.3);
+      cursor: pointer;
+      overflow: auto;
+    }
+    .custom-content {
+      display: none;
+      margin-top: 5px;
+    }
   
-  .custom-content {
-  display: none;
-  margin-top: 5px;
-  }
+    .custom-control:hover .custom-content {
+      display: block;
+      background: rgb(177, 165, 155);
+    }
   
-  .custom-control:hover .custom-content {
-  display: block;
-  background: white;
-  }
+  
+/* 
+***********************************
+****    Collapsible Buttons    ****
+***********************************
+    the button that is used to open and close the collapsible content
+*/
+    
 
-
-/* Inner HTML collapsable button */
-/* Style the button that is used to open and close the collapsible content */
-.collapsible {
-  background-color: #eee;
-  color: #444;
-  cursor: pointer;
-  padding: 18px;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size: 15px;
-}
-
-/* Add a background color to the button if it is clicked on (add the .active class with JS), and when you move the mouse over it (hover) */
-.active, .collapsible:hover {
-  background-color: #ccc;
-}
-
-/* Style the collapsible content. Note: hidden by default */
-.content {
-  padding: 0 18px;
-  display: none;
-  overflow-y: auto;
-  background-color: #f1f1f1;
-  transition: max-height 0.2s ease-out;
-}
-  }
+    .collapsible {
+      background-color: seashell;
+      color: black;
+      cursor: pointer;
+      padding: 5px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 14px;
+    }
+    .button {
+      background-color: seashell;
+      color: black;
+      cursor: pointer;
+      padding: 5px;
+      width: 100%;
+      border: none;
+      text-align: left;
+      outline: none;
+      font-size: 14px;
+    }
+    
+    .active, .collapsible:hover, .button:hover, .list-button {
+      background-color: rgb(237, 225, 220);
+    }
+  
+    .collapsible:after {
+      content: '\25BC';
+      color: rgb(45, 70, 51);
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
+    }
+    
+    .active:after {
+      content: "\25B2";
+    }
+    
+    .content {
+      padding: 0 10px;
+      max-height: 0;
+/*      max-width: 300px;
+*/      overflow: auto;
+      transition: max-height 0.2s ease-out;
+      background-color: rgba(251, 236, 225, 0.018);
+      scrollbar-width: thin;
+    }
+    .list-of-region{
+      font-size: 16px;
+      background-color: seashell;
+      padding: 0px;
+    }
+    .list-button{
+      background-color: rgb(237, 225, 220);
+      color: black;
+      padding: 2 10px;
+      width: auto;
+      border: none;
+      text-align: left;
+      outline:  none;
+      font-size: 12px;
+    }
+    .list-button:hover{
+      background-color: seashell;
+    }
+    .list-button:active{
+      background-color: rgb(245, 108, 11);
+    }
+    
+    

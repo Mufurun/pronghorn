@@ -10,8 +10,8 @@ points stores all the datapoints on the map
 const points = [
 //bc
     { id: 'bcfdc', name: "BC Forest Discovery Centre", coords: [48.8021, -123.7152], group: 'bc',url: "https://bcforestdiscoverycentre.com", image: "images/IMG_4708.webp"},
-    { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'bc', url: null,image: "images/IMG_0208.webp" },
-    { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'bc', url: null,image: "images/IMG_5340.webp" },
+    { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
+    { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
 //victoria
     { id: 'parliament', name: "Victoria Parliament", coords: [48.419937801660765, -123.37022764444416], group: 'victoria', url: null,image: "images/IMG_2794.webp" }, 
     { id: 'farray', name: "Fan Tan Alley", coords: [48.42899284705728, -123.3679163419745], group: 'victoria', url: null,image: "images/IMG_2796.webp" }, 
@@ -24,52 +24,52 @@ const points = [
     { id: 'eventskp', name: "ilumination at Showa", coords: [35.7066, 139.3973], group: 'tokyo', url: null,image: "images/045.webp" },
     { id: 'springtakao', name: "Spring at Mt.Takao", coords: [35.6251, 139.2437], group: 'tokyo', url: null,image: "images/087.webp" },
     { id: 'nhaneda', name: "Flight from Haneda", coords: [35.5505, 139.7878], group: 'tokyo', url: null,image: "images/201.webp" },
-    { id: 'nmtokyo', name: "National Museum Astec Evet", coords: [35.71881751769, 139.77651367044984], group: 'tokyo', url: null,image: "images/IMG_2642.webp" }, 
+    { id: 'nmtokyo', name: "National Museum Aztec Evet", coords: [35.71881751769, 139.77651367044984], group: 'tokyo', url: null,image: "images/IMG_2642.webp" }, 
     { id: 'shinagawaaq?', name: "Aquarium in Shinagawa", coords: [35.588537046764245, 139.73752215397306], group: 'tokyo', url: null,image: "images/IMG_2654.webp" }, 
     { id: 'santry', name: "Beer Factory", coords: [35.66026751379704, 139.47821776746903], group: 'tokyo', url: null,image: "images/IMG_2708.webp" }, 
+    { id: 'miyake', name: "Vacation in Miyake", coords: [33.8659, 139.606], group: 'tokyo', url: null,image: "images/114.webp" },
 //australia
-    { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'australia', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
-    { id: 'sydney', name: "Opera House Over the Sea", coords: [-33.8600, 151.2214], group: 'australia', url: null,image: "images/352.webp" },
-    { id: 'austrarozoo', name: "Zoo in Australia", coords: [-33.4185, 151.2772], group: 'australia', url: null,image: "images/272.webp" },
+    { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'gosford', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
+    { id: 'sydney', name: "Opera House Over the Sea", coords: [-33.8600, 151.2214], group: 'sydney', url: null,image: "images/352.webp" },
+    { id: 'austrarozoo', name: "Zoo in Australia", coords: [-33.4185, 151.2772], group: 'gosford', url: null,image: "images/272.webp" },
     { id: 'bluerocks', name: "Three Sisters: Blue Mounatians, Australia", coords: [-33.73275049398853, 150.3119492037223], group: 'australia', url: null,image: "images/343.webp" },
-    { id: 'raliangrafiti', name: "Grafiti in Sydney (not now)", coords: [-33.8613, 151.2131], group: 'australia', url: null,image: "images/378.webp" },
-    { id: 'musesyd', name: "Museum in Sydney", coords: [-33.8744, 151.2133], group: 'australia', url: null,image: "images/388.webp" },
-    { id: 'charchsyd', name: "Cathedral in Sydney", coords: [-33.8713, 151.2133], group: 'australia', url: null,image: "images/404.webp" },
+    { id: 'raliangrafiti', name: "Graffitti in Sydney (not now)", coords: [-33.8613, 151.2131], group: 'sydney', url: null,image: "images/378.webp" },
+    { id: 'musesyd', name: "Museum in Sydney", coords: [-33.8744, 151.2133], group: 'sydney', url: null,image: "images/388.webp" },
+    { id: 'charchsyd', name: "Cathedral in Sydney", coords: [-33.8713, 151.2133], group: 'sydney', url: null,image: "images/404.webp" },
 //kyoto
     { id: 'Ninnaji', name: "Ninnnaji?", coords: [35.0099, 135.7702], group: 'kyoto', url: null,image: "images/639.webp" },
     { id: 'kiyomizu', name: "Kiyomizudera", coords: [34.99478097309438, 135.78474008546257], group: 'kyoto', url: null,image: "images/610.webp" },
     { id: 'kinkaku', name: "Kinkaku", coords: [35.03948416885166, 135.72930746929404], group: 'kyoto', url: null,image: "images/616.webp" },
 //hokuriku
-    { id: 'kagaya', name: "Kagaya Hotel", coords: [37.0902, 136.9144], group: 'hokuriku', url: "https://www.kagaya.co.jp/en/",image: "images/IMG_1666.webp" },
-    { id: 'hananoren', name: "Hanayome Noren ", coords: [37.07731167115873, 136.9244441834381], group: 'hokuriku', url: null,image: "images/IMG_1611.webp" },
-    { id: 'mawakihrt', name: "Mawaki Heritage ", coords: [37.30570331178062, 137.20687275001785], group: 'hokuriku', url: null,image: "images/IMG_1684.webp" },
-    { id: 'wakutama', name: "Mr.Wakutama ", coords: [37.086946676906685, 136.92469328003526], group: 'hokuriku', url: null,image: "images/IMG_1783.webp" },
+    { id: 'kagaya', name: "Kagaya Hotel", coords: [37.0902, 136.9144], group: 'noto', url: "https://www.kagaya.co.jp/en/",image: "images/IMG_1666.webp" },
+    { id: 'hananoren', name: "Hanayome Noren ", coords: [37.07731167115873, 136.9244441834381], group: 'noto', url: null,image: "images/IMG_1611.webp" },
+    { id: 'mawakihrt', name: "Mawaki Heritage ", coords: [37.30570331178062, 137.20687275001785], group: 'noto', url: null,image: "images/IMG_1684.webp" },
+    { id: 'wakutama', name: "Mr.Wakutama ", coords: [37.086946676906685, 136.92469328003526], group: 'noto', url: null,image: "images/IMG_1783.webp" },
     { id: 'kurobe', name: "Kurobe Dam", coords: [36.566778569842725, 137.6621593776124], group: 'hokuriku', url: null,image: "images/IMG_1820.webp" },
     { id: 'utsukushigahara', name: "Utsukushigahara", coords: [36.24177679899555, 138.093271200977], group: 'hokuriku', url: null,image: "images/IMG_1888.webp" },
-    { id: 'yoritomo', name: "Yase Clif - Hiding Spot (Historical)", coords: [37.2095, 136.6831], group: 'hokuriku', url: null,image: "images/IMG_1933.webp" },
-    { id: 'longbench', name: "Longest Bench in the world", coords: [37.14979035357368, 136.71076798525903], group: 'hokuriku', url: null,image: "images/IMG_1943.webp" },
-    { id: 'hatago', name: "Hatago Rock", coords: [37.12398498307547, 136.72734363187513], group: 'hokuriku', url: null,image: "images/IMG_1951.webp" },
-    { id: 'Ganmon', name: "Ganmon", coords: [37.12398498307547, 136.72734363187513], group: 'hokuriku', url: null,image: "images/IMG_1968.webp" },
-    { id: 'nino', name: "Grill Nino", coords: [36.89680878070846, 136.78279582788295], group: 'hokuriku', url: null,image: "images/IMG_1991.webp" },
-    { id: 'chiri', name: "Chirihama", coords: [36.84052682189339, 136.74875488519356], group: 'hokuriku', url: null,image: "images/IMG_2016.webp" },
+    { id: 'yoritomo', name: "Yase Clif - Hiding Spot (Historical)", coords: [37.2095, 136.6831], group: 'noto', url: null,image: "images/IMG_1933.webp" },
+    { id: 'longbench', name: "Longest Bench in the world", coords: [37.14979035357368, 136.71076798525903], group: 'noto', url: null,image: "images/IMG_1943.webp" },
+    { id: 'hatago', name: "Hatago Rock", coords: [37.12398498307547, 136.72734363187513], group: 'noto', url: null,image: "images/IMG_1951.webp" },
+    { id: 'Ganmon', name: "Ganmon", coords: [37.12398498307547, 136.72734363187513], group: 'noto', url: null,image: "images/IMG_1968.webp" },
+    { id: 'nino', name: "Grill Nino", coords: [36.89680878070846, 136.78279582788295], group: 'noto', url: null,image: "images/IMG_1991.webp" },
+    { id: 'chiri', name: "Chirihama", coords: [36.84052682189339, 136.74875488519356], group: 'noto', url: null,image: "images/IMG_2016.webp" },
     { id: 'kanazawajo', name: "Kanazawa Castle", coords: [36.566326879229116, 136.6583773703312], group: 'hokuriku', url: null,image: "images/IMG_2465.webp" },
     { id: 'twentyone', name: "21 Century Museum", coords: [36.561359869763436, 136.65828348298137], group: 'hokuriku', url: null,image: "images/IMG_2110.webp" },
-    { id: 'notojimaaqua', name: "Notojima Aquarium", coords: [37.149613104090115, 136.982251796948], group: 'hokuriku', url: null,image: "images/IMG_2187.webp" },
+    { id: 'notojimaaqua', name: "Notojima Aquarium", coords: [37.149613104090115, 136.982251796948], group: 'noto', url: null,image: "images/IMG_2187.webp" },
     { id: 'arai', name: "Village (World Heritage Site)", coords: [36.43536501796552, 136.86817801829378], group: 'hokuriku', url: null,image: "images/IMG_2215.webp" },
     { id: 'shirakawa', name: "Shirakawa Village", coords: [36.25809055835815, 136.90619691583728], group: 'hokuriku', url: null,image: "images/IMG_2230.webp" },
-    { id: 'summerfst', name: "Nanao Park Fest", coords: [37.048510332611315, 136.96921693209242], group: 'hokuriku', url: null,image: "images/IMG_2282.webp" },
-    { id: 'sosogi', name: "No people in Sosogi", coords: [37.460587196204486, 137.0790355515116], group: 'hokuriku', url: null,image: "images/IMG_2312.webp" },
+    { id: 'summerfst', name: "Nanao Park Fest", coords: [37.048510332611315, 136.96921693209242], group: 'noto', url: null,image: "images/IMG_2282.webp" },
+    { id: 'sosogi', name: "No people in Sosogi", coords: [37.460587196204486, 137.0790355515116], group: 'noto', url: null,image: "images/IMG_2312.webp" },
     { id: 'fikuidinasaurs', name: "Fukui Dinosaurs", coords: [36.08252080897514, 136.50656893865025], group: 'hokuriku', url: null,image: "images/IMG_2386.webp" },
     { id: 'tojinbo', name: "Tojinbo", coords: [36.23778271295443, 136.12548667653252], group: 'hokuriku', url: null,image: "images/IMG_2441.webp" },
     { id: 'nkanazawa', name: "Night in Kanazawa", coords: [36.572302942012975, 136.6637161321563], group: 'hokuriku', url: null,image: "images/IMG_2456.webp" },
     { id: 'nkanazawa2', name: "Night in Kanazawa2", coords: [36.565420474517, 136.66209505509457], group: 'hokuriku', url: null,image: "images/IMG_2463.webp" },
     { id: 'sumerfest2023', name: "Fireworks in Kanazawa", coords: [36.579660830920666, 136.65590645246326], group: 'hokuriku', url: null,image: "images/IMG_2511.webp" },
-//tisland
-    { id: 'miyake', name: "Vacation in Miyake", coords: [33.8659, 139.606], group: 'tisland', url: null,image: "images/114.webp" },
+
 //seattle
     { id: 'gasworks', name: "Gas Works Park", coords: [47.6455, -122.335], group: 'seattle', url: null,image: "images/IMG_3305.webp" },
 //orland
-    { id: 'dws', name: "Sky of Disney World", coords: [28.4186, -81.5814], group: 'ol', url: null,image: "images/011.webp" }, // add to the layers
+    { id: 'dws', name: "Sky of Disney World", coords: [28.4186, -81.5814], group: 'orland', url: null,image: "images/011.webp" }, // add to the layers
 //fuji
     { id: 'fuji2023', name: "Mt.Fuji", coords: [35.37256751938174, 138.7398708424644], group: 'fuji', url: null,image: "images/IMG_2567.webp" }, 
     { id: 'yamanaka', name: "Lake Kawaguchi", coords: [35.52285947957453, 138.753864500151], group: 'fuji', url: null,image: "images/IMG_2688.webp" }, 
@@ -78,6 +78,113 @@ const points = [
 
 //{ id: 'statue', name: "Great Stature", coords: [], group: 'seattle', url: null,image: null }, 
 
+];
 
+const region_categories = [ 
+    'victoria', 
+    'vancouver',
+    'bc',
+    'pg',
+    'tokyo',
+    'kyoto',
+    'hokuriku',
+    'noto',
+    'fuji',
+    'australia',
+    'gosford',
+    'sydney',
+    'seattle',
+    'orland'
+];
+
+const regions = [
+    {//World View
+        id: 'world',
+        zoom:[20, 0], 
+        size:2
+    },
+    {//Canada
+        id:'canada',
+        zoom:[58, -110],
+        size:4
+    },{//BC
+        id: 'bc',
+        zoom:[52.3488, -122.7393],
+        size:6
+    },{//southern BC
+        id: 'southern bc',
+        zoom:[50.205, -122.1617],
+        size:7
+    },{//Victoria
+        id: 'victoria',
+        zoom:[48.4503, -123.3433],
+        size:13
+    },{//Vancouver
+        id: 'vancouver',
+        zoom:[49.2449, -123.1142],
+        size:12
+    },{//Prince George
+        id:'pg',
+        zoom:[53.9102, -122.7713],
+        size:14
+    },
+
+    {//Japan
+        id: 'japan',
+        zoom:[35.9602, 137.8564],
+        size:5
+    },{//Hokuriku
+        id:'hokuriku',
+        zoom:[36.5405, 137.29174],
+        size:8
+    },{//Noto
+        id:'noto',
+        zoom:[37.1461, 136.8967],
+        size:10
+    },{//Tokyo
+        id: 'tokyo',
+        zoom:[35.7028, 139.5909],
+        size:11
+    },{//Kyoto
+        id: 'kyoto',
+        zoom:[35.0083, 135.7497],
+        size:13
+    },{//Fuji
+        id: 'fuji',
+        zoom:[35.3821, 138.7735],
+        size:11
+    },
+
+    {//Australia
+        id:'australia',
+        zoom:[-25.7207, 133.5259],
+        size:5
+    },{//New South Wales
+        id:'eastern nsw',
+        zoom:[-33.598, 150.8348],
+        size:10
+    },{//Sydney
+        id:'sydney',
+        zoom:[-33.8721, 151.2112],
+        size:15
+    },{//Gosford
+        id:'gosford',
+        zoom:[-33.417, 151.3446],
+        size:13
+    },
+
+    {//USA
+        id: 'usa',
+        zoom:[39.8423, -97.9019],
+        size: 5
+    },{//seattle
+        id: 'seattle',
+        zoom:[47.6011, -122.3313],
+        size: 12
+    },{//orland
+        id: 'orland',
+        zoom:[28.3736, -81.5745],
+        size: 13
+    }
 ];
 
