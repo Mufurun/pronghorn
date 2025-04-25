@@ -24,7 +24,24 @@
   <link rel = "stylesheet" href = "styles.css" />
 </head>
 <body>
+  
+<!-- Checkin Screen-->
+  <div id="entryScreen">
+    <div class="entry-box">
+      <h1>Are You 18 or Older?</h1>
+      <p>By clicking Enter, you confirm that you're 18+ <sub>and agree to our Terms & Conditions. <br>You must read the following Terms & Conditions</subsub></p>
+      
+      <h2>Terms & Conditions</h2>
+      <p> Except my privacy, users must think about how and what to share on the comment section.</p>
+      <div class = "button-wrapper">
+        <button id="enterBtn">Enter Site</button>
+        <button id="goBack">Too Young<br>to Enter</button>
+      </div>      
+    </div>
+  </div>
+  <script src = 'terms-conditions/terms-conditions.js'></script>
 
+<!-- Main Screen-->
 <div id="map"></div>
 
 <!-- Firebase -->
@@ -407,7 +424,7 @@ If location is found:
     const map = L.map('map',{continuousWorld: true, worldCopyJump: true, zoomControl:false, maxZoom:18, minZoom:2}).setView([20, 0], 2);
 
   //attribution
-    map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+    map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 20,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'

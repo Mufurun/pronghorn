@@ -27,7 +27,7 @@ const points = [
     { id: 'nmtokyo', name: "National Museum Aztec Evet", coords: [35.71881751769, 139.77651367044984], group: 'tokyo', url: null,image: "images/IMG_2642.webp" }, 
     { id: 'shinagawaaq?', name: "Aquarium in Shinagawa", coords: [35.588537046764245, 139.73752215397306], group: 'tokyo', url: null,image: "images/IMG_2654.webp" }, 
     { id: 'santry', name: "Beer Factory", coords: [35.66026751379704, 139.47821776746903], group: 'tokyo', url: null,image: "images/IMG_2708.webp" }, 
-    { id: 'miyake', name: "Vacation in Miyake", coords: [33.8659, 139.606], group: 'tokyo', url: null,image: "images/114.webp" },
+    { id: 'miyake', name: "Vacation in Miyake", coords: [34.07, 139.5234], group: 'tokyo', url: null,image: "images/114.webp" },
 //australia
     { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'gosford', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
     { id: 'sydney', name: "Opera House Over the Sea", coords: [-33.8600, 151.2214], group: 'sydney', url: null,image: "images/352.webp" },
