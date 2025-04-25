@@ -1,5 +1,5 @@
-import { db } from "./firebaseInit.js"; 
-
+import { db } from "./firebase/firebase-initialization.js"; 
+  import { points, region_categories, regions } from "./data.js"; 
 
 /*
 #######################
@@ -498,7 +498,7 @@ function createPopupContent(point) {
     Create button to direct the location
   
 */
-    function listMarkers(region, points, map){
+    function listMarkers(region){
       const list = document.getElementById("list_"+region);
       if(list){
         list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
