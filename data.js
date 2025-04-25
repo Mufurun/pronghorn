@@ -73,7 +73,7 @@ const points = [
 //fuji
     { id: 'fuji2023', name: "Mt.Fuji", coords: [35.37256751938174, 138.7398708424644], group: 'fuji', url: null,image: "images/IMG_2567.webp" }, 
     { id: 'yamanaka', name: "Lake Kawaguchi", coords: [35.52285947957453, 138.753864500151], group: 'fuji', url: null,image: "images/IMG_2688.webp" }, 
-    { id: 'fuji2011?', name: "Mt.Fuji and old guy (I hope he is doing well)", coords: [35.42702841260836, 138.8729306847417], group: 'fuji', url: null,image: null }, 
+    { id: 'fuji2011?', name: "Mt.Fuji and old guy (I hope he is doing well)", coords: [35.377, 138.745], group: 'fuji', url: null,image: null }, 
 
 
 //{ id: 'statue', name: "Great Stature", coords: [], group: 'seattle', url: null,image: null }, 
@@ -188,3 +188,5 @@ const regions = [
     }
 ];
 
+
+export { points, region_categories, regions };
