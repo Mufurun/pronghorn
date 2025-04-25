@@ -15,9 +15,9 @@ by Mufurun
   - [x] with time if there's room in the storage
   - [x] only keep 100 items
   - [ ] allow people to add picture
-- [ ] add the regional filtering buttons to make it easy to change their view.
+- [x] add the regional filtering buttons to make it easy to change their view.
 - [ ] use something like satelite imagery later, but right now I am using just a normal map
-- [ ] provide the notice for the privacy
+- [x] provide the notice for the privacy
 - [ ] add time filter
   
 # Privacy and Comments
