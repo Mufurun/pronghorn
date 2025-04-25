@@ -319,7 +319,7 @@ import { db } from "../firebase/firebase-initialization.js";
             });
   
             region_categories.forEach(location =>{
-                listMarkers(location, points);
+                listMarkers(location, points, map);
             });
           }, 0);
   

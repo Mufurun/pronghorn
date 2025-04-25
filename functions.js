@@ -226,7 +226,7 @@ function createPopupContent(point) {
       Create button to direct the location
     
   */
-      function listMarkers(region, points){
+      function listMarkers(region, points, map){
         const list = document.getElementById("list_"+region);
         if(list){
           list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
