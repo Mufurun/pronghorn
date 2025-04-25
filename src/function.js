@@ -1,4 +1,4 @@
-import { db } from "pronghorn/firebase/firebase-initialization.js"; 
+import { db } from "./firebase/firebase-initialization.js"; 
 /*
 #####################################
 #####     Functions for Map     #####
