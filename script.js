@@ -1,4 +1,6 @@
-import { db } from "./firebase/firebase-initialization.js"; 
+import { db } from "./firebaseInit.js"; 
+
+
 /*
 #######################
 #######################

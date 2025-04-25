@@ -297,4 +297,3 @@ function createPopupContent(point) {
           alert(e.message);
       }
   
-  
