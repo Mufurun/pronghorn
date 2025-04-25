@@ -1,4 +1,3 @@
-import { db } from "./firebaseInit.js"; 
 
 /*
 ###################################
