@@ -69,6 +69,15 @@ const points = [
 
 //seattle
     { id: 'gasworks', name: "Gas Works Park", coords: [47.6455, -122.335], group: 'seattle', url: null,image: "images/IMG_3305.webp" },
+    { id: 'troll', name: "Fremont Troll", coords: [47.651, -122.3472], group: 'seattle', url: null,image: "images/IMG_3251.webp" }, 
+    { id: 'statue', name: "Lenin", coords: [47.6513, -122.3509], group: 'seattle', url: null,image: "images/IMG_3251.webp" }, 
+    { id: 'sdinasour', name: "Dinosaur", coords: [47.6505, -122.3548], group: 'seattle', url: null,image: "images/IMG_3262.webp" }, 
+    { id: 'fbridge', name: "Fremount Bridge", coords: [47.6482, -122.3498], group: 'seattle', url: null,image: "images/IMG_3266.webp" }, 
+    { id: 'sberlin', name: "Berlin Wall", coords: [47.6494, -122.3475], group: 'seattle', url: null,image: "images/IMG_3273.webp" }, 
+    { id: 'brewery', name: "Fremont Brewery", coords: [47.6492, -122.3445], group: 'seattle', url: null,image: "images/IMG_3276.webp" }, 
+    { id: 'pub', name: "Pacific Inn Pub - A nice guy recommended", coords: [47.6496, -122.3429], group: 'seattle', url: null,image: "images/IMG_3287.webp" }, 
+    { id: 'uwlibrayr', name: "Library in UW", coords: [47.6561, -122.3091], group: 'seattle', url: null,image: "images/IMG_3291.webp" }, 
+
 //orland
     { id: 'dws', name: "Sky of Disney World", coords: [28.4186, -81.5814], group: 'orland', url: null,image: "images/011.webp" }, // add to the layers
 //fuji
@@ -77,15 +86,7 @@ const points = [
     { id: 'fuji2011?', name: "Mt.Fuji and an Old Guy (I hope he is doing well)", coords: [35.377, 138.745], group: 'fuji', url: null,image: "images/IMG_5356.webp" }, 
 
 
-    { id: 'troll', name: "Fremont Troll", coords: [47.651, -122.3472], group: 'seattle', url: null,image: "images/IMG_3251.webp" }, 
-    { id: 'statue', name: "Lenin", coords: [47.6513, -122.3509], group: 'seattle', url: null,image: "images/IMG_3251.webp" }, 
-    { id: 'sdinasour', name: "Dinosaur", coords: [47.6505, -122.3548], group: 'seattle', url: null,image: "images/IMG_3262.webp" }, 
-    { id: 'fbridge', name: "Fremount Bridge", coords: [47.6482, -122.3498], group: 'seattle', url: null,image: "images/IMG_3266.webp" }, 
-    { id: 'sberlin', name: "Berlin Wall", coords: [47.6494, -122.3475], group: 'seattle', url: null,image: "images/IMG_3273.webp" }, 
-    { id: 'brewery', name: "Fremont Brewery", coords: [47.6492, -122.3445], group: 'seattle', url: null,image: "images/IMG_3276.webp" }, 
-    { id: 'pub', name: "Pacific Inn Pub - A nice guy recommended", coords: [47.6496, -122.3429], group: 'seattle', url: null,image: "images/IMG_3287.webp" }, 
-    { id: 'uowlibrayr', name: "Library in UW", coords: [47.6561, -122.3091], group: 'seattle', url: null,image: "images/IMG_3291.webp" }, 
-
+    
 
 ];
 
