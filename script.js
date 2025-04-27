@@ -129,7 +129,6 @@ import { db } from "./src/firebase/firebase-initialization.js";
 ******   Inner HTML    ******
 *****************************
 
-zoomControl: bottomright
 
 */
      const customControl = L.Control.extend({

@@ -213,5 +213,3 @@ const points = [
     ];
     
     
-
-export { points, region_categories, regions };
