@@ -33,13 +33,13 @@ const points = [
         { id: 'santry', name: "Beer Factory", coords: [35.66026751379704, 139.47821776746903], group: 'tokyo', url: null,image: "images/IMG_2708.webp" }, 
         { id: 'miyake', name: "Vacation in Miyake", coords: [34.07, 139.5234], group: 'tokyo', url: null,image: "images/114.webp" },
     //Kanagawa
-        { id: 'swing', name: "Dropping from the Swing", coords: [35.441, 139.4606], group: 'kanagawa', url: null, image: "IMG_3673.webp"},
-        { id: 'sunrise', name: "Common Place to See the Sun Rise", coords: [35.4379, 139.4518], group: 'kanagawa', url: null, image: "IMG_3942.webp"},
-        { id: 'foodsample', name: "Food Sample Shop at Red Bricks (closed)", coords: [35.4523, 139.6429], group: 'kanagawa', url: null, image: "498.webp"},
-        { id: 'landmarktower', name: "Yokohama Landmark Tower from roller coaster", coords: [35.4556, 139.6367], group: 'kanagawa', url: null, image: "511.webp"},
+        { id: 'swing', name: "Dropping from the Swing", coords: [35.441, 139.4606], group: 'kanagawa', url: null, image: "images/IMG_3673.webp"},
+        { id: 'sunrise', name: "Common Place to See the Sun Rise", coords: [35.4379, 139.4518], group: 'kanagawa', url: null, image: "images/IMG_3942.webp"},
+        { id: 'foodsample', name: "Food Sample Shop at Red Bricks (closed)", coords: [35.4523, 139.6429], group: 'kanagawa', url: null, image: "images/498.webp"},
+        { id: 'landmarktower', name: "Yokohama Landmark Tower from roller coaster", coords: [35.4556, 139.6367], group: 'kanagawa', url: null, image: "images/511.webp"},
     
     //Kanto 
-        { id: 'kamuimisakaglider', name: "Paraglider Exp", coords: [35.5811, 138.7546], group: 'kanto', url: null, image: "527.webp"},
+        { id: 'kamuimisakaglider', name: "Paraglider Exp", coords: [35.5811, 138.7546], group: 'kanto', url: null, image: "images/527.webp"},
 
         //australia
         { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'gosford', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
