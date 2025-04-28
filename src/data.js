@@ -9,10 +9,24 @@ points stores all the datapoints on the map
 */
 const points = [
     //bc
-        { id: 'bcfdc', name: "BC Forest Discovery Centre", coords: [48.8021, -123.7152], group: 'bc',url: "https://bcforestdiscoverycentre.com", image: "images/IMG_4708.webp"},
         { id: 'sook', name: "Sook", coords: [48.3569, -123.7266], group: 'bc',url: null, image: "images/IMG_4046.webp"},
-        
-        //pg    
+
+    //Cowichan
+        { id: 'bcfdc', name: "BC Forest Discovery Centre", coords: [48.8021, -123.7152], group: 'cowichan',url: "https://bcforestdiscoverycentre.com", image: "images/IMG_4708.webp"},
+        { id: 'maplebay', name: "Maple Bay", coords: [48.8166, -123.6094], group: 'cowichan',url: null, image: "images/IMG_4402.webp"},
+        { id: 'cherrypoint', name: "Cherry Point", coords: [48.71, -123.5564], group: 'cowichan',url: null, image: "images/IMG_4425.webp"},
+        { id: 'wetland', name: "A Wetland near Paldi", coords: [48.7956, -123.8697], group: 'cowichan',url: null, image: "images/IMG_4445.webp"},
+        { id: 'chicemetry', name: "Chinese Cemetery", coords: [48.7936, -123.795], group: 'cowichan',url: null, image: "images/IMG_4460.webp"},
+        { id: 'carinbush', name: "A Used Car", coords: [48.8034, -123.9501], group: 'cowichan',url: null, image: "images/IMG_4480.webp"},
+        { id: 'paldi', name: "Sikh temple at Paldi", coords: [48.7912, -123.8553], group: 'cowichan',url: "https://www.cowichanvalleycitizen.com/community/paldi-sikh-temple-in-cowichan-celebrating-100-years-798784", image: "images/IMG_4483.webp"},
+        { id: 'dinerlkcow', name: "Diner at Lake Cowichan", coords: [48.8222, -124.057], group: 'cowichan',url: null, image: "images/IMG_4537.webp"},
+        { id: 'chemainusbay', name: "Random Beach", coords: [48.9329, -123.726], group: 'cowichan',url: null, image: "images/IMG_4561.webp"},
+        { id: 'bmferry', name: "Brentwood Mill Bay Ferry", coords: [48.5828, -123.483], group: 'cowichan',url: "https://www.bcferries.com/routes-fares/schedules/daily/BTW-MIL", image: "images/IMG_4659.webp"},
+        { id: 'nanaimobay', name: "Nanaimo Bay", coords: [49.1661, -123.9347], group: 'cowichan',url: null, image: "images/IMG_5129.webp"},
+        { id: 'butchartg', name: "Butchart Garden", coords: [48.5645, -123.4688], group: 'cowichan',url: null, image: "images/IMG_5288.webp"},
+        { id: 'raptors', name: "Raptors Centre", coords: [48.8212, -123.6619], group: 'cowichan',url: "https://the-raptors.com/", image: "images/IMG_5361.webp"},
+
+    //pg    
         { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
         { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
     //victoria
@@ -22,7 +36,10 @@ const points = [
         { id: 'thetis', name: "Thetis Lake", coords: [48.46922652946758, -123.46782840776324], group: 'victoria', url: null,image: "images/IMG_2859.webp" }, 
         { id: 'beaconhill', name: "Beacon Hill Park", coords: [48.413769202051206, -123.36490537016559], group: 'victoria', url: "https://www.victoria.ca/parks-recreation/parks-trails/our-parks/beacon-hill-park",image: "images/IMG_2895.webp" }, 
         { id: 'oakbay', name: "Night at Oak Bay", coords: [48.4247, -123.3067], group: 'victoria', url: null,image: null }, 
-    
+        { id: 'butchartg', name: "Butchart Garden (Sunken)", coords: [48.5645, -123.4688], group: 'victoria',url: "https://www.butchartgardens.com/", image: "images/IMG_5288.webp"},
+    //Vancouver
+        { id: 'funnybayr', name: "Funny Bay?", coords: [49.2786, -123.1141], group: 'vancouver',url: "https://www.fannybayoysters.com/", image: "images/IMG_5298.webp"},
+        
     //tokyo
         { id: 'kokubunji', name: "My High School Days", coords: [35.7122, 139.4477], group: 'tokyo', url: "https://www.wikidata.org/wiki/Q11525427", image: "images/149.webp" },
         { id: 'eventskp', name: "Illumination at Showa", coords: [35.7066, 139.3973], group: 'tokyo', url: "https://www.showakinen-koen.jp/guide-english/",image: "images/045.webp" },
@@ -33,7 +50,7 @@ const points = [
         { id: 'santry', name: "Beer Factory", coords: [35.66026751379704, 139.47821776746903], group: 'tokyo', url: null,image: "images/IMG_2708.webp" }, 
         { id: 'miyake', name: "Vacation in Miyake", coords: [34.07, 139.5234], group: 'tokyo', url: null,image: "images/114.webp" },
     //Kanagawa
-        { id: 'swing', name: "Dropping from the Swing", coords: [35.441, 139.4606], group: 'kanagawa', url: null, image: "images/IMG_3673.webp"},
+        { id: 'swing', name: "Falling off from the Swing", coords: [35.441, 139.4606], group: 'kanagawa', url: null, image: "images/IMG_3673.webp"},
         { id: 'sunrise', name: "Common Place to See the Sun Rise", coords: [35.4379, 139.4518], group: 'kanagawa', url: null, image: "images/IMG_3942.webp"},
         { id: 'foodsample', name: "Food Sample Shop at Red Bricks (closed)", coords: [35.4523, 139.6429], group: 'kanagawa', url: null, image: "images/498.webp"},
         { id: 'landmarktower', name: "Yokohama Landmark Tower from roller coaster", coords: [35.4556, 139.6367], group: 'kanagawa', url: null, image: "images/511.webp"},
@@ -41,19 +58,15 @@ const points = [
     //Kanto 
         { id: 'kamuimisakaglider', name: "Paraglider Exp", coords: [35.5811, 138.7546], group: 'kanto', url: null, image: "images/527.webp"},
 
-        //australia
-        { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'gosford', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
-        { id: 'sydney', name: "Opera House Over the Sea", coords: [-33.8600, 151.2214], group: 'sydney', url: null,image: "images/352.webp" },
-        { id: 'austrarozoo', name: "Zoo in Australia", coords: [-33.4185, 151.2772], group: 'gosford', url: "https://www.reptilepark.com.au/",image: "images/272.webp" },
-        { id: 'bluerocks', name: "Three Sisters: Blue Mounatians, Australia", coords: [-33.73275049398853, 150.3119492037223], group: 'australia', url: null,image: "images/343.webp" },
-        { id: 'raliangrafiti', name: "Graffitti in Sydney (not now)", coords: [-33.8613, 151.2131], group: 'sydney', url: null,image: "images/378.webp" },
-        { id: 'musesyd', name: "Museum in Sydney", coords: [-33.8744, 151.2133], group: 'sydney', url: "https://australian.museum/",image: "images/388.webp" },
-        { id: 'charchsyd', name: "Cathedral in Sydney", coords: [-33.8713, 151.2133], group: 'sydney', url: "https://stmaryscathedral.org.au/",image: "images/404.webp" },
     //kyoto
         { id: 'ktower', name: "Kyoto Tower from the station", coords: [34.9866, 135.7603], group: 'kyoto', url: "https://www.kyoto-tower.jp/en/",image: "images/616.webp" },
         { id: 'Ninnaji', name: "Ninnnaji?", coords: [35.0099, 135.7702], group: 'kyoto', url: "https://ninnaji.jp/en/",image: "images/639.webp" },
         { id: 'kiyomizu', name: "Kiyomizudera", coords: [34.99478097309438, 135.78474008546257], group: 'kyoto', url: "https://www.kiyomizudera.or.jp/en/",image: "images/610.webp" },
         { id: 'kinkaku', name: "Kinkaku", coords: [35.03948416885166, 135.72930746929404], group: 'kyoto', url: "https://www.shokoku-ji.jp/kinkakuji/",image: "images/616.webp" },
+    //fuji
+        { id: 'fuji2023', name: "Mt.Fuji", coords: [35.37256751938174, 138.7398708424644], group: 'fuji', url: "https://www.fujisan-climb.jp/en/",image: "images/IMG_2567.webp" }, 
+        { id: 'yamanaka', name: "Lake Kawaguchi", coords: [35.52285947957453, 138.753864500151], group: 'fuji', url: null,image: "images/IMG_2688.webp" }, 
+        { id: 'fuji2011?', name: "Mt.Fuji and an Old Guy (I hope he is doing well)", coords: [35.377, 138.745], group: 'fuji', url: null,image: "images/IMG_5356.webp" }, 
     //hokuriku
         { id: 'kagaya', name: "Kagaya Hotel", coords: [37.0902, 136.9144], group: 'noto', url: "https://www.kagaya.co.jp/en/",image: "images/IMG_1666.webp" },
         { id: 'hananoren', name: "Hanayome Noren ", coords: [37.07731167115873, 136.9244441834381], group: 'noto', url: "https://www.westjr.co.jp/global/en/train/hanayomenoren/",image: "images/IMG_1611.webp" },
@@ -79,7 +92,15 @@ const points = [
         { id: 'nkanazawa', name: "Night in Kanazawa", coords: [36.572302942012975, 136.6637161321563], group: 'hokuriku', url: null,image: "images/IMG_2456.webp" },
         { id: 'nkanazawa2', name: "Night in Kanazawa2", coords: [36.565420474517, 136.66209505509457], group: 'hokuriku', url: null,image: "images/IMG_2463.webp" },
         { id: 'sumerfest2023', name: "Fireworks in Kanazawa", coords: [36.579660830920666, 136.65590645246326], group: 'hokuriku', url: null,image: "images/IMG_2511.webp" },
-    
+    //australia, Sydney
+        { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'gosford', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
+        { id: 'sydney', name: "Opera House Over the Sea", coords: [-33.8600, 151.2214], group: 'sydney', url: null,image: "images/352.webp" },
+        { id: 'austrarozoo', name: "Zoo in Australia", coords: [-33.4185, 151.2772], group: 'gosford', url: "https://www.reptilepark.com.au/",image: "images/272.webp" },
+        { id: 'bluerocks', name: "Three Sisters: Blue Mounatians, Australia", coords: [-33.73275049398853, 150.3119492037223], group: 'australia', url: null,image: "images/343.webp" },
+        { id: 'raliangrafiti', name: "Graffitti in Sydney (not now)", coords: [-33.8613, 151.2131], group: 'sydney', url: null,image: "images/378.webp" },
+        { id: 'musesyd', name: "Museum in Sydney", coords: [-33.8744, 151.2133], group: 'sydney', url: "https://australian.museum/",image: "images/388.webp" },
+        { id: 'charchsyd', name: "Cathedral in Sydney", coords: [-33.8713, 151.2133], group: 'sydney', url: "https://stmaryscathedral.org.au/",image: "images/404.webp" },
+
     //seattle
         { id: 'gasworks', name: "Gas Works Park", coords: [47.6455, -122.335], group: 'seattle', url: null,image: "images/IMG_3305.webp" },
         { id: 'troll', name: "Fremont Troll", coords: [47.651, -122.3472], group: 'seattle', url: null,image: "images/IMG_3251.webp" }, 
@@ -96,12 +117,8 @@ const points = [
         { id: 'fstb', name: "First Starbucks", coords: [47.61, -122.3426], group: 'seattle', url: null,image: "images/IMG_3362.webp" }, 
         { id: 'gwall', name: "Pike Place Market", coords: [49.0746, -122.1407], group: 'seattle', url: "https://www.pikeplacemarket.org/",image: "images/IMG_4191.webp" }, 
     
-        //orland
+    //orland
         { id: 'dws', name: "Sky of Disney World", coords: [28.4186, -81.5814], group: 'orland', url: null,image: "images/011.webp" }, // add to the layers
-    //fuji
-        { id: 'fuji2023', name: "Mt.Fuji", coords: [35.37256751938174, 138.7398708424644], group: 'fuji', url: "https://www.fujisan-climb.jp/en/",image: "images/IMG_2567.webp" }, 
-        { id: 'yamanaka', name: "Lake Kawaguchi", coords: [35.52285947957453, 138.753864500151], group: 'fuji', url: null,image: "images/IMG_2688.webp" }, 
-        { id: 'fuji2011?', name: "Mt.Fuji and an Old Guy (I hope he is doing well)", coords: [35.377, 138.745], group: 'fuji', url: null,image: "images/IMG_5356.webp" }, 
     
     
         
@@ -113,6 +130,7 @@ const points = [
         'victoria', 
         'vancouver',
         'bc',
+        'cowichan',
         'pg',
         'kanto',
         'kanagawa',
@@ -142,6 +160,10 @@ const points = [
             id: 'bc',
             zoom:[52.3488, -122.7393],
             size:6
+        },{//BC
+            id: 'cowichan',
+            zoom:[48.7785, -123.7074],
+            size:11
         },{//southern BC
             id: 'southern bc',
             zoom:[50.205, -122.1617],

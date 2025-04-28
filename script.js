@@ -178,6 +178,10 @@ import { db } from "./src/firebase/firebase-initialization.js";
                   <div class="content">
                     <button class="collapsible" id = 'southern bc'>Southern BC</button>
                     <div class="content">
+                        <button class="collapsible" id = 'cowichan'>Cowichan Area</button>
+                        <div class="content">
+                            <div id = 'list_cowichan'></div>
+                        </div>
                         <button class="collapsible" id = 'victoria'>Victoria</button>
                         <div class="content">
                             <div id = 'list_victoria'></div>
