@@ -35,7 +35,7 @@ const points = [
         { id: 'fmw', name: "Victoria Fisherman's Wharf", coords: [48.42313888238869, -123.38263088446769], group: 'victoria', url: "https://www.fishermanswharfvic.ca/",image: "images/IMG_2838.webp" }, 
         { id: 'thetis', name: "Thetis Lake", coords: [48.46922652946758, -123.46782840776324], group: 'victoria', url: null,image: "images/IMG_2859.webp" }, 
         { id: 'beaconhill', name: "Beacon Hill Park", coords: [48.413769202051206, -123.36490537016559], group: 'victoria', url: "https://www.victoria.ca/parks-recreation/parks-trails/our-parks/beacon-hill-park",image: "images/IMG_2895.webp" }, 
-        { id: 'oakbay', name: "Night at Oak Bay", coords: [48.4247, -123.3067], group: 'victoria', url: null,image: null }, 
+        { id: 'oakbay', name: "Night at Oak Bay", coords: [48.4247, -123.3067], group: 'victoria', url: null,image: "images/IMG_5353.webp" }, 
         { id: 'butchartg', name: "Butchart Garden (Sunken)", coords: [48.5645, -123.4688], group: 'victoria',url: "https://www.butchartgardens.com/", image: "images/IMG_5288.webp"},
     //Vancouver
         { id: 'funnybayr', name: "Funny Bay?", coords: [49.2786, -123.1141], group: 'vancouver',url: "https://www.fannybayoysters.com/", image: "images/IMG_5298.webp"},
