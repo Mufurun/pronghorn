@@ -148,8 +148,11 @@ import { db } from "./src/firebase/firebase-initialization.js";
                       <div class="content">
                           <div id = 'list_tokyo'></div>
                       </div>
-                      <div id = 'list_kanagawa'></div>
-
+                      <button class="collapsible" id = 'kanagawa'>Kanagawa</button>
+                      <div class="content">
+                          <div id = 'list_kanagawa'></div>
+                      </div>
+                      <div id = 'list_kanto'></div>
                   </div>
                   <button class="collapsible" id = 'kyoto'>Kyoto</button>
                   <div class="content">
@@ -504,32 +507,33 @@ export function createPopupContent(point) {
     Create button to direct the location
   
 */
-    function listMarkers(region){
-      const list = document.getElementById("list_"+region);
-      if(list){
-        list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
+function listMarkers(region){
+  const list = document.getElementById("list_"+region);
+  if(list){
+    list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
 
-        if(region == 'hokuriku' || region == 'australia'){
-          list.innerHTML = "List of Other Places in " + region[0].toUpperCase()+ region.slice(1);
-        }
-        else if(region == 'bc'){
-          list.innerHTML = "List of Places in " + region.toUpperCase();
-        }
-        list.classList = 'list-of-region';
-        points.forEach(p =>{
-          if(p.group == region){
-            const title = document.createElement('button');
-            title.textContent = p.name;
-            title.classList = 'list-button';
-            title.onclick = () => {
-              map.flyTo(p.coords, 16);
-            }
-            list.appendChild(document.createElement('br'));
-            list.appendChild(title);
-          }
-        });
-      }
+    if(region == 'hokuriku' || region == 'australia' || region == 'kanto'){
+      list.innerHTML = "List of Other Places in " + region[0].toUpperCase()+ region.slice(1);
     }
+    else if(region == 'bc'){
+      list.innerHTML = "List of Places in " + region.toUpperCase();
+    }
+    list.classList = 'list-of-region';
+    points.forEach(p =>{
+      if(p.group == region){
+        const title = document.createElement('button');
+        title.textContent = p.name;
+        title.classList = 'list-button';
+        title.onclick = () => {
+          map.flyTo(p.coords, 16);
+        }
+        list.appendChild(document.createElement('br'));
+        list.appendChild(title);
+      }
+    });
+  }
+}
+
 
 /*
 ####################################################

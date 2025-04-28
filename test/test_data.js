@@ -10,6 +10,9 @@ points stores all the datapoints on the map
 const points = [
     //bc
         { id: 'bcfdc', name: "BC Forest Discovery Centre", coords: [48.8021, -123.7152], group: 'bc',url: "https://bcforestdiscoverycentre.com", image: "images/IMG_4708.webp"},
+        { id: 'sook', name: "Sook", coords: [48.3569, -123.7266], group: 'bc',url: null, image: "images/IMG_4046.webp"},
+        
+        //pg    
         { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
         { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
     //victoria
@@ -30,8 +33,14 @@ const points = [
         { id: 'santry', name: "Beer Factory", coords: [35.66026751379704, 139.47821776746903], group: 'tokyo', url: null,image: "images/IMG_2708.webp" }, 
         { id: 'miyake', name: "Vacation in Miyake", coords: [34.07, 139.5234], group: 'tokyo', url: null,image: "images/114.webp" },
     //Kanagawa
+        { id: 'swing', name: "Dropping from the Swing", coords: [35.441, 139.4606], group: 'kanagawa', url: null, image: "IMG_3673.webp"},
         { id: 'sunrise', name: "Common Place to See the Sun Rise", coords: [35.4379, 139.4518], group: 'kanagawa', url: null, image: "IMG_3942.webp"},
+        { id: 'foodsample', name: "Food Sample Shop at Red Bricks (closed)", coords: [35.4523, 139.6429], group: 'kanagawa', url: null, image: "498.webp"},
+        { id: 'landmarktower', name: "Yokohama Landmark Tower from roller coaster", coords: [35.4556, 139.6367], group: 'kanagawa', url: null, image: "511.webp"},
     
+    //Kanto 
+        { id: 'kamuimisakaglider', name: "Paraglider Exp", coords: [35.5811, 138.7546], group: 'kanto', url: null, image: "527.webp"},
+
         //australia
         { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'gosford', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
         { id: 'sydney', name: "Opera House Over the Sea", coords: [-33.8600, 151.2214], group: 'sydney', url: null,image: "images/352.webp" },
@@ -41,6 +50,7 @@ const points = [
         { id: 'musesyd', name: "Museum in Sydney", coords: [-33.8744, 151.2133], group: 'sydney', url: "https://australian.museum/",image: "images/388.webp" },
         { id: 'charchsyd', name: "Cathedral in Sydney", coords: [-33.8713, 151.2133], group: 'sydney', url: "https://stmaryscathedral.org.au/",image: "images/404.webp" },
     //kyoto
+        { id: 'ktower', name: "Kyoto Tower from the station", coords: [34.9866, 135.7603], group: 'kyoto', url: "https://www.kyoto-tower.jp/en/",image: "images/616.webp" },
         { id: 'Ninnaji', name: "Ninnnaji?", coords: [35.0099, 135.7702], group: 'kyoto', url: "https://ninnaji.jp/en/",image: "images/639.webp" },
         { id: 'kiyomizu', name: "Kiyomizudera", coords: [34.99478097309438, 135.78474008546257], group: 'kyoto', url: "https://www.kiyomizudera.or.jp/en/",image: "images/610.webp" },
         { id: 'kinkaku', name: "Kinkaku", coords: [35.03948416885166, 135.72930746929404], group: 'kyoto', url: "https://www.shokoku-ji.jp/kinkakuji/",image: "images/616.webp" },
@@ -78,13 +88,13 @@ const points = [
         { id: 'fbridge', name: "Fremount Bridge", coords: [47.6482, -122.3498], group: 'seattle', url: null,image: "images/IMG_3266.webp" }, 
         { id: 'sberlin', name: "Berlin Wall", coords: [47.6494, -122.3475], group: 'seattle', url: null,image: "images/IMG_3273.webp" }, 
         { id: 'brewery', name: "Fremont Brewery", coords: [47.6492, -122.3445], group: 'seattle', url: null,image: "images/IMG_3276.webp" }, 
-        { id: 'pub', name: "Pacific Inn Pub - A nice guy recommended", coords: [47.6496, -122.3429], group: 'seattle', url: null,image: "images/IMG_3287.webp" }, 
-        { id: 'uwlibrayr', name: "Library in UW", coords: [47.6561, -122.3091], group: 'seattle', url: null,image: "images/IMG_3291.webp" }, 
-        { id: 'stbseattle', name: "Star Starbucks", coords: [47.614, -122.3283], group: 'seattle', url: null,image: "images/IMG_3329.webp" }, 
+        { id: 'pub', name: "Pacific Inn Pub - A nice guy recommended", coords: [47.6496, -122.3429], group: 'seattle', url: "https://www.pacinnpub.com/",image: "images/IMG_3287.webp" }, 
+        { id: 'uwlibrayr', name: "Library in UW", coords: [47.6561, -122.3091], group: 'seattle', url: "https://www.washington.edu/",image: "images/IMG_3291.webp" }, 
+        { id: 'stbseattle', name: "Star Starbucks", coords: [47.614, -122.3283], group: 'seattle', url: "https://www.starbucksreserve.com/menus/seattle-roastery-main-bar-menu",image: "images/IMG_3329.webp" }, 
         { id: 'dicks', name: "Dicks", coords: [47.6234, -122.3564], group: 'seattle', url: null,image: "images/IMG_3325.webp" }, 
-        { id: 'sphere', name: "Spheres", coords: [47.6157, -122.3394], group: 'seattle', url: null,image: "images/IMG_3356.webp" }, 
+        { id: 'sphere', name: "Spheres", coords: [47.6157, -122.3394], group: 'seattle', url: "https://www.seattlespheres.com/",image: "images/IMG_3356.webp" }, 
         { id: 'fstb', name: "First Starbucks", coords: [47.61, -122.3426], group: 'seattle', url: null,image: "images/IMG_3362.webp" }, 
-        { id: 'gwall', name: "Pike Place Market", coords: [49.0746, -122.1407], group: 'seattle', url: null,image: "images/IMG_4191.webp" }, 
+        { id: 'gwall', name: "Pike Place Market", coords: [49.0746, -122.1407], group: 'seattle', url: "https://www.pikeplacemarket.org/",image: "images/IMG_4191.webp" }, 
     
         //orland
         { id: 'dws', name: "Sky of Disney World", coords: [28.4186, -81.5814], group: 'orland', url: null,image: "images/011.webp" }, // add to the layers
@@ -104,6 +114,7 @@ const points = [
         'vancouver',
         'bc',
         'pg',
+        'kanto',
         'kanagawa',
         'tokyo',
         'kyoto',
@@ -168,6 +179,10 @@ const points = [
         },{//Tokyo
             id: 'tokyo',
             zoom:[35.7028, 139.5909],
+            size:11
+        },{//Kanagawa
+            id: 'kanagawa',
+            zoom:[35.4154, 139.4241],
             size:11
         },{//Kyoto
             id: 'kyoto',
