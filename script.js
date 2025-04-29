@@ -1,7 +1,7 @@
   
   import { db } from "./src/firebase/firebase-initialization.js"; 
   import { points, region_categories, regions } from "./src/data.js"; 
-  import { updateParentHeight, updateSibling, updateChildren, onLocationFound, onLocationFound } from "./src/function.js";
+  import { updateParentHeight, updateSibling, updateChildren, onLocationFound, onLocationError } from "./src/function.js";
 
 /*
 #######################

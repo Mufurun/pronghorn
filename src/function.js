@@ -97,25 +97,26 @@ const greenIcon = L.icon({
   shadowSize: [41, 41]
 });
 export function onLocationFound(e) {
-currentPosition = e.latlng;
-L.marker(currentPosition, {icon: greenIcon}).addTo(map);
-const jumpButtonCP = L.control({ position: 'topleft' });
-jumpButtonCP.onAdd = function (map) {
-const btn = L.DomUtil.create('button', 'my-custom-button');
-btn.innerHTML = 'Current <br> Position';
-// Prevent map from moving when clicking the button
-L.DomEvent.disableClickPropagation(btn);
-btn.onclick = () => {
-  map.flyTo(currentPosition,12);
-  // You can add more logic here, like map.flyTo(), addMarker(), etc.
-};
-return btn;
-};
-jumpButtonCP.addTo(map);
+  currentPosition = e.latlng;
+  L.marker(currentPosition, {icon: greenIcon}).addTo(map);
+  const jumpButtonCP = L.control({ position: 'topleft' });
+  jumpButtonCP.onAdd = function (map) {
+    const btn = L.DomUtil.create('button', 'my-custom-button');
+    btn.innerHTML = 'Current <br> Position';
+    // Prevent map from moving when clicking the button
+    L.DomEvent.disableClickPropagation(btn);
+    btn.onclick = () => {
+      map.flyTo(currentPosition,12);
+      // You can add more logic here, like map.flyTo(), addMarker(), etc.
+    };
+    return btn;
+  };
+  jumpButtonCP.addTo(map);
 }
 
+
 export function onLocationError(e) {
-alert(e.message);
+  alert(e.message);
 }
 
 
