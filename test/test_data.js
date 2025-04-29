@@ -72,8 +72,7 @@ const points = [
     //Japan 
         { id: 'kamuimisakaglider', name: "Paraglider Exp", coords: [35.5811, 138.7546], group: 'japan', url: null, image: "images/527.webp"},
         { id: 'centergasshuku', name: "Somewhere in Kosuge", coords: [35.7602, 138.9401], group: 'japan', url: null, image: "images/25042801.webp"},
-        { id: 'naebakagura', name: "Naeba Skiiii", coords: [36.8424, 138.748], group: 'japan', url: null, image: "images/25042809.webp"},
-
+        
 
     //kyoto
         { id: 'ktower', name: "Kyoto Tower from the station", coords: [34.9866, 135.7603], group: 'kyoto', url: "https://www.kyoto-tower.jp/en/",image: "images/616.webp" },
@@ -110,6 +109,7 @@ const points = [
         { id: 'nkanazawa2', name: "Night in Kanazawa2", coords: [36.565420474517, 136.66209505509457], group: 'hokuriku', url: null,image: "images/IMG_2463.webp" },
         { id: 'sumerfest2023', name: "Fireworks in Kanazawa", coords: [36.579660830920666, 136.65590645246326], group: 'hokuriku', url: null,image: "images/IMG_2511.webp" },
         { id: 'matsumoto', name: "Matsumoto Castle", coords: [36.2389, 137.9681], group: 'hokuriku', url: null, image: "images/25042810.webp"},
+        { id: 'naebakagura', name: "Naeba Skiiii", coords: [36.8424, 138.748], group: 'hokuriku', url: null, image: "images/25042809.webp"},
 
         //australia, Sydney
         { id: 'gosford', name: "Language Exchange Program in High School", coords: [-33.4171, 151.3414], group: 'gosford', url: "https://gosford-h.schools.nsw.gov.au/",image: "images/421.webp" },
@@ -211,8 +211,8 @@ const points = [
             size:5
         },{//Hokuriku
             id:'hokuriku',
-            zoom:[36.5405, 137.29174],
-            size:8
+            zoom:[36.8, 137.42],
+            size:9
         },{//Noto
             id:'noto',
             zoom:[37.1461, 136.8967],
