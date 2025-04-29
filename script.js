@@ -152,7 +152,6 @@ import { db } from "./src/firebase/firebase-initialization.js";
                       <div class="content">
                           <div id = 'list_kanagawa'></div>
                       </div>
-                      <div id = 'list_kanto'></div>
                   </div>
                   <button class="collapsible" id = 'kyoto'>Kyoto</button>
                   <div class="content">
@@ -170,6 +169,7 @@ import { db } from "./src/firebase/firebase-initialization.js";
                   <div class="content">
                       <div id = 'list_fuji'></div>
                   </div>
+                  <div id = 'list_kanto'></div>
                 </div>
   
                 <button class="collapsible" id = 'canada'>Canada</button>
@@ -188,7 +188,7 @@ import { db } from "./src/firebase/firebase-initialization.js";
                         </div>
                         <button class="collapsible" id = 'vancouver'>Vancouver</button>
                         <div class="content">
-                            <div id = 'list_victoria'></div>
+                            <div id = 'list_vancouver'></div>
                         </div>
                         <div id = 'list_bc'></div>
                     </div>  
@@ -516,7 +516,7 @@ function listMarkers(region){
   if(list){
     list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
 
-    if(region == 'hokuriku' || region == 'australia' || region == 'kanto'){
+    if(region == 'hokuriku' || region == 'australia' || region == 'japan'){
       list.innerHTML = "List of Other Places in " + region[0].toUpperCase()+ region.slice(1);
     }
     else if(region == 'bc'){
