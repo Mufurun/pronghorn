@@ -73,6 +73,12 @@ const points = [
         { id: 'kamuimisakaglider', name: "Paraglider Exp", coords: [35.5811, 138.7546], group: 'japan', url: null, image: "images/527.webp"},
         { id: 'centergasshuku', name: "Somewhere in Kosuge", coords: [35.7602, 138.9401], group: 'japan', url: null, image: "images/25042801.webp"},
         
+    //Kanto
+        { id: 'hotelchiba', name: "Hotel in Chiba", coords: [35.0902, 139.8443], group: 'kanto', url: null, image: "images/25042815.webp"},
+        { id: 'fishchiba', name: "Fish at Miyazo", coords: [35.1145, 139.8309], group: 'kanto', url: null, image: "images/25042816.webp"},
+        { id: 'mttsukuba', name: "Shrine at Mt Tsukuba", coords: [36.2132, 140.1013], group: 'kanto', url: null, image: "images/25042817.webp"},
+        { id: 'tsukubacable', name: "Cable Car at Mt.Tsukuba", coords: [36.2147, 140.1002], group: 'kanto', url: null, image: "images/25042818.webp"},
+        { id: 'tsukubasumit', name: "Mt Tsukuba (Nyotaisan)", coords: [36.2254, 140.1067], group: 'kanto', url: null, image: "images/25042819.webp"},
 
     //kyoto
         { id: 'ktower', name: "Kyoto Tower from the station", coords: [34.9866, 135.7603], group: 'kyoto', url: "https://www.kyoto-tower.jp/en/",image: "images/616.webp" },
@@ -155,6 +161,7 @@ const points = [
         'cowichan',
         'pg',
         'japan',
+        'kanto',
         'kanagawa',
         'tokyo',
         'kyoto',
