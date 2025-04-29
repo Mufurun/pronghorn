@@ -1,7 +1,7 @@
   
   import { db } from "./src/firebase/firebase-initialization.js"; 
   import { points, region_categories, regions } from "./src/data.js"; 
-  import { updateParentHeight, updateSibling, updateChildren} from "./src/function.js";
+  import { updateParentHeight, updateSibling, updateChildren, onLocationFound, onLocationFound } from "./src/function.js";
 
 /*
 #######################
@@ -473,48 +473,3 @@ function listMarkers(region){
 }
 
 
-/*
-####################################################
-######     Functions for Current Position     ######
-#################################################### 
-*/
-
-/*
-******************************************
-******  Function onLocationFound()  ******
-******  Function onLocationError()  ******
-******************************************
-If location is found:
-      add a marker
-      create a button to zoom up the location 
-*/
-    const greenIcon = L.icon({
-          iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
-          shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
-          iconSize: [25, 41],
-          iconAnchor: [12, 41],
-          popupAnchor: [1, -34],
-          shadowSize: [41, 41]
-        });
-    function onLocationFound(e) {
-        currentPosition = e.latlng;
-        L.marker(currentPosition, {icon: greenIcon}).addTo(map);
-        const jumpButtonCP = L.control({ position: 'topleft' });
-        jumpButtonCP.onAdd = function (map) {
-        const btn = L.DomUtil.create('button', 'my-custom-button');
-        btn.innerHTML = 'Current <br> Position';
-        // Prevent map from moving when clicking the button
-        L.DomEvent.disableClickPropagation(btn);
-        btn.onclick = () => {
-          map.flyTo(currentPosition,12);
-          // You can add more logic here, like map.flyTo(), addMarker(), etc.
-        };
-        return btn;
-        };
-        jumpButtonCP.addTo(map);
-    }
-    function onLocationError(e) {
-        alert(e.message);
-    }
-
-  
