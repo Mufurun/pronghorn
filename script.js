@@ -169,7 +169,7 @@ import { db } from "./src/firebase/firebase-initialization.js";
                   <div class="content">
                       <div id = 'list_fuji'></div>
                   </div>
-                  <div id = 'list_kanto'></div>
+                  <div id = 'list_japan'></div>
                 </div>
   
                 <button class="collapsible" id = 'canada'>Canada</button>
@@ -226,9 +226,14 @@ import { db } from "./src/firebase/firebase-initialization.js";
                   <div class="content">
                       <div id = 'list_orland'></div>
                   </div>
+                  <button class="collapsible" id = 'california'>California</button>
+                  <div class="content">
+                      <div id = 'list_california'></div>
+                  </div>
                 </div>
               </div>
           </div>
+
           `;
 
         // Prevent map click propagation
