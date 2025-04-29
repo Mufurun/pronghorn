@@ -1,4 +1,4 @@
-import { db } from "./src/firebase/firebase-initialization.js"; 
+import { db } from "./firebase/firebase-initialization"; 
 
 /*
 #####################################

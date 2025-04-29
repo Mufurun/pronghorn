@@ -1,4 +1,5 @@
-  
+//import { db } from "./src/firebase/firebase-initialization.js"; 
+
   import { points, region_categories, regions } from "./src/data.js"; 
   import { createPopupContent, updateParentHeight, updateSibling, updateChildren,  } from "./src/function.js";
 
