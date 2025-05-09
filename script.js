@@ -369,10 +369,11 @@
           
           //button
               const button = document.createElement('button')
-              input.addEventListener("keypress", function(event){if (event.keyCode === 13) {
-                        // Triggering click event on button when Enter key is pressed
-                        button.onclick();
-                    }});
+              input.addEventListener("keypress", function(event){
+                if (event.keyCode === 13) {
+                    // Triggering click event on button when Enter key is pressed
+                    button.onclick();
+                }});
               button.textContent = 'Post';
               //save the comment
               button.onclick = () => {
