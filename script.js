@@ -496,7 +496,7 @@ const greenIcon = L.icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41]
 });
-export function onLocationFound() {
+export function onLocationFound(e) {
   currentPosition = e.latlng;
   L.marker(currentPosition, {icon: greenIcon}).addTo(map);
   const jumpButtonCP = L.control({ position: 'topleft' });
