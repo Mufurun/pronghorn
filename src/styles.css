@@ -202,3 +202,79 @@
       background-color: rgb(245, 108, 11);
     }
     
+/* another popup for image*/
+
+  #popupSection {
+  position: absolute;
+  top: 12%;
+  left: 12%;
+  height: 75%;
+  width: 75%;
+  z-index: 1000; /* higher than Leaflet tiles */
+  background-color: rgba(255, 245, 238, 0.9);
+  padding: 20px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.3);
+  cursor:auto;
+
+}
+/*Close Section*/
+.image-popup-close{
+  display: flex;
+  justify-content: right; 
+  outline: none;
+  border: none;
+  height:5%;
+  background:rgba(255, 245, 238, 0);
+}
+.large-image-close {
+  background-color: rgba(255, 245, 238, 0);
+  color: black;
+  border: none;
+  outline:  none;
+  display: flex;
+  align-items:center;
+  justify-content: right;
+  font-size: 20px;
+}
+.large-image-close-icon{
+  height: 100%;
+  width: auto;
+  display: block;
+  color: black;
+}
+
+.large-image-div{
+  display:flex;
+  justify-content: center;
+  margin:auto;
+  align-items: center;
+  height: 90%;
+}
+.large-image{
+  max-height: 100%;
+  max-width: 100%;
+  display: block;
+  margin: auto;
+}
+
+
+/*
+####  Popup Styel (Dark Mode)  ####
+*/
+
+  @media (prefers-color-scheme: dark) {
+  #popupSection{
+    background-color: rgba(83, 81, 81, 0.9);
+    color: seashell;
+  }
+  .image-popup-close{
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .large-image-close{
+    background-color: rgba(0, 0, 0, 0);
+  }
+  .large-image-close-icon{
+    filter: invert(1);
+    background-color: rgba(0, 0, 0, 0);
+  }  
+}

@@ -412,25 +412,30 @@
         container.className = 'popup-content';
   
     //title
+        const titleSection = document.createElement('div');
         const title = document.createElement('strong');
         title.textContent = point.name;
         title.className = 'title';
-        container.appendChild(title);
+        if(point.url != null){
+          const titleUrl = document.createElement('a');
+          titleUrl.href = point.url;
+          titleUrl.target = '_blank';
+          titleUrl.appendChild(title);
+          titleSection.appendChild(titleUrl);
+        }else{titleSection.appendChild(title);
+        }
+        container.appendChild(titleSection);
+
   
     //image with url
-        const imageSection = document.createElement('div');
+        const imageSection = document.createElement('button');
+        imageSection.onclick = () => image_popup("../"+point.image);
+
         const image = document.createElement('img');
         image.src= "../"+point.image;
         image.className = 'image';
 
-        if(point.url != null){
-          const imageUrl = document.createElement('a');
-          imageUrl.href = point.url;
-          imageUrl.target = '_blank';
-          imageUrl.appendChild(image);
-          imageSection.appendChild(imageUrl);
-        }else{imageSection.appendChild(image);
-        }
+        imageSection.appendChild(image);
         container.appendChild(imageSection);
         
     //Label
@@ -519,6 +524,65 @@
         return container;
       }
   
+
+      //Image popup
+
+
+      function image_popup(imgsrc){
+        // Check if the section already exists
+        let existing = document.getElementById('popupSection');
+        if (existing) {
+          existing.style.display = 'block';
+          return;
+        }
+          // Create the section
+            const section = document.createElement('div');
+            section.id = 'popupSection';
+
+
+            //Section for Close Button
+            const ipc = document.createElement('div');
+            ipc.className = 'image-popup-close';
+            const cb = document.createElement('button');
+            cb.onclick = () => {             
+              const section = document.getElementById('popupSection');
+              if (section) {
+                section.remove();
+              }
+            };
+            cb.className = 'large-image-close';
+            const ci = document.createElement('img');
+            ci.src = '../images/close.webp';
+            ci.className = 'large-image-close-icon';
+            cb.appendChild(ci);
+            ipc.appendChild(cb);
+
+            section.appendChild(ipc);
+
+          //Section without Close Button
+          //Div for the image alignment
+            const large_image = document.createElement("div");
+            large_image.className = 'large-image-div';
+
+
+          //Image
+            const each_large_image = document.createElement('img');
+            each_large_image.src = imgsrc;
+            each_large_image.className = 'large-image';
+
+            large_image.appendChild(each_large_image);
+
+            section.appendChild(large_image);
+
+            // Append it to the map
+            const mapContainer = document.getElementById('map');
+            mapContainer.appendChild(section);
+            L.DomEvent.disableClickPropagation(section);
+            L.DomEvent.disableScrollPropagation(section);
+
+
+          }
+
   
   /*
   ######################################################
