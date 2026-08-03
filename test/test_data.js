@@ -8,15 +8,11 @@ points stores all the datapoints on the map
     image: pic of the location
 */
 const points = [
-    //southern bc
-        { id: 'sook', name: "Sook", coords: [48.3569, -123.7266], group: 'southernbc',url: null, image: "images/IMG_4046.webp"},
-        { id: 'kitchenkodama', name: "Kitchen Kodama", coords: [48.85427660017365, -123.5006565720225], group: 'southernbc', url: null, image: "images/IMG_5477.webp"},
-        { id: 'whistler', name: "Winter Olympic in Whister", coords: [50.1184, -122.9550], group: 'southernbc', url: null, image: "images/IMG_6191.webp"},
-
+    //bc
+        { id: 'sook', name: "Sook", coords: [48.3569, -123.7266], group: 'bc',url: null, image: "images/IMG_4046.webp"},
 
     //Cowichan
         { id: 'bcfdc', name: "BC Forest Discovery Centre", coords: [48.8021, -123.7152], group: 'cowichan',url: "https://bcforestdiscoverycentre.com", image: "images/IMG_4708.webp"},
-        { id: 'bcfdc2', name: "Steam Train \"Shay\"", coords: [48.803200, -123.709277], group: 'cowichan',url: "https://bcforestdiscoverycentre.com", image: "images/IMG_5482.webp"},
         { id: 'maplebay', name: "Maple Bay", coords: [48.8166, -123.6094], group: 'cowichan',url: null, image: "images/IMG_4402.webp"},
         { id: 'cherrypoint', name: "Cherry Point", coords: [48.71, -123.5564], group: 'cowichan',url: null, image: "images/IMG_4425.webp"},
         { id: 'wetland', name: "A Wetland near Paldi", coords: [48.7956, -123.8697], group: 'cowichan',url: null, image: "images/IMG_4445.webp"},
@@ -30,15 +26,11 @@ const points = [
         { id: 'nanaimobay', name: "Nanaimo Bay", coords: [49.1661, -123.9347], group: 'cowichan',url: null, image: "images/IMG_5129.webp"},
         { id: 'butchartg', name: "Butchart Garden", coords: [48.5645, -123.4688], group: 'cowichan',url: null, image: "images/IMG_5288.webp"},
         { id: 'raptors', name: "Raptors Centre", coords: [48.8212, -123.6619], group: 'cowichan',url: "https://the-raptors.com/", image: "images/IMG_5361.webp"},
-        { id: 'maplemt', name: "Maple Mountain", coords: [48.838909, -123.592767], group: 'cowichan',url: null, image: "images/IMG_5542.webp"},
-        { id: 'waytogenoa', name: "Way Back from Genoa Bay", coords: [48.800149, -123.602115], group: 'cowichan',url: null, image: "images/IMG_5563.webp"},
-        { id: 'thetisisland', name: "Monster on the Thetis Island", coords: [48.996986, -123.659086], group: 'cowichan',url: null, image: "images/IMG_5599.webp"},
-        { id: 'thetisisland2', name: "Northmost Thetis Island", coords: [49.021084, -123.689545], group: 'cowichan',url: null, image: "images/IMG_5602.webp"},
-        { id: 'shawniganlakepark', name: "Shawnigan Lake", coords: [48.641965, -123.632698], group: 'cowichan',url: null, image: "images/IMG_5624.webp"},
-        { id: 'Rebel', name: "Rebel 500", coords: [48.658367, -123.560351], group: 'cowichan',url: null, image: "images/IMG_5715.webp"},
 
-
-        //victoria
+    //pg    
+        { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
+        { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
+    //victoria
         { id: 'parliament', name: "Victoria Parliament", coords: [48.419937801660765, -123.37022764444416], group: 'victoria', url: null,image: "images/IMG_2794.webp" }, 
         { id: 'farray', name: "Fan Tan Alley", coords: [48.42899284705728, -123.3679163419745], group: 'victoria', url: null,image: "images/IMG_2796.webp" }, 
         { id: 'fmw', name: "Victoria Fisherman's Wharf", coords: [48.42313888238869, -123.38263088446769], group: 'victoria', url: "https://www.fishermanswharfvic.ca/",image: "images/IMG_2838.webp" }, 
@@ -48,45 +40,10 @@ const points = [
         { id: 'butchartg', name: "Butchart Garden (Sunken)", coords: [48.5645, -123.4688], group: 'victoria',url: "https://www.butchartgardens.com/", image: "images/IMG_5288.webp"},
         { id: 'gingerbread', name: "Ginger Clock", coords: [48.4206, -123.3725], group: 'victoria', url: null, image: "images/25042812.webp"},
         { id: 'stcecilia', name: "Cozy Coffy", coords: [48.4267, -123.3692], group: 'victoria', url: null, image: "images/25042813.webp"},
-        { id: 'nightbike', name: "Night Bike Ride", coords: [48.406824, -123.348427], group: 'victoria', url: null, image: "images/IMG_5369.webp"},
-        { id: 'biketobeach', name: "Bike to Beach", coords: [48.526357, -123.365069], group: 'victoria', url: null, image: "images/IMG_5558.webp"},
-        { id: 'victoriabay', name: "Port of Victoria", coords: [48.420884, -123.370566], group: 'victoria', url: null, image: "images/IMG_5683.webp"},
-        { id: 'fireup', name: "Fire Up!", coords: [48.4294, -123.3300], group: 'victoria', url: null, image: "images/IMG_6033.webp"},
-        { id: 'rbcmuseum', name: "No Place to Homo (RBC Museum)", coords: [48.4200, -123.3674], group: 'victoria', url: null, image: "images/IMG_5961.webp"},
-
-
-
+        
     //Vancouver
         { id: 'funnybayr', name: "Funny Bay?", coords: [49.2786, -123.1141], group: 'vancouver',url: "https://www.fannybayoysters.com/", image: "images/IMG_5298.webp"},
-        { id: 'aquarium', name: "Aquarium", coords: [49.3005, -123.1309], group: 'vancouver',url: "https://www.vanaqua.org/", image: "images/IMG_5815.webp"},
-        { id: 'moanth', name: "Museum of Anthropology", coords: [49.269127, -123.259181], group: 'vancouver',url: "https://moa.ubc.ca/", image: "images/IMG_5966.webp"},
-        { id: 'japamex', name: "Ramen Burrito", coords: [49.2543, -123.1149], group: 'vancouver',url: "https://www.misotaco.ca/?gad_source=1&gbraid=0AAAAArCjgvkhvwQ6C6lrQwEF1bnPZ5eYg", image: "images/IMG_6177.webp"},
-
-
-    //northern BC
-        { id: 'elkintelkwa', name: "Elk in Telkwa", coords: [54.623420, -127.242979], group: 'nouthernbc',url: null, image: "images/IMG_6288.webp"},
-        { id: 'shackpoutine', name: "Shack Food Truck in Smithers", coords: [54.781760, -127.166045], group: 'nouthernbc',url: null, image: "images/IMG_6290.webp"},
-        { id: 'redchrissouthvalley', name: "Mountain from Red Chris Mine", coords: [57.696202, -129.752356], group: 'nouthernbc',url: null, image: "images/IMG_6330.webp"},
-        { id: 'gitwangakbattlehill', name: "Gitwangak Battle Hill", coords: [55.120401, -128.015151], group: 'nouthernbc',url: null, image: "images/IMG_6368.webp"},
-        { id: 'bearbonetelkwa', name: "Bear in Telkwa (I don't know the location)", coords: [54.628577, -127.224624], group: 'nouthernbc',url: null, image: "images/IMG_6417.webp"},
-        { id: 'campingsitetelkwa', name: "Camp Site in Telkwa", coords: [54.6436, -127.2294], group: 'nouthernbc',url: null, image: "images/IMG_6429.webp"},
-        { id: 'elkhouseton', name: "Can You Find Elk?", coords: [54.436896, -126.196896], group: 'nouthernbc',url: null, image: "images/IMG_6457.webp"},
-        { id: 'tattogaresort', name: "Not Like Poisoness Water Tattoga Lake Resort", coords: [57.7109, -129.9925], group: 'nouthernbc',url: null, image: "images/IMG_6480.webp"},
-        { id: 'honeymoonisland', name: "Honeymoon Island on Stuart Lake", coords: [54.499175, -124.389243], group: 'nouthernbc',url: null, image: "images/IMG_6543.webp"},
-        { id: 'onlogs', name: "We're on a bridge", coords: [55.005062, -124.347864], group: 'nouthernbc',url: null, image: "images/IMG_6544.webp"},
-        { id: 'redchris2', name: "Dropped by Heli", coords: [57.773036, -129.753621], group: 'nouthernbc',url: null, image: "images/IMG_6554.webp"},
-
-
-
-    //pg    
-        { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
-        { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
-        { id: 'salmonrelease', name: "Salmon Baby Released", coords: [53.926330, -122.742049], group: 'pg', url: null,image: "images/IMG_6394.webp" },
-
-
-
-
-
+        
     //tokyo
         { id: 'kokubunji', name: "My High School Days", coords: [35.7122, 139.4477], group: 'tokyo', url: "https://www.wikidata.org/wiki/Q11525427", image: "images/149.webp" },
         { id: 'eventskp', name: "Illumination at Showa", coords: [35.7066, 139.3973], group: 'tokyo', url: "https://www.showakinen-koen.jp/guide-english/",image: "images/045.webp" },
@@ -190,7 +147,7 @@ const points = [
     //orland
         { id: 'dws', name: "Sky of Disney World", coords: [28.4186, -81.5814], group: 'orland', url: null,image: "images/011.webp" }, 
     //LA    
-        { id: 'lsairport', name: "Airport", coords: [33.9448, -118.408], group: 'california', url: null,image: "images/25042811.webp" }, 
+        { id: 'lsairport', name: "Airposrt", coords: [33.9448, -118.408], group: 'california', url: null,image: "images/25042811.webp" }, 
 
         
     
@@ -201,9 +158,7 @@ const points = [
         'victoria', 
         'vancouver',
         'bc',
-        'southernbc',
         'cowichan',
-        'nouthernbc',
         'pg',
         'japan',
         'kanto',
@@ -240,7 +195,7 @@ const points = [
             zoom:[48.7785, -123.7074],
             size:11
         },{//southern BC
-            id: 'southernbc',
+            id: 'southern bc',
             zoom:[50.205, -122.1617],
             size:7
         },{//Victoria
@@ -251,10 +206,6 @@ const points = [
             id: 'vancouver',
             zoom:[49.2449, -123.1142],
             size:12
-        },{//nouthern BC
-            id: 'nouthernbc',
-            zoom:[56.450, -125.067],
-            size:6
         },{//Prince George
             id:'pg',
             zoom:[53.9102, -122.7713],
