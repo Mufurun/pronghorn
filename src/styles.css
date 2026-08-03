@@ -29,12 +29,9 @@
   }
   .title{
     font-size: 20px;
-    display: block;
   }
-
   .label{
     font-size: 16px;
-    display: block;
   }
   .comments {
     font-size: 1em;
@@ -42,8 +39,6 @@
     margin-left: 10px;
     max-height: 170px;
     overflow: auto; 
-    display:block;
-
   }
   
   .comment-box {
@@ -89,9 +84,6 @@
       text-align: right;
       border-bottom: 0.5px solid seashell;
     }
-    a:link {
-      color: turquoise;
-    }
 }
 
 /*
@@ -108,7 +100,6 @@
 */
     .custom-control {
       position: relative;
-      font-size: 10px;
     }
     .custom-control label {
       display: block;
@@ -142,11 +133,6 @@
 */
     
 
- .control-button-wrapper{
-      display: flex;
-      border: none;
-
-    }
     .collapsible {
       background-color: seashell;
       color: black;
@@ -155,35 +141,10 @@
       width: 100%;
       border: none;
       text-align: left;
-      outline: rgb(164, 163, 163) solid 1px;
+      outline: none;
       font-size: 14px;
     }
-    .collapsible:after {
-      content: '\25BC';
-      color: rgb(45, 70, 51);
-      font-weight: bold;
-      float: left;
-      margin-left: 5px;
-    }
-    .active:after {
-      content: "\25B2";
-    }
-    .scrollll{
-      overflow: auto;
-      height: 100%;
-      scrollbar-width: thin;
-      }
-    .content {
-      padding: 0 10px;
-      max-height: 0;
-      overflow: auto;
-      transition: max-height 0.2s ease-out;
-      background-color: rgba(251, 236, 225, 0.018);
-      scrollbar-width: thin ;
-      border: none;
-
-    }
-    .button-original-map {
+    .button {
       background-color: seashell;
       color: black;
       cursor: pointer;
@@ -194,32 +155,36 @@
       outline: none;
       font-size: 14px;
     }
-
-    .button {
-      background-color: seashell;
-      color: black;
-      cursor: pointer;
-      padding: 5px;
-      width: 40px;
-      border: none;
-      text-align: left;
-      outline: none;
-      font-size: 14px;
-    }
-    .active, .collapsible:hover, .button:hover {
+    
+    .active, .collapsible:hover, .button:hover, .list-button {
       background-color: rgb(237, 225, 220);
     }
-    .button::after{
-      content: "\2795";
-      font-size: 15px;
-      margin-left: 4px;
+  
+    .collapsible:after {
+      content: '\25BC';
+      color: rgb(45, 70, 51);
+      font-weight: bold;
+      float: right;
+      margin-left: 5px;
     }
-    .plain{
+    
+    .active:after {
+      content: "\25B2";
+    }
+    
+    .content {
+      padding: 0 10px;
+      max-height: 0;
+/*      max-width: 300px;
+*/      overflow: auto;
+      transition: max-height 0.2s ease-out;
+      background-color: rgba(251, 236, 225, 0.018);
+      scrollbar-width: thin;
+    }
+    .list-of-region{
       font-size: 16px;
       background-color: seashell;
       padding: 0px;
-      display: block;
-      border: none;
     }
     .list-button{
       background-color: rgb(237, 225, 220);
@@ -237,51 +202,7 @@
     .list-button:active{
       background-color: rgb(245, 108, 11);
     }
-    .list-region{
-      font-size: 14px;
-      margin: 5px 0px 0px 10px;  
-    }
     
-  @media (prefers-color-scheme: dark) {
-
-    .collapsible {
-      background-color: rgba(251, 236, 225, 0.018);
-      color: seashell;
-    }    
-    .collapsible:after {
-      color: rgb(174, 205, 182);
-    }
-    .content {
-      background-color: rgb(57, 54, 50);
-    }
-    .button-original-map {
-      background-color: rgba(251, 236, 225, 0.018);
-      color: seashell;
-    }    
-    .button {
-      background-color: rgba(251, 236, 225, 0.018);
-      color: seashell;
-    }
-    .active, .collapsible:hover, .button:hover{
-      background-color: rgba(251, 236, 225, 0.018);
-    }
-    .plain{
-      font-size: 16px;
-      background-color: rgb(57, 54, 50);
-      color: seashell;
-    }
-    .list-button{
-      background-color: rgba(20, 19, 18, 0.87);
-      color: seashell;
-    }
-    .list-button:hover{
-      background-color: rgba(251, 236, 225, 0.018);
-    }
-    .list-button:active{
-      background-color: rgb(245, 108, 11);
-    }    
-  }
-      
 /* another popup for image*/
 
   #popupSection {
@@ -357,40 +278,4 @@
     filter: invert(1);
     background-color: rgba(0, 0, 0, 0);
   }  
-}
-
-
-    .layconContent {
-      background: seashell;
-      border-radius: 4px;
-      padding: 5px;
-      font-size: 10px;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
-      cursor:auto;
-      overflow: auto;
-      font-size: 15px;
-      margin: 3px 0;
-    }
-
-
-@media (prefers-color-scheme: dark) {
-      .custom-control-hover {
-      background-color: rgb(57, 54, 50);
-      color: seashell;
-      box-shadow: 0 0 5px rgba(0,0,0,0.3);
-      }
-    .custom-control:hover .custom-content {
-      background-color: rgb(57, 54, 50);
-      color: seashell;
-    }
-    .layconContent {
-      background: rgb(57, 54, 50);
-      color: seashell;
-    }
-
-    .my-custom-button {
-      background: rgb(57, 54, 50);
-      color: seashell;
-    }
-
 }
