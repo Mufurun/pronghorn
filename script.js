@@ -3,39 +3,6 @@
   import { points, region_categories, regions } from "./src/data.js"; 
   import { updateParentHeight, updateSibling, updateChildren,  } from "./src/function.js";
   /*
-  ##############################
-  ##############################
-  ##  Firebase iitialization  ##
-  ##############################
-  ##############################
-  
-  I just copy and past them here. 
-    may want to put them in a separate file
-  */
-      import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-app.js";
-      import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.6.0/firebase-analytics.js";
-      // TODO: Add SDKs for Firebase products that you want to use
-      // https://firebase.google.com/docs/web/setup#available-libraries
-    
-      // Your web app's Firebase configuration
-      // For Firebase JS SDK v7.20.0 and later, measurementId is optional
-      const firebaseConfig = {
-        apiKey: "AIzaSyBzWuvmEKysIWChuS4ktZHsOuuknv2fuOU",
-        authDomain: "pronghorn-5f357.firebaseapp.com",
-        projectId: "pronghorn-5f357",
-        databaseURL: "https://pronghorn-5f357-default-rtdb.firebaseio.com/",
-        storageBucket: "pronghorn-5f357.firebasestorage.app",
-        messagingSenderId: "10063193837",
-        appId: "1:10063193837:web:e513d28105eb8b41a80ee4",
-        measurementId: "G-M7FMSS1P71"
-      };
-  
-      firebase.initializeApp(firebaseConfig);
-      const db = firebase.database();
-      console.log(db);
-      console.log("Firebase initialized ✅");
-      
-  /*
   #######################
   #######################
   ####   Main code   ####
@@ -160,32 +127,7 @@
   *****************************
   ******   Inner HTML    ******
   *****************************
-  
- `<div class = 'control-button-wrapper'> 
-    <button class='collapsible' >Vancouver Island/Coast </button> 
-    <button class = 'button' id = 'VancouverIsland/Coast'></button>
-  </div>
-  <div class='content'>
-    <div class = 'control-button-wrapper'> 
-      <button class='collapsible' >Regional District of Alberni-Clayoquot</button>
-      <button class = 'button' id = 'RegionalDistrictofAlberni-Clayoquot'></button>
-    </div>
-    <div class='content'>
-      <div class = 'control-button-wrapper'> 
-        <button class='collapsible' >Port Alberni</button>
-        <button class = 'button' id = 'PortAlberni'></button>
-      </div>
-      <div class='content'>
-        <div id = 'list_PortAlberni' class = 'list-region'></div>
-      </div>
-      <div id = 'list_RegionalDistrictofAlberni-Clayoquot' class = 'list-region'></div>
-    </div>
-    <div class = 'control-button-wrapper'> 
-      <button class='collapsible' >Capital Regional District</button>
-      <button class = 'button' id = 'CapitalRegionalDistrict'></button>
-    </div>
-    <div class='content'>`
- 
+   
   */
  
 
@@ -396,7 +338,8 @@
                   updateParentHeight(content);
                 }
               });
-            });            const world = document.querySelectorAll(".button-original-map");
+            });            
+            const world = document.querySelectorAll(".button-original-map");
             world.forEach(button => {
               button.addEventListener("click", function () {
                 const content = this.nextElementSibling;
