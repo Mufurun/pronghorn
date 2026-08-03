@@ -338,7 +338,8 @@
                   updateParentHeight(content);
                 }
               });
-            });            const world = document.querySelectorAll(".button-original-map");
+            });            
+            const world = document.querySelectorAll(".button-original-map");
             world.forEach(button => {
               button.addEventListener("click", function () {
                 const content = this.nextElementSibling;
@@ -613,6 +614,97 @@ function listMarkers(region){
   }
 }
 
+
+      function layerControlhtml(){
+        return `
+          <div class = "layconContent">
+            <strong>Background Map</strong><abbr class = 'question' id = 'laycon' title="Select the background map type"></abbr>
+            <div class="plain">
+              <select id="layer">
+                <option value="osm">Street View 1</option>
+                <option value="cv">Street View 2</option>
+                <option value="otm">Topographic View</option>
+                <option value="esi">Satellite Imagery</option>
+              </select>
+            </div></div>
+          </div>
+            `;
+      }
+    function layerFunctions(map){
+
+                  setTimeout(() => {
+            document.getElementById('layer').addEventListener('change', function(){
+              if (document.getElementById('layer').value == 'osm'){
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank" class = ".leaflet-control-attribution">CARTO</a>');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  maxZoom: 20,
+                  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'cv'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                  maxZoom: 20,
+                  attribution: '&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'otm'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
+                  maxZoom: 20,
+                  attribution: 'Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'esi'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                  maxZoom: 20,
+                  attribution: 'Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
+                }).addTo(map);
+              }
+
+
+            }); 
+          }, 0);
+
+
+      }
+      const layerControl = L.Control.extend({
+        onAdd: function (map) {
+          const container = L.DomUtil.create('div');
+          container.innerHTML = layerControlhtml();
+          layerFunctions(map);
+
+  
+          // Prevent map click propagation
+          L.DomEvent.disableClickPropagation(container);
+          L.DomEvent.disableScrollPropagation(container);
+
+          setTimeout(()=>{
+            const layconbutton = document.getElementById('laycon');
+            if(layconbutton){
+                layconbutton.addEventListener("click", () => {
+                  alert("Change the Map Layer");
+                });
+            }
+          },0)
+
+    
+          return container;
+        }
+      });
+    
+      map.addControl(new layerControl({ position: 'topright' }));
+
+
 /*
 ####################################################
 ######     Functions for Current Position     ######
@@ -636,6 +728,7 @@ const greenIcon = L.icon({
   popupAnchor: [1, -34],
   shadowSize: [41, 41]
 });
+
 export function onLocationFound(e) {
   currentPosition = e.latlng;
   L.marker(currentPosition, {icon: greenIcon}).addTo(map);
