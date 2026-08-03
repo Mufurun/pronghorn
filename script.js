@@ -396,121 +396,184 @@ Click Plus Sign to Zoom In`);
         data management
   
   */
-        function createPopupContent(point) {
+  function createPopupContent(point) {
   
-          //div
-              const container = document.createElement('div');
-              container.className = 'popup-content';
+    //div
+        const container = document.createElement('div');
+        container.className = 'popup-content';
+  
+    //title
+        const titleSection = document.createElement('div');
+        const title = document.createElement('strong');
+        title.textContent = point.name;
+        title.className = 'title';
+        if(point.url != null){
+          const titleUrl = document.createElement('a');
+          titleUrl.href = point.url;
+          titleUrl.target = '_blank';
+          titleUrl.appendChild(title);
+          titleSection.appendChild(titleUrl);
+        }else{titleSection.appendChild(title);
+        }
+        container.appendChild(titleSection);
+
+  
+    //image with url
+        const imageSection = document.createElement('button');
+        imageSection.onclick = () => image_popup("../"+point.image);
+
+        const image = document.createElement('img');
+        image.src= "../"+point.image;
+        image.className = 'image';
+
+        imageSection.appendChild(image);
+        container.appendChild(imageSection);
         
-          //title
-              const title = document.createElement('strong');
-              title.textContent = point.name;
-              title.className = 'title';
-              container.appendChild(title);
+    //Label
+        const label1 = document.createElement('strong');
+        label1.textContent = "Comments";
+        label1.className = 'label';
+        container.appendChild(label1);
+  
+    //Comment
+        const commentsDiv = document.createElement('div');
+        commentsDiv.id = `comments-${point.id}`;
+        commentsDiv.className = 'comments';
+        commentsDiv.innerHTML = "<i>Loading comments...</i>";
+        container.appendChild(commentsDiv);
         
-          //image with url
-              const imageSection = document.createElement('div');
-              const image = document.createElement('img');
-              image.src= point.image;
-              image.className = 'image';
+    //text box
+        const input = document.createElement('input');
+        input.type = 'text';
+        input.placeholder = 'Add a comment';
+        input.style.width = '90%';
+        input.id = `input-${point.id}`;
+    
+    //button
+        const button = document.createElement('button')
+        input.addEventListener("keypress", function(event){if (event.keyCode === 13) {
+                  // Triggering click event on button when Enter key is pressed
+                  button.onclick();
+              }});
+        button.textContent = 'Post';
+        //save the comment
+        button.onclick = () => {
+          const comment = input.value.trim();
+          const ref = db.ref(`comments/${point.id}`);
+          if (comment) {
+              const d = new Date()
               
-              if(point.url != null){
-                const imageUrl = document.createElement('a');
-                imageUrl.href = point.url;
-                imageUrl.target = '_blank';
-                imageUrl.appendChild(image);
-                imageSection.appendChild(imageUrl);
-              }else{imageSection.appendChild(image);
-              }
-              container.appendChild(imageSection);
-              
-          //Label
-              const label1 = document.createElement('strong');
-              label1.textContent = "Comments";
-              label1.className = 'label';
-              container.appendChild(label1);
-        
-          //Comment
-              const commentsDiv = document.createElement('div');
-              commentsDiv.id = `comments-${point.id}`;
-              commentsDiv.className = 'comments';
-              commentsDiv.innerHTML = "<i>Loading comments...</i>";
-              container.appendChild(commentsDiv);
-              
-          //text box
-              const input = document.createElement('input');
-              input.type = 'text';
-              input.placeholder = 'Add a comment';
-              input.style.width = '90%';
-              input.id = `input-${point.id}`;
-          
-          //button
-              const button = document.createElement('button')
-              input.addEventListener("keypress", function(event){
-                if (event.keyCode === 13) {
-                    // Triggering click event on button when Enter key is pressed
-                    button.onclick();
-                }});
-              button.textContent = 'Post';
-              //save the comment
-              button.onclick = () => {
-                const comment = input.value.trim();
-                const ref = db.ref(`comments/${point.id}`);
-                if (comment) {
-                    const d = new Date()
-                    
-                  ref.push({
-                    text: comment,
-                    timestamp: d.getFullYear() +'/'+ d.getMonth() + '/'+ d.getDate() + '('+ d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ')'
-                  });
-                  input.value = '';
-                }
-              //data management
-              //only keep 100 recent items 
-                ref.once("value", snapshot => {
-                  const data = snapshot.val();
-                  const keys = Object.keys(data || {});
-                  if (keys.length > 100) {
-                    // Sort and remove oldest ones
-                    const sorted = keys.map(k => ({ key: k, time: data[k].timestamp }))
-                    .sort((a, b) => a.time - b.time);
-                    const toRemove = sorted.slice(0, keys.length - 10);
-                    toRemove.forEach(({ key }) => ref.child(key).remove());
-                  }
-                });
-              };
-          
-              const box = document.createElement('div');
-              box.className = 'comment-box';
-              box.appendChild(input);
-              box.appendChild(button);
-              container.appendChild(box);
-        
-          
-              // Listen for comments in real time
-              const commentsRef = db.ref(`comments/${point.id}`);
-              commentsRef.on('value', (snapshot) => {
-                const comments = snapshot.val();
-                commentsDiv.innerHTML = '';
-                if (comments) {
-                    Object.values(comments).forEach(c => {
-                    const box = document.createElement('p');
-                    box.textContent = c.text ;
-                    const time = document.createElement('p');
-                    time.className = 'time';
-                    time.textContent = c.timestamp.toString();
-                    box.appendChild(time);
-                    commentsDiv.appendChild(box);
-                    }
-                  );
-                } else {
-                  commentsDiv.innerHTML = "<i>Be the first commenter!!</i>";
-                }
-                commentsDiv.scrollTop = commentsDiv.scrollHeight;//need this for the first open of bindPopup
-              });  
-              return container;
+            ref.push({
+              text: comment,
+              timestamp: d.getFullYear() +'/'+ d.getMonth() + '/'+ d.getDate() + '('+ d.getHours() + ':' + d.getMinutes() + ':' + d.getSeconds() + ')'
+            });
+            input.value = '';
+          }
+        //data management
+        //only keep 100 recent items 
+          ref.once("value", snapshot => {
+            const data = snapshot.val();
+            const keys = Object.keys(data || {});
+            if (keys.length > 100) {
+              // Sort and remove oldest ones
+              const sorted = keys.map(k => ({ key: k, time: data[k].timestamp }))
+              .sort((a, b) => a.time - b.time);
+              const toRemove = sorted.slice(0, keys.length - 10);
+              toRemove.forEach(({ key }) => ref.child(key).remove());
             }
-        
+          });
+        };
+    
+        const box = document.createElement('div');
+        box.className = 'comment-box';
+        box.appendChild(input);
+        box.appendChild(button);
+        container.appendChild(box);
+  
+    
+        // Listen for comments in real time
+        const commentsRef = db.ref(`comments/${point.id}`);
+        commentsRef.on('value', (snapshot) => {
+          const comments = snapshot.val();
+          commentsDiv.innerHTML = '';
+          if (comments) {
+              Object.values(comments).forEach(c => {
+              const box = document.createElement('p');
+              box.textContent = c.text ;
+              const time = document.createElement('p');
+              time.className = 'time';
+              time.textContent = c.timestamp.toString();
+              box.appendChild(time);
+              commentsDiv.appendChild(box);
+              }
+            );
+          } else {
+            commentsDiv.innerHTML = "<i>Be the first commenter!!</i>";
+          }
+          commentsDiv.scrollTop = commentsDiv.scrollHeight;//need this for the first open of bindPopup
+        });  
+        return container;
+      }
+  
+
+      //Image popup
+
+
+      function image_popup(imgsrc){
+        // Check if the section already exists
+        let existing = document.getElementById('popupSection');
+        if (existing) {
+          existing.style.display = 'block';
+          return;
+        }
+          // Create the section
+            const section = document.createElement('div');
+            section.id = 'popupSection';
+
+
+            //Section for Close Button
+            const ipc = document.createElement('div');
+            ipc.className = 'image-popup-close';
+            const cb = document.createElement('button');
+            cb.onclick = () => {             
+              const section = document.getElementById('popupSection');
+              if (section) {
+                section.remove();
+              }
+            };
+            cb.className = 'large-image-close';
+            const ci = document.createElement('img');
+            ci.src = '../images/close.webp';
+            ci.className = 'large-image-close-icon';
+            cb.appendChild(ci);
+            ipc.appendChild(cb);
+
+            section.appendChild(ipc);
+
+          //Section without Close Button
+          //Div for the image alignment
+            const large_image = document.createElement("div");
+            large_image.className = 'large-image-div';
+
+
+          //Image
+            const each_large_image = document.createElement('img');
+            each_large_image.src = imgsrc;
+            each_large_image.className = 'large-image';
+
+            large_image.appendChild(each_large_image);
+
+            section.appendChild(large_image);
+
+            // Append it to the map
+            const mapContainer = document.getElementById('map');
+            mapContainer.appendChild(section);
+            L.DomEvent.disableClickPropagation(section);
+            L.DomEvent.disableScrollPropagation(section);
+
+
+          }
+
 
 
 
