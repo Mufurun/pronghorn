@@ -421,7 +421,7 @@ Click Plus Sign to Zoom In`);
   
     //image with url
         const imageSection = document.createElement('button');
-        imageSection.onclick = () => image_popup("../"+point.image);
+        imageSection.onclick = () => image_popup(point.image);
 
         const image = document.createElement('img');
         image.src= "../"+point.image;
