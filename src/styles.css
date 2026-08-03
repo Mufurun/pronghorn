@@ -29,9 +29,12 @@
   }
   .title{
     font-size: 20px;
+    display: block;
   }
+
   .label{
     font-size: 16px;
+    display: block;
   }
   .comments {
     font-size: 1em;
@@ -39,6 +42,8 @@
     margin-left: 10px;
     max-height: 170px;
     overflow: auto; 
+    display:block;
+
   }
   
   .comment-box {
@@ -83,6 +88,9 @@
       max-height: 100px;
       text-align: right;
       border-bottom: 0.5px solid seashell;
+    }
+    a:link {
+      color: turquoise;
     }
 }
 
