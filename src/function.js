@@ -21,7 +21,7 @@
       when you click, the parent section open and show the content without hiding by the other section
   */
   
-      function updateParentHeight(element) {
+      export function updateParentHeight(element) {
         let parent = element.parentElement;
         while (parent) {
           if (parent.classList.contains('content') && parent.style.maxHeight) {
@@ -40,7 +40,7 @@
       This is necessary since the map will zoom up the region where you open the section with
   */
   
-      function updateSibling(element) {
+      export function updateSibling(element) {
           let sibling = element.parentElement.firstElementChild;
           while (sibling) {
               if (sibling !== element && sibling.classList.contains("content") && sibling.style.maxHeight) {
@@ -60,7 +60,7 @@
       This is necessary since the map will zoom up the region where you open the section with
   */
   
-      function updateChildren(element) {
+      export function updateChildren(element) {
           let child = element.firstElementChild;
           while (child) {
               if (child.classList.contains("content") && child.style.maxHeight) {
