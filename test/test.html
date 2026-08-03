@@ -216,92 +216,171 @@
   ******   Inner HTML    ******
   *****************************
   
-  
+ `<div class = 'control-button-wrapper'> 
+    <button class='collapsible' >Vancouver Island/Coast </button> 
+    <button class = 'button' id = 'VancouverIsland/Coast'></button>
+  </div>
+  <div class='content'>
+    <div class = 'control-button-wrapper'> 
+      <button class='collapsible' >Regional District of Alberni-Clayoquot</button>
+      <button class = 'button' id = 'RegionalDistrictofAlberni-Clayoquot'></button>
+    </div>
+    <div class='content'>
+      <div class = 'control-button-wrapper'> 
+        <button class='collapsible' >Port Alberni</button>
+        <button class = 'button' id = 'PortAlberni'></button>
+      </div>
+      <div class='content'>
+        <div id = 'list_PortAlberni' class = 'list-region'></div>
+      </div>
+      <div id = 'list_RegionalDistrictofAlberni-Clayoquot' class = 'list-region'></div>
+    </div>
+    <div class = 'control-button-wrapper'> 
+      <button class='collapsible' >Capital Regional District</button>
+      <button class = 'button' id = 'CapitalRegionalDistrict'></button>
+    </div>
+    <div class='content'>`
+ 
   */
-       const customControl = L.Control.extend({
+ 
+
+      const customControl = L.Control.extend({
         onAdd: function (map) {
           const container = L.DomUtil.create('div', 'custom-control leaflet-bar');
           container.innerHTML = `
           <div class = "custom-control-hover">
-              <strong>Region Control</strong>
-              <div class="custom-content">
-                <button class = 'button' id = 'world'><i>Go Back to the World View</i></button>
-          
-                <button class="collapsible" id = 'japan'>Japan</button>
+            <strong>Regions</strong><abbr class = 'question' id = 'regcon' title="Click Plus Sign to Zoom In"></abbr>
+               <div class="custom-content">
+                <button class = 'button-original-map' id = 'world'><i>Go Back to the World View</i></button>
+                
+                <div class = 'control-button-wrapper'> 
+                  <button class="collapsible">Japan</button>
+                  <button class = 'button' id = 'japan'></button>
+                </div>
                 <div class="content">
-                  <button class="collapsible" id = 'kanto'>Kanto</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Kanto</button>
+                    <button class = 'button' id = 'kanto'></button>
+                  </div>
                   <div class="content">
-                      <button class="collapsible" id = 'tokyo'>Tokyo</button>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Tokyo</button>
+                      <button class = 'button' id = 'tokyo'></button>
+                    </div>
                       <div class="content">
                           <div id = 'list_tokyo'></div>
                       </div>
-                      <button class="collapsible" id = 'kanagawa'>Kanagawa</button>
+                      <div class = 'control-button-wrapper'> 
+                        <button class="collapsible" >Kanagawa</button>
+                        <button class = 'button' id = 'kanagawa'></button>
+                      </div>
                       <div class="content">
                           <div id = 'list_kanagawa'></div>
                       </div>
                       <div id = 'list_kanto'></div>
                   </div>
-                  <button class="collapsible" id = 'kyoto'>Kyoto</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Kyoto</button>
+                    <button class = 'button' id = 'kyoto'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_kyoto'></div>
                   </div>
-                  <button class="collapsible" id = 'hokuriku'>Hokuriku</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Hokuriku</button>
+                    <button class = 'button' id = 'hokuriku'></button>
+                  </div>
                       <div class="content">
-                      <button class="collapsible" id = 'noto'>Noto</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Noto</button>
+                    <button class = 'button' id = 'noto'></button>
+                  </div>
                       <div class="content">
                           <div id = 'list_noto'></div>
                       </div>
                       <div id = 'list_hokuriku'></div>
                       </div>
-                  <button class="collapsible" id = 'fuji'>Fuji</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Fuji</button>
+                    <button class = 'button' id = 'fuji'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_fuji'></div>
                   </div>
                   <div id = 'list_japan'></div>
                 </div>
   
-                <button class="collapsible" id = 'canada'>Canada</button>
+                <div class = 'control-button-wrapper'> 
+                  <button class="collapsible" >Canada</button>
+                  <button class = 'button' id = 'canada'></button>
+                </div>
                 <div class="content">
-                  <button class="collapsible" id = 'bc'>BC</button>
-                  <div class="content">
-                    <button class="collapsible" id = 'southernbc'>Southern BC</button>
-                    <div class="content">
-                        <button class="collapsible" id = 'cowichan'>Cowichan Area</button>
-                        <div class="content">
-                            <div id = 'list_cowichan'></div>
-                        </div>
-                        <button class="collapsible" id = 'victoria'>Victoria</button>
-                        <div class="content">
-                            <div id = 'list_victoria'></div>
-                        </div>
-                        <button class="collapsible" id = 'vancouver'>Vancouver</button>
-                        <div class="content">
-                            <div id = 'list_vancouver'></div>
-                        </div>
-                        <div id = 'list_southernbc'></div>
-                    </div>  
-                    <button class="collapsible" id = 'nouthernbc'>Nouthern BC</button>
-                    <div class="content">
-                        <button class="collapsible" id = "pg">PG</button>
-                        <div class="content">
-                            <div id = 'list_pg'></div>
-                        </div>
-                        <div id = 'list_nouthernbc'></div>
-                    </div>  
-                    <div id = 'list_bc'></div>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Southern BC</button>
+                    <button class = 'button' id = 'southernbc'></button>
                   </div>
+                  <div class="content">
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Cowichan Area</button>
+                    <button class = 'button' id = 'cowichan'></button>
+                  </div>
+                      <div class="content">
+                          <div id = 'list_cowichan'></div>
+                      </div>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Victoria</button>
+                    <button class = 'button' id = 'victoria'></button>
+                  </div>
+                      <div class="content">
+                          <div id = 'list_victoria'></div>
+                      </div>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Vancouver</button>
+                    <button class = 'button' id = 'vancouver'></button>
+                  </div>
+                      <div class="content">
+                          <div id = 'list_vancouver'></div>
+                      </div>
+                      <div id = 'list_southernbc'></div>
+                  </div>  
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Nouthern BC</button>
+                    <button class = 'button' id = 'nouthernbc'></button>
+                  </div>
+                  <div class="content">
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >PG</button>
+                    <button class = 'button' id = 'pg'></button>
+                  </div>
+                      <div class="content">
+                          <div id = 'list_pg'></div>
+                      </div>
+                      <div id = 'list_nouthernbc'></div>
+                  </div>  
                 </div>
                 
   
-                <button class="collapsible" id = 'australia'>Australia</button>
+                <div class = 'control-button-wrapper'> 
+                  <button class="collapsible" >Australia</button>
+                  <button class = 'button' id = 'australia'></button>
+                </div>
                 <div class="content">
-                  <button class="collapsible" id = 'eastern nsw'>Eastern New South Wales</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Eastern New South Wales</button>
+                    <button class = 'button' id = 'eastern nsw'></button>
+                  </div>
                   <div class="content">
-                      <button class="collapsible" id = 'sydney'>Sydney</button>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Sydney</button>
+                      <button class = 'button' id = 'sydney'></button>
+                    </div>
                       <div class="content">
                           <div id = 'list_sydney'></div>
                       </div>
-                      <button class="collapsible" id = 'gosford'>Gosford</button>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Gosford</button>
+                      <button class = 'button' id = 'gosford'></button>
+                    </div>
                       <div class="content">
                           <div id = 'list_gosford'></div>
                       </div>
@@ -309,17 +388,29 @@
                   </div>
                 </div>
   
-                <button class="collapsible" id = 'usa'>USA</button>
+                <div class = 'control-button-wrapper'> 
+                  <button class="collapsible" >USA</button>
+                  <button class = 'button' id = 'usa'></button>
+                </div>
                 <div class="content">
-                  <button class="collapsible" id = 'seattle'>Seattle</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Seattle</button>
+                    <button class = 'button' id = 'seattle'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_seattle'></div>
                   </div>
-                  <button class="collapsible" id = 'orland'>Orland</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Orland</button>
+                    <button class = 'button' id = 'orland'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_orland'></div>
                   </div>
-                  <button class="collapsible" id = 'california'>California</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >California</button>
+                    <button class = 'button' id = 'california'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_california'></div>
                   </div>
@@ -345,28 +436,36 @@
               }
             })
             
-            const collapsibles = document.querySelectorAll(".collapsible");
+           const collapsibles = document.querySelectorAll(".collapsible");
             collapsibles.forEach(button => {
               button.addEventListener("click", function () {
-                const content = this.nextElementSibling;
+                const content = this.parentElement.nextElementSibling;
                 if (content.style.maxHeight) {
+                  content.style.maxHeight = null;
+                  this.classList.toggle("active");
                   updateChildren(content);  
                 } else {
-                this.classList.toggle("active");
+                  this.classList.toggle("active");
                   content.style.maxHeight = 350 + "px";
                   updateSibling(content);  
                   updateParentHeight(content);
                 }
               });
-            });
-            const world = document.querySelectorAll(".button");
+            });            const world = document.querySelectorAll(".button-original-map");
             world.forEach(button => {
               button.addEventListener("click", function () {
                 const content = this.nextElementSibling;
                 updateSibling(content);  
-                  
               });
             });
+
+            const regconbutton = document.getElementById('regcon');
+            if(regconbutton){
+                regconbutton.addEventListener("click", () => {
+                  alert(`Click to Open the Specific Region. 
+Click Plus Sign to Zoom In`);
+                });
+            }
   
             region_categories.forEach(location =>{
                 listMarkers(location);
@@ -728,7 +827,7 @@
           const jumpButtonCP = L.control({ position: 'topleft' });
           jumpButtonCP.onAdd = function (map) {
           const btn = L.DomUtil.create('button', 'my-custom-button');
-          btn.innerHTML = 'Current <br> Position';
+          btn.innerHTML = '<strong>Current <br> Position</strong>';
           // Prevent map from moving when clicking the button
           L.DomEvent.disableClickPropagation(btn);
           btn.onclick = () => {
@@ -742,8 +841,96 @@
       function onLocationError(e) {
           alert(e.message);
       }
+
+      
+      function layerControlhtml(){
+        return `
+          <div class = "layconContent">
+            <strong>Background Map</strong><abbr class = 'question' id = 'laycon' title="Select the background map type"></abbr>
+            <div class="plain">
+              <select id="layer">
+                <option value="osm">Street View 1</option>
+                <option value="cv">Street View 2</option>
+                <option value="otm">Topographic View</option>
+                <option value="esi">Satellite Imagery</option>
+              </select>
+            </div></div>
+          </div>
+            `;
+      }
+    function layerFunctions(map){
+
+                  setTimeout(() => {
+            document.getElementById('layer').addEventListener('change', function(){
+              if (document.getElementById('layer').value == 'osm'){
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank" class = ".leaflet-control-attribution">CARTO</a>');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  maxZoom: 20,
+                  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'cv'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                  maxZoom: 20,
+                  attribution: '&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'otm'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
+                  maxZoom: 20,
+                  attribution: 'Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'esi'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                  maxZoom: 20,
+                  attribution: 'Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
+                }).addTo(map);
+              }
+
+
+            }); 
+          }, 0);
+
+
+      }
+      const layerControl = L.Control.extend({
+        onAdd: function (map) {
+          const container = L.DomUtil.create('div');
+          container.innerHTML = layerControlhtml();
+          layerFunctions(map);
+
   
+          // Prevent map click propagation
+          L.DomEvent.disableClickPropagation(container);
+          L.DomEvent.disableScrollPropagation(container);
+
+          setTimeout(()=>{
+            const layconbutton = document.getElementById('laycon');
+            if(layconbutton){
+                layconbutton.addEventListener("click", () => {
+                  alert("Change the Map Layer");
+                });
+            }
+          },0)
+
     
+          return container;
+        }
+      });
+    
+      map.addControl(new layerControl({ position: 'topright' }));
   
   </script>
   
