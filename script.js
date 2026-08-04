@@ -746,9 +746,7 @@ export function onLocationError(e) {
 
 
       map.addControl(new customControl({ position: 'topleft' }));
+      map.addControl(new layerControl({ position: 'topright' }));
       var zoomControl = L.control.zoom({position: 'topright'}).addTo(map);
 
-
-
-      map.addControl(new layerControl({ position: 'topright' }));
 
