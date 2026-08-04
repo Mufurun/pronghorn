@@ -95,17 +95,8 @@
      Current Position:
      Layer Control:
      Region COntrol:
+     Layer control
 */
-
-/*
-******************************
-******   zoomControl    ******
-******************************
-*/
-
-    var zoomControl = L.control.zoom({
-            position: 'topright'
-        }).addTo(map);
 
      
 
@@ -364,7 +355,6 @@ Click Plus Sign to Zoom In`);
         }
       });
   
-      map.addControl(new customControl({ position: 'topleft' }));
     
 
 /*
@@ -701,7 +691,7 @@ function listMarkers(region){
         }
       });
     
-      map.addControl(new layerControl({ position: 'topright' }));
+
 
 /*
 ####################################################
@@ -751,4 +741,14 @@ export function onLocationError(e) {
 }
 
 
+
+/* controls */
+
+
+      map.addControl(new customControl({ position: 'topleft' }));
+      var zoomControl = L.control.zoom({position: 'topright'}).addTo(map);
+
+
+
+      map.addControl(new layerControl({ position: 'topright' }));
 
