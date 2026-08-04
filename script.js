@@ -104,7 +104,7 @@
 */
 
     var zoomControl = L.control.zoom({
-            position: 'bottomright'
+            position: 'topright'
         }).addTo(map);
 
      
