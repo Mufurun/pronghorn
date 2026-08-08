@@ -218,85 +218,143 @@
   
   
   */
-       const customControl = L.Control.extend({
+      const customControl = L.Control.extend({
         onAdd: function (map) {
           const container = L.DomUtil.create('div', 'custom-control leaflet-bar');
           container.innerHTML = `
           <div class = "custom-control-hover">
-              <strong>Region Control</strong>
-              <div class="custom-content">
-                <button class = 'button' id = 'world'><i>Go Back to the World View</i></button>
-          
-                <button class="collapsible" id = 'japan'>Japan</button>
+            <strong>Regions</strong><abbr class = 'question' id = 'regcon' title="Click Plus Sign to Zoom In"></abbr>
+               <div class="custom-content">
+                <button class = 'button-original-map' id = 'world'><i>Go Back to the World View</i></button>
+                
+                <div class = 'control-button-wrapper'> 
+                  <button class="collapsible">Japan</button>
+                  <button class = 'button' id = 'japan'></button>
+                </div>
                 <div class="content">
-                  <button class="collapsible" id = 'kanto'>Kanto</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Kanto</button>
+                    <button class = 'button' id = 'kanto'></button>
+                  </div>
                   <div class="content">
-                      <button class="collapsible" id = 'tokyo'>Tokyo</button>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Tokyo</button>
+                      <button class = 'button' id = 'tokyo'></button>
+                    </div>
                       <div class="content">
                           <div id = 'list_tokyo'></div>
                       </div>
-                      <button class="collapsible" id = 'kanagawa'>Kanagawa</button>
+                      <div class = 'control-button-wrapper'> 
+                        <button class="collapsible" >Kanagawa</button>
+                        <button class = 'button' id = 'kanagawa'></button>
+                      </div>
                       <div class="content">
                           <div id = 'list_kanagawa'></div>
                       </div>
                       <div id = 'list_kanto'></div>
                   </div>
-                  <button class="collapsible" id = 'kyoto'>Kyoto</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Kyoto</button>
+                    <button class = 'button' id = 'kyoto'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_kyoto'></div>
                   </div>
-                  <button class="collapsible" id = 'hokuriku'>Hokuriku</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Hokuriku</button>
+                    <button class = 'button' id = 'hokuriku'></button>
+                  </div>
                       <div class="content">
-                      <button class="collapsible" id = 'noto'>Noto</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Noto</button>
+                    <button class = 'button' id = 'noto'></button>
+                  </div>
                       <div class="content">
                           <div id = 'list_noto'></div>
                       </div>
                       <div id = 'list_hokuriku'></div>
                       </div>
-                  <button class="collapsible" id = 'fuji'>Fuji</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Fuji</button>
+                    <button class = 'button' id = 'fuji'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_fuji'></div>
                   </div>
                   <div id = 'list_japan'></div>
                 </div>
   
-                <button class="collapsible" id = 'canada'>Canada</button>
+                <div class = 'control-button-wrapper'> 
+                  <button class="collapsible" >Canada</button>
+                  <button class = 'button' id = 'canada'></button>
+                </div>
                 <div class="content">
-                  <button class="collapsible" id = 'bc'>BC</button>
-                  <div class="content">
-                    <button class="collapsible" id = 'southern bc'>Southern BC</button>
-                    <div class="content">
-                        <button class="collapsible" id = 'cowichan'>Cowichan Area</button>
-                        <div class="content">
-                            <div id = 'list_cowichan'></div>
-                        </div>
-                        <button class="collapsible" id = 'victoria'>Victoria</button>
-                        <div class="content">
-                            <div id = 'list_victoria'></div>
-                        </div>
-                        <button class="collapsible" id = 'vancouver'>Vancouver</button>
-                        <div class="content">
-                            <div id = 'list_vancouver'></div>
-                        </div>
-                        <div id = 'list_bc'></div>
-                    </div>  
-                    <button class="collapsible" id = "pg">PG</button>
-                    <div class="content">
-                        <div id = 'list_pg'></div>
-                    </div>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Southern BC</button>
+                    <button class = 'button' id = 'southernbc'></button>
                   </div>
+                  <div class="content">
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Cowichan Area</button>
+                    <button class = 'button' id = 'cowichan'></button>
+                  </div>
+                      <div class="content">
+                          <div id = 'list_cowichan'></div>
+                      </div>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Victoria</button>
+                    <button class = 'button' id = 'victoria'></button>
+                  </div>
+                      <div class="content">
+                          <div id = 'list_victoria'></div>
+                      </div>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Vancouver</button>
+                    <button class = 'button' id = 'vancouver'></button>
+                  </div>
+                      <div class="content">
+                          <div id = 'list_vancouver'></div>
+                      </div>
+                      <div id = 'list_southernbc'></div>
+                  </div>  
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Nouthern BC</button>
+                    <button class = 'button' id = 'nouthernbc'></button>
+                  </div>
+                  <div class="content">
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >PG</button>
+                    <button class = 'button' id = 'pg'></button>
+                  </div>
+                      <div class="content">
+                          <div id = 'list_pg'></div>
+                      </div>
+                      <div id = 'list_nouthernbc'></div>
+                  </div>  
                 </div>
                 
   
-                <button class="collapsible" id = 'australia'>Australia</button>
+                <div class = 'control-button-wrapper'> 
+                  <button class="collapsible" >Australia</button>
+                  <button class = 'button' id = 'australia'></button>
+                </div>
                 <div class="content">
-                  <button class="collapsible" id = 'eastern nsw'>Eastern New South Wales</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Eastern New South Wales</button>
+                    <button class = 'button' id = 'eastern nsw'></button>
+                  </div>
                   <div class="content">
-                      <button class="collapsible" id = 'sydney'>Sydney</button>
-                      <div class="content">
-                          <div id = 'list_sydney'></div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Sydney</button>
+                      <button class = 'button' id = 'sydney'></button>
+                    </div>
+                    <div class="content">
+                        <div id = 'list_sydney'></div>
+                    </div>
+                      <div class = 'control-button-wrapper'> 
+                        <button class="collapsible" >Gosford</button>
+                        <button class = 'button' id = 'gosford'></button>
                       </div>
-                      <button class="collapsible" id = 'gosford'>Gosford</button>
                       <div class="content">
                           <div id = 'list_gosford'></div>
                       </div>
@@ -304,17 +362,29 @@
                   </div>
                 </div>
   
-                <button class="collapsible" id = 'usa'>USA</button>
+                <div class = 'control-button-wrapper'> 
+                  <button class="collapsible" >USA</button>
+                  <button class = 'button' id = 'usa'></button>
+                </div>
                 <div class="content">
-                  <button class="collapsible" id = 'seattle'>Seattle</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Seattle</button>
+                    <button class = 'button' id = 'seattle'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_seattle'></div>
                   </div>
-                  <button class="collapsible" id = 'orland'>Orland</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Orland</button>
+                    <button class = 'button' id = 'orland'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_orland'></div>
                   </div>
-                  <button class="collapsible" id = 'california'>California</button>
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >California</button>
+                    <button class = 'button' id = 'california'></button>
+                  </div>
                   <div class="content">
                       <div id = 'list_california'></div>
                   </div>
@@ -322,7 +392,6 @@
               </div>
           </div>
             `;
-  
           // Prevent map click propagation
           L.DomEvent.disableClickPropagation(container);
           L.DomEvent.disableScrollPropagation(container);
@@ -340,11 +409,13 @@
               }
             })
             
-            const collapsibles = document.querySelectorAll(".collapsible");
+           const collapsibles = document.querySelectorAll(".collapsible");
             collapsibles.forEach(button => {
               button.addEventListener("click", function () {
-                const content = this.nextElementSibling;
+                const content = this.parentElement.nextElementSibling;
                 if (content.style.maxHeight) {
+                this.classList.toggle("active");
+                  content.style.maxHeight = null;
                   updateChildren(content);  
                 } else {
                 this.classList.toggle("active");
@@ -353,15 +424,22 @@
                   updateParentHeight(content);
                 }
               });
-            });
-            const world = document.querySelectorAll(".button");
+            });            
+            const world = document.querySelectorAll(".button-original-map");
             world.forEach(button => {
               button.addEventListener("click", function () {
                 const content = this.nextElementSibling;
                 updateSibling(content);  
-                  
               });
             });
+
+            const regconbutton = document.getElementById('regcon');
+            if(regconbutton){
+                regconbutton.addEventListener("click", () => {
+                  alert(`Click to Open the Specific Region. 
+Click Plus Sign to Zoom In`);
+                });
+            }
   
             region_categories.forEach(location =>{
                 listMarkers(location);
@@ -371,7 +449,7 @@
           return container;
         }
       });
-  
+
       map.addControl(new customControl({ position: 'topleft' }));
   
       
@@ -623,6 +701,13 @@
   
     Unfold the other sibling sections
       This is necessary since the map will zoom up the region where you open the section with
+
+                <div class="content">
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Eastern New South Wales</button>
+                    <button class = 'button' id = 'eastern nsw'></button>
+                  </div>
+
   */
   
       function updateSibling(element) {
@@ -630,7 +715,9 @@
           while (sibling) {
               if (sibling !== element && sibling.classList.contains("content") && sibling.style.maxHeight) {
                   sibling.style.maxHeight = null;
-                  sibling.previousElementSibling.classList.toggle("active");
+                  sibling.firstElementChild.firstElementChild.classList.toggle("active");
+                  if (sibling.firstElementChild.firstElementChild.classList.contains("collapsible")) {console.log("good");}
+
                   updateChildren(sibling);
               }
               sibling = sibling.nextElementSibling;
@@ -650,7 +737,8 @@
           while (child) {
               if (child.classList.contains("content") && child.style.maxHeight) {
                   child.style.maxHeight = null;
-                  child.previousElementSibling.classList.toggle("active");
+                  if (child.firstElementChild.firstElementChild.classList.contains("collapsible")) {console.log("good2");}
+                  child.firstElementChild.firstElementChild.classList.toggle("active");
                   updateChildren(child);
               }
               child = child.nextElementSibling;
