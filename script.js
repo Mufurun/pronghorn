@@ -567,6 +567,21 @@ Click Plus Sign to Zoom In`);
             L.DomEvent.disableClickPropagation(section);
             L.DomEvent.disableScrollPropagation(section);
 
+            setTimeout(()=> {
+            document.addEventListener('click', (event) => {
+     // Check if the click is outside the section AND outside the popup itself
+            const isOutsideSection = !section.contains(event.target);
+              
+              if (isOutsideSection) {
+                  // Close your popup here
+                  const section = document.getElementById('popupSection');
+                  if (section) {
+                    section.remove();
+                  }
+              }
+            });
+
+            })
 
           }
 
