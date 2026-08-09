@@ -83,7 +83,7 @@ const points = [
 
 
     //pg    
-        { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
+//        { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
         { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
         { id: 'salmonrelease', name: "Salmon Baby Released", coords: [53.926330, -122.742049], group: 'pg', url: null,image: "images/IMG_6394.webp" },
 
