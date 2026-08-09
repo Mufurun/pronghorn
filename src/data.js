@@ -75,6 +75,10 @@ const points = [
         { id: 'honeymoonisland', name: "Honeymoon Island on Stuart Lake", coords: [54.499175, -124.389243], group: 'nouthernbc',url: null, image: "images/IMG_6543.webp"},
         { id: 'onlogs', name: "We're on a bridge", coords: [55.005062, -124.347864], group: 'nouthernbc',url: null, image: "images/IMG_6544.webp"},
         { id: 'redchris2', name: "Dropped by Heli", coords: [57.773036, -129.753621], group: 'nouthernbc',url: null, image: "images/IMG_6554.webp"},
+        { id: 'ancientforest1', name: "Water Fall in the cedar forest", coords: [53.760358, -121.219864], group: 'nouthernbc',url: null, image: "images/IMG_6612.webp"},
+        { id: 'ancientforest1', name: "Cedar Bottle Holder", coords: [53.761497, -121.220873], group: 'nouthernbc',url: null, image: "images/IMG_6615.webp"},
+
+
 
 
 
