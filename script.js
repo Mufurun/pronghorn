@@ -556,7 +556,7 @@ Click Plus Sign to Zoom In`);
             section.appendChild(large_image);
 
             const large_image_note = document.createElement('p');
-            large_image_note.text = 'click the picture to open and zoom in';
+            large_image_note.textContent = 'click the picture to open and zoom in';
             section.appendChild(large_image_note);
 
 
