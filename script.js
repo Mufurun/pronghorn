@@ -552,10 +552,13 @@ Click Plus Sign to Zoom In`);
             const each_large_image = document.createElement('img');
             each_large_image.src = imgsrc;
             each_large_image.className = 'large-image';
-
             large_image.appendChild(each_large_image);
-
             section.appendChild(large_image);
+
+            const large_image_note = document.createElement('p');
+            large_image_note.text = 'click the picture to open and zoom in';
+            section.appendChild(large_image_note);
+
 
 
             // Append it to the map
