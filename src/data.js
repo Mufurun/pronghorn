@@ -12,6 +12,7 @@ const points = [
         { id: 'sook', name: "Sook", coords: [48.3569, -123.7266], group: 'southernbc',url: null, image: "images/IMG_4046.webp"},
         { id: 'kitchenkodama', name: "Kitchen Kodama", coords: [48.85427660017365, -123.5006565720225], group: 'southernbc', url: null, image: "images/IMG_5477.webp"},
         { id: 'whistler', name: "Winter Olympic in Whister", coords: [50.1184, -122.9550], group: 'southernbc', url: null, image: "images/IMG_6191.webp"},
+        { id: 'tulipabbortsford', name: "Tulips", coords: [49.0746, -122.1407], group: 'southernbc', url: null,image: "images/IMG_4191.webp" }, 
 
 
     //Cowichan
@@ -189,7 +190,7 @@ const points = [
         { id: 'dicks', name: "Dicks", coords: [47.6234, -122.3564], group: 'seattle', url: null,image: "images/IMG_3325.webp" }, 
         { id: 'sphere', name: "Spheres", coords: [47.6157, -122.3394], group: 'seattle', url: "https://www.seattlespheres.com/",image: "images/IMG_3356.webp" }, 
         { id: 'fstb', name: "First Starbucks", coords: [47.61, -122.3426], group: 'seattle', url: null,image: "images/IMG_3362.webp" }, 
-        { id: 'gwall', name: "Pike Place Market", coords: [49.0746, -122.1407], group: 'seattle', url: "https://www.pikeplacemarket.org/",image: "images/IMG_4191.webp" }, 
+        { id: 'gwall', name: "Pike Place Market", coords: [49.0746, -122.1407], group: 'seattle', url: "https://www.pikeplacemarket.org/",image: "images/IMG_3465.webp" }, 
     
     //orland
         { id: 'dws', name: "Sky of Disney World", coords: [28.4186, -81.5814], group: 'orland', url: null,image: "images/011.webp" }, 
