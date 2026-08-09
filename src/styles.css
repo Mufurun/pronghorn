@@ -286,10 +286,10 @@
 
   #popupSection {
   position: absolute;
-  top: 12%;
-  left: 12%;
-  height: 75%;
-  width: 75%;
+  top: 1%;
+  left: 1%;
+  height: 95%;
+  width: 95%;
   z-index: 1000; /* higher than Leaflet tiles */
   background-color: rgba(255, 245, 238, 0.9);
   padding: 20px;
@@ -335,6 +335,8 @@
   max-width: 100%;
   display: block;
   margin: auto;
+  object-fit: cover;
+  transition: transform 0.3s ease; 
 }
 
 

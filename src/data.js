@@ -76,10 +76,8 @@ const points = [
         { id: 'honeymoonisland', name: "Honeymoon Island on Stuart Lake", coords: [54.499175, -124.389243], group: 'nouthernbc',url: null, image: "images/IMG_6543.webp"},
         { id: 'onlogs', name: "We're on a bridge", coords: [55.005062, -124.347864], group: 'nouthernbc',url: null, image: "images/IMG_6544.webp"},
         { id: 'redchris2', name: "Dropped by Heli", coords: [57.773036, -129.753621], group: 'nouthernbc',url: null, image: "images/IMG_6554.webp"},
-        { id: 'ancientforest1', name: "Water Fall in the cedar forest", coords: [53.760358, -121.219864], group: 'nouthernbc',url: null, image: "images/IMG_6612.webp"},
-        { id: 'ancientforest1', name: "Cedar Bottle Holder", coords: [53.761497, -121.220873], group: 'nouthernbc',url: null, image: "images/IMG_6615.webp"},
-
-
+        { id: 'ancientforest1', name: "Water Fall in the cedar forest", coords: [53.759194, -121.222619], group: 'nouthernbc',url: null, image: "images/IMG_6612.webp"},
+        { id: 'ancientforest1', name: "Cedar Bottle Holder", coords: [53.760489, -121.222093], group: 'nouthernbc',url: null, image: "images/IMG_6615.webp"},
 
 
 
@@ -129,23 +127,23 @@ const points = [
         { id: 'tsukubasumit', name: "Mt Tsukuba (Nyotaisan)", coords: [36.2254, 140.1067], group: 'kanto', url: null, image: "images/25042819.webp"},
 
     //kyoto
-        { id: 'ktower', name: "Kyoto Tower from the station", coords: [34.9866, 135.7603], group: 'kyoto', url: "https://www.kyoto-tower.jp/en/",image: "images/616.webp" },
+        { id: 'ktower', name: "Kyoto Tower from the station", coords: [34.9866, 135.7603], group: 'kyoto', url: "https://www.kyoto-tower.jp/en/",image: "images/584.webp" },
         { id: 'Ninnaji', name: "Ninnnaji?", coords: [35.0099, 135.7702], group: 'kyoto', url: "https://ninnaji.jp/en/",image: "images/639.webp" },
         { id: 'kiyomizu', name: "Kiyomizudera", coords: [34.99478097309438, 135.78474008546257], group: 'kyoto', url: "https://www.kiyomizudera.or.jp/en/",image: "images/610.webp" },
         { id: 'kinkaku', name: "Kinkaku", coords: [35.03948416885166, 135.72930746929404], group: 'kyoto', url: "https://www.shokoku-ji.jp/kinkakuji/",image: "images/616.webp" },
     //fuji
-        { id: 'fuji2023', name: "Mt.Fuji", coords: [35.37256751938174, 138.7398708424644], group: 'fuji', url: "https://www.fujisan-climb.jp/en/",image: "images/IMG_2567.webp" }, 
+        { id: 'fuji2023', name: "View from Mt.Fuji", coords: [35.37256751938174, 138.7398708424644], group: 'fuji', url: "https://www.fujisan-climb.jp/en/",image: "images/IMG_2567.webp" }, 
         { id: 'yamanaka', name: "Lake Kawaguchi", coords: [35.52285947957453, 138.753864500151], group: 'fuji', url: null,image: "images/IMG_2688.webp" }, 
         { id: 'fuji2011?', name: "Mt.Fuji and an Old Guy (I hope he is doing well)", coords: [35.377, 138.745], group: 'fuji', url: null,image: "images/IMG_5356.webp" }, 
     //hokuriku
         { id: 'kagaya', name: "Kagaya Hotel", coords: [37.0902, 136.9144], group: 'noto', url: "https://www.kagaya.co.jp/en/",image: "images/IMG_1666.webp" },
         { id: 'hananoren', name: "Hanayome Noren ", coords: [37.07731167115873, 136.9244441834381], group: 'noto', url: "https://www.westjr.co.jp/global/en/train/hanayomenoren/",image: "images/IMG_1611.webp" },
-        { id: 'mawakihrt', name: "Mawaki Heritage ", coords: [37.30570331178062, 137.20687275001785], group: 'noto', url: null,image: "images/IMG_1684.webp" },
+        { id: 'mawakihrt', name: "Mawaki Heritage ", coords: [37.30570331178062, 137.20687275001785], group: 'noto', url: "http://www.mawakiiseki.jp",image: "images/IMG_1684.webp" },
         { id: 'wakutama', name: "Mr.Wakutama ", coords: [37.086946676906685, 136.92469328003526], group: 'noto', url: null,image: "images/IMG_1783.webp" },
         { id: 'kurobe', name: "Kurobe Dam", coords: [36.566778569842725, 137.6621593776124], group: 'hokuriku', url: "https://www.kurobe-dam.com/",image: "images/IMG_1820.webp" },
         { id: 'utsukushigahara', name: "Utsukushigahara", coords: [36.24177679899555, 138.093271200977], group: 'hokuriku', url: null,image: "images/IMG_1888.webp" },
         { id: 'yoritomo', name: "Yase Clif - Hiding Spot (Historical)", coords: [37.2095, 136.6831], group: 'noto', url: null,image: "images/IMG_1933.webp" },
-        { id: 'longbench', name: "Longest Bench in the world", coords: [37.14979035357368, 136.71076798525903], group: 'noto', url: null,image: "images/IMG_1943.webp" },
+        { id: 'longbench', name: "Longest Bench in the world", coords: [37.14979035357368, 136.71076798525903], group: 'noto', url: null,image: "images/IMG_1947.webp" },
         { id: 'hatago', name: "Hatago Rock", coords: [37.12398498307547, 136.72734363187513], group: 'noto', url: null,image: "images/IMG_1951.webp" },
         { id: 'Ganmon', name: "Ganmon", coords: [37.12398498307547, 136.72734363187513], group: 'noto', url: null,image: "images/IMG_1968.webp" },
         { id: 'nino', name: "Grill Nino", coords: [36.89680878070846, 136.78279582788295], group: 'noto', url: null,image: "images/IMG_1991.webp" },
