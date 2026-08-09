@@ -730,6 +730,8 @@ export function onLocationFound(e) {
       map.flyTo(currentPosition,12);
       // You can add more logic here, like map.flyTo(), addMarker(), etc.
     };
+    map.flyTo(currentPosition,2);
+
     return btn;
   };
   jumpButtonCP.addTo(map);
@@ -748,5 +750,4 @@ export function onLocationError(e) {
       map.addControl(new customControl({ position: 'topleft' }));
       map.addControl(new layerControl({ position: 'topright' }));
       var zoomControl = L.control.zoom({position: 'topright'}).addTo(map);
-
 
