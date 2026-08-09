@@ -543,8 +543,9 @@ Click Plus Sign to Zoom In`);
 
           //Section without Close Button
           //Div for the image alignment
-            const large_image = document.createElement("div");
+            const large_image = document.createElement("a");
             large_image.className = 'large-image-div';
+            large_image.href = 'https://projectpronghorn.netlify.app/' + imgsrc;
 
 
           //Image
