@@ -13,16 +13,17 @@ by Mufurun
 # Methods
 ## Map
   I will do (check if they are done) 
-- [ ] upload most of photoes on my phone, which are not a lot, with the location
+- [x] upload most of photoes on my phone, which are not a lot, with the location
 - [ ] add general info about the place with the name
-- [ ] allow people to comment
+- [x] allow people to comment
   - [x] with time if there's room in the storage
   - [x] only keep 100 items
   - [ ] allow people to add picture
 - [x] add the regional filtering buttons to make it easy to change their view.
-- [ ] use something like satelite imagery later, but right now I am using just a normal map
+- [x] use something like satelite imagery later, but right now I am using just a normal map
 - [x] provide the notice for the privacy
 - [ ] add time filter
+- [ ] <ins>CLEAN UP CODING</ins>
   
 # Privacy and Comments
 - I do not need my privacy,
@@ -31,4 +32,3 @@ by Mufurun
 # Distribution
 - My initial interest is inspired by Cecilia Porter in UCalgary (https://profiles.ucalgary.ca/cecilia-porter) as well as an instructor who invited her to UVic to have a presentation about inuit mapping project (https://inuitheritage.gl/map/)
 - My co-op in 2024 also motivated me creating heritage map on the Coastal BC.
-    - I want to apply my skills to this feild
