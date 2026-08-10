@@ -39,7 +39,7 @@
   var hash = new L.Hash(map);
 
   //attribution
-    map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+    map.attributionControl.setPrefix('<a href="https://github.com/Mufurun/pronghorn" target="_blank">GitHub</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
     L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
       maxZoom: 20,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
