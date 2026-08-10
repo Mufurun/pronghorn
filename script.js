@@ -36,6 +36,7 @@
 */
   //map
   const map = L.map('map',{continuousWorld: true, worldCopyJump: true, zoomControl:false, maxZoom:18, minZoom:2}).setView([20, 0], 2);
+  var hash = new L.Hash(map);
 
   //attribution
     map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
@@ -66,7 +67,7 @@
 */
     points.forEach(point => {
        const marker = L.marker(point.coords);
-       
+       marker.setIcon(icon);       
        marker.bindPopup(() => {
         const popupContent = createPopupContent(point);
         return popupContent;
@@ -746,6 +747,15 @@ export function onLocationError(e) {
   alert(e.message);
 }
 
+
+const icon = L.icon({
+        iconUrl: './images/icon.webp',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+        iconSize: [30, 30],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
 
 
 /* controls */
