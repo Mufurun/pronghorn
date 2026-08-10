@@ -75,7 +75,7 @@ const icon = L.icon({
       });
 
     points.forEach(point => {
-       const marker = L.marker(point.coords);
+       const marker = L.marker(point.coords, {icon: greenIcon});
        marker.setIcon(icon);       
        marker.bindPopup(() => {
         const popupContent = createPopupContent(point);
@@ -722,18 +722,10 @@ If location is found:
       add a marker
       create a button to zoom up the location 
 */
-const greenIcon = L.icon({
-  iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
-  shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
-  iconSize: [25, 41],
-  iconAnchor: [12, 41],
-  popupAnchor: [1, -34],
-  shadowSize: [41, 41]
-});
 
 export function onLocationFound(e) {
   currentPosition = e.latlng;
-  L.marker(currentPosition, {icon: greenIcon}).addTo(map);
+  L.marker(currentPosition).addTo(map);
   const jumpButtonCP = L.control({ position: 'topleft' });
   jumpButtonCP.onAdd = function (map) {
     const btn = L.DomUtil.create('button', 'my-custom-button');
