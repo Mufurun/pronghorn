@@ -23,6 +23,7 @@ by Mufurun
 - [x] use something like satelite imagery later, but right now I am using just a normal map
 - [x] provide the notice for the privacy
 - [ ] add time filter
+- [ ] <ins>CLEAN UP CODING</ins>
   
 # Privacy and Comments
 - I do not need my privacy,
