@@ -65,6 +65,15 @@
     Add every points on the map using createPopupContent()
     Group them to filter
 */
+const icon = L.icon({
+        iconUrl: './images/icon.webp',
+        shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
+        iconSize: [30, 30],
+        iconAnchor: [12, 41],
+        popupAnchor: [1, -34],
+        shadowSize: [41, 41]
+      });
+
     points.forEach(point => {
        const marker = L.marker(point.coords);
        marker.setIcon(icon);       
@@ -748,14 +757,6 @@ export function onLocationError(e) {
 }
 
 
-const icon = L.icon({
-        iconUrl: './images/icon.webp',
-        shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
-        iconSize: [30, 30],
-        iconAnchor: [12, 41],
-        popupAnchor: [1, -34],
-        shadowSize: [41, 41]
-      });
 
 
 /* controls */
