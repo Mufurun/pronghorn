@@ -78,7 +78,7 @@ const points = [
         { id: 'redchris2', name: "Dropped by Heli", coords: [57.773036, -129.753621], group: 'nouthernbc',url: null, image: "images/IMG_6554.webp"},
         { id: 'ancientforest1', name: "Water Fall in the cedar forest", coords: [53.759194, -121.222619], group: 'nouthernbc',url: null, image: "images/IMG_6612.webp"},
         { id: 'ancientforest1', name: "Cedar Bottle Holder", coords: [53.760489, -121.222093], group: 'nouthernbc',url: null, image: "images/IMG_6615.webp"},
-        { id: 'jamesoffice', name: "Owl if Deer (Ecofor Office at FS James)", coords: [54.442779, -124.252169], group: 'nouthernbc',url: null, image: "images/IMG_6594.webp"},
+        { id: 'jamesoffice', name: "Owl of Deer Butt (Ecofor Office at FS James)", coords: [54.442779, -124.252169], group: 'nouthernbc',url: null, image: "images/IMG_6594.webp"},
         { id: 'washroom', name: "How Do You Use Washroom?", coords: [54.061325, -124.911034], group: 'nouthernbc',url: null, image: "images/IMG_6296.webp"},
 
 
