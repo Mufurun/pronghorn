@@ -75,8 +75,7 @@ const icon = L.icon({
       });
 
     points.forEach(point => {
-       const marker = L.marker(point.coords, {icon: greenIcon});
-       marker.setIcon(icon);       
+       const marker = L.marker(point.coords, {icon: icon});
        marker.bindPopup(() => {
         const popupContent = createPopupContent(point);
         return popupContent;
