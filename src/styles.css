@@ -286,8 +286,8 @@
 
   #popupSection {
   position: absolute;
-  top: 12%;
-  left: 12%;
+  top: 5%;
+  left: 5%;
   height: 75%;
   width: 75%;
   z-index: 1000; /* higher than Leaflet tiles */
