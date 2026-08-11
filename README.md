@@ -13,14 +13,14 @@ by Mufurun
 # Methods
 ## Map
   I will do (check if they are done) 
-- [x] upload most of photoes on my phone, which are not a lot, with the location
+- [x] upload many photoes on my phone with the location
 - [ ] add general info about the place with the name
 - [x] allow people to comment
   - [x] with time if there's room in the storage
   - [x] only keep 100 items
   - [ ] allow people to add picture
 - [x] add the regional filtering buttons to make it easy to change their view.
-- [x] use something like satelite imagery later, but right now I am using just a normal map
+- [x] use something like satelite imagery 
 - [x] provide the notice for the privacy
 - [ ] add time filter
 - [ ] <ins>CLEAN UP CODING</ins>

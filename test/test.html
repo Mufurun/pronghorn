@@ -5,17 +5,17 @@
 <!--
         Thank you for reading this source :))
         Wanna get this code improved??
-        Contact: 
+        Contact: https://github.com/Mufurun
 
         お疲れ様です！
         ソースをご確認いただきありがとうございます！(/ω＼*)
         問題がある部分や御意見等ございましたら、ご連絡いただければ幸いです。
-        連絡先: 
+        連絡先: https://github.com/Mufurun
         -->
 
 <head>
   <title>Project Pronghorn</title>
-  <link rel="icon" href="images/mufurun.ico" type="image/x-icon">
+  <link rel="icon" href="../images/mufurun.ico" type="image/x-icon">
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
@@ -29,14 +29,18 @@
 <!-- Checkin Screen-->
   <div id="entryScreen">
     <div class="entry-box">
-      <h1>Are You 18 or Older?</h1>
-      <p>By clicking Enter, you confirm that you're 18+ <sub>and agree to our Terms & Conditions. <br>You must read the following Terms & Conditions</subsub></p>
+      <h1>Are You 18+?</h1>
+      <p>By clicking Enter, you confirm that your average score for school tests were greater than 18 <br><sub><sub>and agree to our Terms & Conditions.</sub></sub></p>
       
       <h2>Terms & Conditions</h2>
-      <p> Except my privacy, users must think about how and what to share on the comment section.</p>
+      <ul>
+        <li>Points can be innaccurate as some places are work-related</li>
+        <li>Except my privacy, users must think about how and what to share on the comment section.</li>
+        <li>Please, Please LEAVE YOUR COMMENT. I just want it be decorated</li>
+      </ul>
       <div class = "button-wrapper">
         <button id="enterBtn">Enter Site</button>
-        <button id="goBack">Too Young<br>to Enter</button>
+        <button id="goBack">Too dumb<br>to Enter</button>
       </div>      
     </div>
   </div>
@@ -53,6 +57,7 @@
 <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
 <!-- Leaflet Hash plugin -->
 <script src="https://unpkg.com/leaflet-hash"></script>
+
 
 <!-- Data for sites -->
 <script src="./test_data.js"></script>
@@ -92,70 +97,61 @@
       console.log(db);
       console.log("Firebase initialized ✅");
       
+
+
   /*
-  #######################
-  #######################
-  ####   Main code   ####
-  #######################
-  #######################
-  */
-  
-  /*
-  #####################################
-  ######   Map initialization   #######
-  #####################################
-  
-      continuousWorld: true
-      worldCopyJump: true
-      zoomControl: custom -> later
-      maxZoom: 18
-      minZoom: 2
-  
-      attribution:  
-        https://github.com/tomchadwin/qgis2web
-        https://leafletjs.com
-        https://qgis.org
-        http://www.openstreetmap.org/copyright
-      
-      Buttons:
-        ->after the markers
-        
-  
-  
-  */
-    //map
-    const map = L.map('map',{continuousWorld: true, worldCopyJump: true, zoomControl:false, maxZoom:18, minZoom:2}).setView([20, 0], 2);
-    var hash = new L.Hash(map);
-  
-    //attribution
-      map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
-      L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-        maxZoom: 20,
-        attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-      }).addTo(map);
+#######################
+#######################
+####   Main code   ####
+#######################
+#######################
+*/
+
+/*
+#####################################
+######   Map initialization   #######
+#####################################
+
+    continuousWorld: true
+    worldCopyJump: true
+    zoomControl: custom -> later
+    maxZoom: 18
+    minZoom: 2
+
+    attribution:  
+      https://leafletjs.com
+      https://qgis.org
+      http://www.openstreetmap.org/copyright
     
-  
-  //I don't know followings
-      //var hash = new L.Hash(map);
-      //     var bounds_group = new L.featureGroup([]);
-      // function setBounds() {
-      //     map.setMaxBounds(map.getBounds());
-      //}
-  //    var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+    Buttons:
+      ->after the markers
       
-    
-  
-  
-  /*
-  #########################
-  ######   Markers   ######
-  #########################
-  
-      Add every points on the map using createPopupContent()
-      Group them to filter
-  */
-const icon = L.icon({
-        iconUrl: './../images/icon.webp',
+
+
+*/
+  //map
+  const map = L.map('map',{continuousWorld: true, worldCopyJump: true, zoomControl:false, maxZoom:18, minZoom:2}).setView([20, 0], 2);
+  var hash = new L.Hash(map);
+
+  //attribution
+    map.attributionControl.setPrefix('<a href="https://github.com/Mufurun/pronghorn" target="_blank">GitHub</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a>');
+    L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+      maxZoom: 20,
+      attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+    }).addTo(map);
+      
+
+
+/*
+#########################
+######   Markers   ######
+#########################
+
+    Add every points on the map using createPopupContent()
+    Icon is my photo
+*/
+    const icon = L.icon({
+        iconUrl: '../images/icon.webp', //photo of my bird
         shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
         iconSize: [30, 30],
         iconAnchor: [12, 41],
@@ -163,74 +159,63 @@ const icon = L.icon({
         shadowSize: [41, 41]
       });
 
-      points.forEach(point => {
-         const marker = L.marker(point.coords);
-       marker.setIcon(icon);       
-         
-         marker.bindPopup(() => {
-          const popupContent = createPopupContent(point);
-          return popupContent;
-         }) 
-         marker.addTo(map);
-         //set up the scrollbar at the bottom.
-         map.on('popupopen', (e) => {
-          const popupElement = e.popup.getElement();
-          const commentsBox = popupElement.querySelector('.comments');
-          if (commentsBox) {
-            // Wait a tick to ensure it's rendered
-            setTimeout(() => {
-              commentsBox.scrollTop = commentsBox.scrollHeight;
-            }, 0);
-          }
-        });
-        
-       });
-  
-  
-  /*
-  ##########################################
-  ######     All Kinds of Controls     #####
-  ##########################################
-       Zoom control:
-       Current Position:
-       Layer Control:
-       Region COntrol:
-  */
-  
-  /*
-  ******************************
-  ******   zoomControl    ******
-  ******************************
-  */
-  
-      var zoomControl = L.control.zoom({
-              position: 'bottomright'
-          }).addTo(map);
-  
-       
-  
-  /*
-  ***********************************
-  ******   Current Position    ******
-  ***********************************
-  */
-  
-       
-  
-      var currentPosition = null;
+    points.forEach(point => {
+       const marker = L.marker(point.coords, {icon: icon});
+       marker.bindPopup(() => {
+        const popupContent = createPopupContent(point);
+        return popupContent;
+       }) 
+       marker.addTo(map);
+       //set up the scrollbar at the bottom.
+       map.on('popupopen', (e) => {
+        const popupElement = e.popup.getElement();
+        const commentsBox = popupElement.querySelector('.comments');
+        if (commentsBox) {
+          // Wait a tick to ensure it's rendered
+          setTimeout(() => {
+            commentsBox.scrollTop = commentsBox.scrollHeight;
+          }, 0);
+        }
+      });
       
-      map.on('locationerror', onLocationError);
-      map.on('locationfound', onLocationFound);
-  
-      map.locate({ setView: false });
-  
-  /*
-  *****************************
-  ******   Inner HTML    ******
-  *****************************
-  
-  
-  */
+     });
+
+
+/*
+##########################################
+######     All Kinds of Controls     #####
+##########################################
+     Zoom control:
+     Current Position:
+     Layer Control:
+     Region COntrol:
+     Layer control
+*/
+
+     
+
+/*
+***********************************
+******   Current Position    ******
+***********************************
+*/
+
+     
+
+    var currentPosition = null;
+    
+    map.on('locationerror', onLocationError);
+    map.on('locationfound', onLocationFound);
+
+    map.locate({ setView: false });
+
+/*
+*****************************
+******   Inner HTML    ******
+*****************************
+
+
+*/
       const customControl = L.Control.extend({
         onAdd: function (map) {
           const container = L.DomUtil.create('div', 'custom-control leaflet-bar');
@@ -361,13 +346,13 @@ const icon = L.icon({
                       <button class="collapsible" >Sydney</button>
                       <button class = 'button' id = 'sydney'></button>
                     </div>
-                    <div class="content">
-                        <div id = 'list_sydney'></div>
-                    </div>
-                      <div class = 'control-button-wrapper'> 
-                        <button class="collapsible" >Gosford</button>
-                        <button class = 'button' id = 'gosford'></button>
+                      <div class="content">
+                          <div id = 'list_sydney'></div>
                       </div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Gosford</button>
+                      <button class = 'button' id = 'gosford'></button>
+                    </div>
                       <div class="content">
                           <div id = 'list_gosford'></div>
                       </div>
@@ -405,6 +390,7 @@ const icon = L.icon({
               </div>
           </div>
             `;
+  
           // Prevent map click propagation
           L.DomEvent.disableClickPropagation(container);
           L.DomEvent.disableScrollPropagation(container);
@@ -427,11 +413,11 @@ const icon = L.icon({
               button.addEventListener("click", function () {
                 const content = this.parentElement.nextElementSibling;
                 if (content.style.maxHeight) {
-                this.classList.toggle("active");
                   content.style.maxHeight = null;
+                  this.classList.toggle("active");
                   updateChildren(content);  
                 } else {
-                this.classList.toggle("active");
+                  this.classList.toggle("active");
                   content.style.maxHeight = 350 + "px";
                   updateSibling(content);  
                   updateParentHeight(content);
@@ -445,7 +431,7 @@ const icon = L.icon({
                 updateSibling(content);  
               });
             });
-
+//this does not work
             const regconbutton = document.getElementById('regcon');
             if(regconbutton){
                 regconbutton.addEventListener("click", () => {
@@ -462,20 +448,19 @@ Click Plus Sign to Zoom In`);
           return container;
         }
       });
+  
+    
 
-      map.addControl(new customControl({ position: 'topleft' }));
-  
-      
-  
-  /*
-  ###################################
-  ###################################
-  ##########  FUNCTIONS   ###########
-  ###################################
-  ###################################
-  */
-  
-  /*
+/*
+###################################
+###################################
+##########  FUNCTIONS   ###########
+###################################
+###################################
+*/
+
+
+/*
   #####################################
   #####     Functions for Map     #####
   #####################################
@@ -575,10 +560,10 @@ Click Plus Sign to Zoom In`);
             const data = snapshot.val();
             const keys = Object.keys(data || {});
             if (keys.length > 100) {
-              // Sort and remove oldest ones
+              // Sort and remove the oldest one
               const sorted = keys.map(k => ({ key: k, time: data[k].timestamp }))
               .sort((a, b) => a.time - b.time);
-              const toRemove = sorted.slice(0, keys.length - 10);
+              const toRemove = sorted.slice(0, keys.length - 100);
               toRemove.forEach(({ key }) => ref.child(key).remove());
             }
           });
@@ -615,8 +600,14 @@ Click Plus Sign to Zoom In`);
         return container;
       }
   
+  /*
+  **********************************************
+  *******  FUNCTION image_popup()  ******
+  **********************************************
+  
+      popup with image. 
+  */
 
-      //Image popup
 
 
       function image_popup(imgsrc){
@@ -650,20 +641,24 @@ Click Plus Sign to Zoom In`);
 
             section.appendChild(ipc);
 
-          //Section without Close Button
           //Div for the image alignment
-            const large_image = document.createElement("div");
+            const large_image = document.createElement("a");
             large_image.className = 'large-image-div';
+            large_image.href = '../images/' + imgsrc;//For index use this 'https://projectpronghorn.netlify.app/' + imgsrc;
 
 
           //Image
             const each_large_image = document.createElement('img');
             each_large_image.src = imgsrc;
             each_large_image.className = 'large-image';
-
             large_image.appendChild(each_large_image);
-
             section.appendChild(large_image);
+
+            const large_image_note = document.createElement('p');
+            large_image_note.textContent = 'click the picture to open and zoom in';
+            section.appendChild(large_image_note);
+
+
 
             // Append it to the map
             const mapContainer = document.getElementById('map');
@@ -671,10 +666,188 @@ Click Plus Sign to Zoom In`);
             L.DomEvent.disableClickPropagation(section);
             L.DomEvent.disableScrollPropagation(section);
 
-
           }
 
+
+
+
+/*
+***************************************
+******  Function listMarker()()  ******
+***************************************
+
+    Make the list of sites on the map
+    Create button to direct the location
   
+*/
+function listMarkers(region){
+  const list = document.getElementById("list_"+region);
+  if(list){
+    list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
+
+    if(region == 'hokuriku' || region == 'australia' || region == 'japan'){
+      list.innerHTML = "List of Other Places in " + region[0].toUpperCase()+ region.slice(1);
+    }
+    else if(region == 'bc'){
+      list.innerHTML = "List of Places in " + region.toUpperCase();
+    }
+    list.classList = 'list-of-region';
+    points.forEach(p =>{
+      if(p.group == region){
+        const title = document.createElement('button');
+        title.textContent = p.name;
+        title.classList = 'list-button';
+        title.onclick = () => {
+          map.flyTo(p.coords, 16); //This line make this function being here. cuz using the map
+        }
+        list.appendChild(document.createElement('br'));
+        list.appendChild(title);
+      }
+    });
+  }
+}
+
+      function layerControlhtml(){
+        return `
+          <div class = "layconContent">
+            <strong>Background Map</strong><abbr class = 'question' id = 'laycon' title="Select the background map type"></abbr>
+            <div class="plain">
+              <select id="layer">
+                <option value="osm">Street View 1</option>
+                <option value="cv">Street View 2</option>
+                <option value="otm">Topographic View</option>
+                <option value="esi">Satellite Imagery</option>
+              </select>
+            </div></div>
+          </div>
+            `;
+      }
+    function layerFunctions(map){
+
+                  setTimeout(() => {
+            document.getElementById('layer').addEventListener('change', function(){
+              if (document.getElementById('layer').value == 'osm'){
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank" class = ".leaflet-control-attribution">CARTO</a>');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                  maxZoom: 20,
+                  attribution: '&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'cv'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+                  maxZoom: 20,
+                  attribution: '&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'otm'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>');
+                map.attributionControl.removeAttribution('Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community');
+                L.tileLayer('https://tile.opentopomap.org/{z}/{x}/{y}.png', {
+                  maxZoom: 20,
+                  attribution: 'Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)'
+                }).addTo(map);
+              }
+              else if (document.getElementById('layer').value == 'esi'){
+                map.attributionControl.removeAttribution('&copy; <a href="http://www.openstreetmap.org/copyright" target="_blank">OpenStreetMap</a> contributors');
+                map.attributionControl.removeAttribution('&copy; <a href="https://carto.com/attribution" target="_blank">CARTO</a>');
+                map.attributionControl.removeAttribution('Map data: &copy; <a href="http://opentopomap.org/" target="_blank"> OpenTopoMap</a> contributors, SRTM | Map style: &copy; OpenTopoMap (<a href="https://creativecommons.org/licenses/by-sa/3.0/"> CC-BY-SA</a>)');
+                L.tileLayer('https://server.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}', {
+                  maxZoom: 20,
+                  attribution: 'Tiles &copy; <a href="https://doc.arcgis.com/en/arcgis-online/reference/terms-of-use.htm" target="_blank">Esri</a> &mdash; Source: Esri, Maxar, Earthstar Geographics, and the GIS User Community'
+                }).addTo(map);
+              }
+
+
+            }); 
+          }, 0);
+
+
+      }
+      const layerControl = L.Control.extend({
+        onAdd: function (map) {
+          const container = L.DomUtil.create('div');
+          container.innerHTML = layerControlhtml();
+          layerFunctions(map);
+
+  
+          // Prevent map click propagation
+          L.DomEvent.disableClickPropagation(container);
+          L.DomEvent.disableScrollPropagation(container);
+
+          setTimeout(()=>{
+            const layconbutton = document.getElementById('laycon');
+            if(layconbutton){
+                layconbutton.addEventListener("click", () => {
+                  alert("Change the Map Layer");
+                });
+            }
+          },0)
+
+    
+          return container;
+        }
+      });
+    
+
+
+/*
+####################################################
+######     Functions for Current Position     ######
+#################################################### 
+*/
+
+/*
+******************************************
+******  Function onLocationFound()  ******
+******  Function onLocationError()  ******
+******************************************
+If location is found:
+      add a marker
+      create a button to zoom up the location 
+*/
+
+function onLocationFound(e) {
+  currentPosition = e.latlng;
+  L.marker(currentPosition).addTo(map);
+  const jumpButtonCP = L.control({ position: 'topleft' });
+  jumpButtonCP.onAdd = function (map) {
+    const btn = L.DomUtil.create('button', 'my-custom-button');
+    btn.innerHTML = 'Current <br> Position';
+    // Prevent map from moving when clicking the button
+    L.DomEvent.disableClickPropagation(btn);
+    btn.onclick = () => {
+      map.flyTo(currentPosition,12);
+      // You can add more logic here, like map.flyTo(), addMarker(), etc.
+    };
+    map.flyTo(currentPosition,2);
+
+    return btn;
+  };
+  jumpButtonCP.addTo(map);
+}
+
+
+function onLocationError(e) {
+  alert(e.message);
+}
+
+
+
+
+/* controls */
+
+
+      map.addControl(new customControl({ position: 'topleft' }));
+      map.addControl(new layerControl({ position: 'topright' }));
+      var zoomControl = L.control.zoom({position: 'topright'}).addTo(map);
+
+
   /*
   ######################################################
   ######     Functions for Inner HTML Control     ######
@@ -714,13 +887,6 @@ Click Plus Sign to Zoom In`);
   
     Unfold the other sibling sections
       This is necessary since the map will zoom up the region where you open the section with
-
-                <div class="content">
-                  <div class = 'control-button-wrapper'> 
-                    <button class="collapsible" >Eastern New South Wales</button>
-                    <button class = 'button' id = 'eastern nsw'></button>
-                  </div>
-
   */
   
       function updateSibling(element) {
@@ -728,9 +894,7 @@ Click Plus Sign to Zoom In`);
           while (sibling) {
               if (sibling !== element && sibling.classList.contains("content") && sibling.style.maxHeight) {
                   sibling.style.maxHeight = null;
-                  sibling.firstElementChild.firstElementChild.classList.toggle("active");
-                  if (sibling.firstElementChild.firstElementChild.classList.contains("collapsible")) {console.log("good");}
-
+                  sibling.previousElementSibling.classList.toggle("active");
                   updateChildren(sibling);
               }
               sibling = sibling.nextElementSibling;
@@ -745,100 +909,20 @@ Click Plus Sign to Zoom In`);
       This is necessary since the map will zoom up the region where you open the section with
   */
   
-      function updateChildren(element) {
+     function updateChildren(element) {
           let child = element.firstElementChild;
           while (child) {
               if (child.classList.contains("content") && child.style.maxHeight) {
                   child.style.maxHeight = null;
-                  if (child.firstElementChild.firstElementChild.classList.contains("collapsible")) {console.log("good2");}
-                  child.firstElementChild.firstElementChild.classList.toggle("active");
+                  child.previousElementSibling.classList.toggle("active");
                   updateChildren(child);
               }
               child = child.nextElementSibling;
           }
       }
-  
-  
-  /*
-  ***************************************
-  ******  Function listMarker()()  ******
-  ***************************************
-  
-      Make the list of sites on the map
-      Create button to direct the location
-    
-  */
-      function listMarkers(region){
-        const list = document.getElementById("list_"+region);
-        if(list){
-          list.innerHTML = "List of Places in " + region[0].toUpperCase()+ region.slice(1);
-  
-          if(region == 'hokuriku' || region == 'australia' || region == 'japan'){
-            list.innerHTML = "List of Other Places in " + region[0].toUpperCase()+ region.slice(1);
-          }
-          else if(region == 'bc'){
-            list.innerHTML = "List of Places in " + region.toUpperCase();
-          }
-          list.classList = 'list-of-region';
-          points.forEach(p =>{
-            if(p.group == region){
-              const title = document.createElement('button');
-              title.textContent = p.name;
-              title.classList = 'list-button';
-              title.onclick = () => {
-                map.flyTo(p.coords, 16);
-              }
-              list.appendChild(document.createElement('br'));
-              list.appendChild(title);
-            }
-          });
-        }
-      }
-  
-  /*
-  ####################################################
-  ######     Functions for Current Position     ######
-  #################################################### 
-  */
-  
-  /*
-  ******************************************
-  ******  Function onLocationFound()  ******
-  ******  Function onLocationError()  ******
-  ******************************************
-  If location is found:
-        add a marker
-        create a button to zoom up the location 
-  */
-      const greenIcon = L.icon({
-            iconUrl: 'https://raw.githubusercontent.com/pointhi/leaflet-color-markers/master/img/marker-icon-orange.png',
-            shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
-            iconSize: [25, 41],
-            iconAnchor: [12, 41],
-            popupAnchor: [1, -34],
-            shadowSize: [41, 41]
-          });
-      function onLocationFound(e) {
-          currentPosition = e.latlng;
-          L.marker(currentPosition, {icon: greenIcon}).addTo(map);
-          const jumpButtonCP = L.control({ position: 'topleft' });
-          jumpButtonCP.onAdd = function (map) {
-          const btn = L.DomUtil.create('button', 'my-custom-button');
-          btn.innerHTML = 'Current <br> Position';
-          // Prevent map from moving when clicking the button
-          L.DomEvent.disableClickPropagation(btn);
-          btn.onclick = () => {
-            map.flyTo(currentPosition,12);
-            // You can add more logic here, like map.flyTo(), addMarker(), etc.
-          };
-          return btn;
-          };
-          jumpButtonCP.addTo(map);
-      }
-      function onLocationError(e) {
-          alert(e.message);
-      }
-  
+
+
+
     
   
   </script>

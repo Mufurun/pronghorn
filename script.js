@@ -1,9 +1,18 @@
+/*
+####################
+####   Import   ####
+####################
+*/
+
+
   import { db } from "./src/firebase/firebase-initialization.js"; 
 
   import { points, region_categories, regions } from "./src/data.js"; 
   import { updateParentHeight, updateSibling, updateChildren,  } from "./src/function.js";
 
-/*
+
+
+  /*
 #######################
 #######################
 ####   Main code   ####
@@ -23,7 +32,6 @@
     minZoom: 2
 
     attribution:  
-      https://github.com/tomchadwin/qgis2web
       https://leafletjs.com
       https://qgis.org
       http://www.openstreetmap.org/copyright
@@ -44,17 +52,7 @@
       maxZoom: 20,
       attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
-  
-
-//I don't know followings
-    //var hash = new L.Hash(map);
-    //     var bounds_group = new L.featureGroup([]);
-    // function setBounds() {
-    //     map.setMaxBounds(map.getBounds());
-    //}
-//    var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
-    
-	
+      
 
 
 /*
@@ -63,10 +61,10 @@
 #########################
 
     Add every points on the map using createPopupContent()
-    Group them to filter
+    Icon is my photo
 */
-const icon = L.icon({
-        iconUrl: './images/icon.webp',
+    const icon = L.icon({
+        iconUrl: './images/icon.webp', //photo of my bird
         shadowUrl: 'https://unpkg.com/leaflet@1.9.3/dist/images/marker-shadow.png',
         iconSize: [30, 30],
         iconAnchor: [12, 41],
@@ -346,7 +344,7 @@ const icon = L.icon({
                 updateSibling(content);  
               });
             });
-
+//this does not work
             const regconbutton = document.getElementById('regcon');
             if(regconbutton){
                 regconbutton.addEventListener("click", () => {
@@ -475,10 +473,10 @@ Click Plus Sign to Zoom In`);
             const data = snapshot.val();
             const keys = Object.keys(data || {});
             if (keys.length > 100) {
-              // Sort and remove oldest ones
+              // Sort and remove the oldest one
               const sorted = keys.map(k => ({ key: k, time: data[k].timestamp }))
               .sort((a, b) => a.time - b.time);
-              const toRemove = sorted.slice(0, keys.length - 10);
+              const toRemove = sorted.slice(0, keys.length - 100);
               toRemove.forEach(({ key }) => ref.child(key).remove());
             }
           });
@@ -515,8 +513,14 @@ Click Plus Sign to Zoom In`);
         return container;
       }
   
+  /*
+  **********************************************
+  *******  FUNCTION image_popup()  ******
+  **********************************************
+  
+      popup with image. 
+  */
 
-      //Image popup
 
 
       function image_popup(imgsrc){
@@ -550,7 +554,6 @@ Click Plus Sign to Zoom In`);
 
             section.appendChild(ipc);
 
-          //Section without Close Button
           //Div for the image alignment
             const large_image = document.createElement("a");
             large_image.className = 'large-image-div';
@@ -608,7 +611,7 @@ function listMarkers(region){
         title.textContent = p.name;
         title.classList = 'list-button';
         title.onclick = () => {
-          map.flyTo(p.coords, 16);
+          map.flyTo(p.coords, 16); //This line make this function being here. cuz using the map
         }
         list.appendChild(document.createElement('br'));
         list.appendChild(title);
