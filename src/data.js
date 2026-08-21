@@ -146,6 +146,7 @@ const points = [
         { id: 'mawakihrt', name: "Mawaki Heritage ", coords: [37.30570331178062, 137.20687275001785], group: 'noto', url: "http://www.mawakiiseki.jp",image: "images/IMG_1684.webp" },
         { id: 'wakutama', name: "Mr.Wakutama ", coords: [37.086946676906685, 136.92469328003526], group: 'noto', url: null,image: "images/IMG_1783.webp" },
         { id: 'kurobe', name: "Kurobe Dam", coords: [36.566778569842725, 137.6621593776124], group: 'hokuriku', url: "https://www.kurobe-dam.com/",image: "images/IMG_1820.webp" },
+        { id: 'shoumyodaki', name: "Shomyo-Daki Longest Waterfall in Japan", coords: [36.575008, 137.519865], group: 'hokuriku', url: null,image: "images/IMG_1765.webp" },
         { id: 'utsukushigahara', name: "Utsukushigahara", coords: [36.24177679899555, 138.093271200977], group: 'hokuriku', url: null,image: "images/IMG_1888.webp" },
         { id: 'yoritomo', name: "Yase Clif - Hiding Spot (Historical)", coords: [37.2095, 136.6831], group: 'noto', url: null,image: "images/IMG_1933.webp" },
         { id: 'longbench', name: "Longest Bench in the world", coords: [37.14979035357368, 136.71076798525903], group: 'noto', url: null,image: "images/IMG_1947.webp" },
