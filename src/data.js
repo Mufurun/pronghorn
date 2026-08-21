@@ -80,6 +80,9 @@ const points = [
         { id: 'ancientforest1', name: "Cedar Bottle Holder", coords: [53.760489, -121.222093], group: 'nouthernbc',url: null, image: "images/IMG_6615.webp"},
         { id: 'jamesoffice', name: "Owl of Deer Butt (Ecofor Office at FS James)", coords: [54.442779, -124.252169], group: 'nouthernbc',url: null, image: "images/IMG_6594.webp"},
         { id: 'washroom', name: "How Do You Use Washroom?", coords: [54.061325, -124.911034], group: 'nouthernbc',url: null, image: "images/IMG_6296.webp"},
+        { id: 'keyohburger', name: "Key-Oh Burger", coords: [54.228177, -125.761974], group: 'nouthernbc',url: "https://www.key-ohburnslake.ca/", image: "images/IMG_6640.webp"},
+        { id: 'burnslakeslider', name: "Burns Lake Slider for Kids (US)", coords: [54.22257710406731, -125.76191230743909], group: 'nouthernbc',url: null, image: "images/IMG_6642.webp"},
+        { id: 'squirrel', name: "Squirrel in Forest", coords: [54.134846, -125.393363], group: 'nouthernbc',url: null, image: "images/IMG_6706.webp"},
 
 
 
