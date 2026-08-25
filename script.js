@@ -254,6 +254,13 @@
                     <div class="content">
                         <div id = 'list_smithers'></div>
                     </div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >HWY 37 (North)</button>
+                      <button class = 'button' id = 'hwy37'></button>
+                    </div>
+                    <div class="content">
+                        <div id = 'list_hwy37'></div>
+                    </div>
                     <div id = 'list_nouthernbc'></div>
                   </div>  
                 </div>
