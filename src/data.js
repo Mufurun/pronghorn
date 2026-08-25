@@ -83,6 +83,11 @@ const points = [
         { id: 'keyohburger', name: "Key-Oh Burger", coords: [54.228177, -125.761974], group: 'nouthernbc',url: "https://www.key-ohburnslake.ca/", image: "images/IMG_6640.webp"},
         { id: 'burnslakeslider', name: "Burns Lake Slider for Kids (US)", coords: [54.22257710406731, -125.76191230743909], group: 'nouthernbc',url: null, image: "images/IMG_6642.webp"},
         { id: 'squirrel', name: "Squirrel in Forest", coords: [54.134846, -125.393363], group: 'nouthernbc',url: null, image: "images/IMG_6706.webp"},
+        { id: 'campnight', name: "Stars above", coords: [54.743338, -127.026573], group: 'nouthernbc',url: null, image: "images/IMG_6728.webp"},
+        { id: 'cohoInTelkwa', name: "Fishing Coho", coords: [54.696266, -127.053933], group: 'nouthernbc',url: null, image: "images/IMG_6729.webp"},
+        { id: 'anotherfishing', name: "Fishing Nothing!!!", coords: [55.015407, -127.323869], group: 'nouthernbc',url: null, image: "images/IMG_6730.webp"},
+        { id: 'anotherCatinJames', name: "Another Cat to be Distracted", coords: [54.447547, -124.262183], group: 'nouthernbc',url: null, image: "images/IMG_6751.webp"},
+        { id: 'jumpingSalmon', name: "Jump the Canyon", coords: [55.014256, -127.328655], group: 'nouthernbc',url: null, image: "images/IMG_6753.webp"},
 
 
 
