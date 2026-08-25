@@ -233,14 +233,28 @@
                     <button class = 'button' id = 'nouthernbc'></button>
                   </div>
                   <div class="content">
-                  <div class = 'control-button-wrapper'> 
-                    <button class="collapsible" >PG</button>
-                    <button class = 'button' id = 'pg'></button>
-                  </div>
-                      <div class="content">
-                          <div id = 'list_pg'></div>
-                      </div>
-                      <div id = 'list_nouthernbc'></div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >PG</button>
+                      <button class = 'button' id = 'pg'></button>
+                    </div>
+                    <div class="content">
+                        <div id = 'list_pg'></div>
+                    </div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Fort Saint James</button>
+                      <button class = 'button' id = 'fsjames'></button>
+                    </div>
+                    <div class="content">
+                        <div id = 'list_fsjames'></div>
+                    </div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Smithers</button>
+                      <button class = 'button' id = 'smithers'></button>
+                    </div>
+                    <div class="content">
+                        <div id = 'list_smithers'></div>
+                    </div>
+                    <div id = 'list_nouthernbc'></div>
                   </div>  
                 </div>
                 

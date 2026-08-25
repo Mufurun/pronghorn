@@ -65,28 +65,18 @@ const points = [
 
 
     //northern BC
-        { id: 'elkintelkwa', name: "Elk in Telkwa", coords: [54.623420, -127.242979], group: 'nouthernbc',url: null, image: "images/IMG_6288.webp"},
-        { id: 'shackpoutine', name: "Shack Food Truck in Smithers", coords: [54.781760, -127.166045], group: 'nouthernbc',url: null, image: "images/IMG_6290.webp"},
         { id: 'redchrissouthvalley', name: "Mountain from Red Chris Mine", coords: [57.696202, -129.752356], group: 'nouthernbc',url: null, image: "images/IMG_6330.webp"},
         { id: 'gitwangakbattlehill', name: "Gitwangak Battle Hill", coords: [55.120401, -128.015151], group: 'nouthernbc',url: null, image: "images/IMG_6368.webp"},
-        { id: 'bearbonetelkwa', name: "Bear in Telkwa (I don't know the location)", coords: [54.628577, -127.224624], group: 'nouthernbc',url: null, image: "images/IMG_6417.webp"},
-        { id: 'campingsitetelkwa', name: "Camp Site in Telkwa", coords: [54.6436, -127.2294], group: 'nouthernbc',url: null, image: "images/IMG_6429.webp"},
         { id: 'elkhouseton', name: "Can You Find Elk?", coords: [54.436896, -126.196896], group: 'nouthernbc',url: null, image: "images/IMG_6457.webp"},
         { id: 'tattogaresort', name: "Not Like Poisoness Water Tattoga Lake Resort", coords: [57.7109, -129.9925], group: 'nouthernbc',url: null, image: "images/IMG_6480.webp"},
-        { id: 'honeymoonisland', name: "Honeymoon Island on Stuart Lake", coords: [54.499175, -124.389243], group: 'nouthernbc',url: null, image: "images/IMG_6543.webp"},
-        { id: 'onlogs', name: "We're on a bridge", coords: [55.005062, -124.347864], group: 'nouthernbc',url: null, image: "images/IMG_6544.webp"},
         { id: 'redchris2', name: "Dropped by Heli", coords: [57.773036, -129.753621], group: 'nouthernbc',url: null, image: "images/IMG_6554.webp"},
         { id: 'ancientforest1', name: "Water Fall in the cedar forest", coords: [53.759194, -121.222619], group: 'nouthernbc',url: null, image: "images/IMG_6612.webp"},
         { id: 'ancientforest1', name: "Cedar Bottle Holder", coords: [53.760489, -121.222093], group: 'nouthernbc',url: null, image: "images/IMG_6615.webp"},
-        { id: 'jamesoffice', name: "Owl of Deer Butt (Ecofor Office at FS James)", coords: [54.442779, -124.252169], group: 'nouthernbc',url: null, image: "images/IMG_6594.webp"},
         { id: 'washroom', name: "How Do You Use Washroom?", coords: [54.061325, -124.911034], group: 'nouthernbc',url: null, image: "images/IMG_6296.webp"},
         { id: 'keyohburger', name: "Key-Oh Burger", coords: [54.228177, -125.761974], group: 'nouthernbc',url: "https://www.key-ohburnslake.ca/", image: "images/IMG_6640.webp"},
         { id: 'burnslakeslider', name: "Burns Lake Slider for Kids (US)", coords: [54.22257710406731, -125.76191230743909], group: 'nouthernbc',url: null, image: "images/IMG_6642.webp"},
         { id: 'squirrel', name: "Squirrel in Forest", coords: [54.134846, -125.393363], group: 'nouthernbc',url: null, image: "images/IMG_6706.webp"},
-        { id: 'campnight', name: "Stars above", coords: [54.743338, -127.026573], group: 'nouthernbc',url: null, image: "images/IMG_6728.webp"},
-        { id: 'cohoInTelkwa', name: "Fishing Coho", coords: [54.696266, -127.053933], group: 'nouthernbc',url: null, image: "images/IMG_6729.webp"},
         { id: 'anotherfishing', name: "Fishing Nothing!!!", coords: [55.015407, -127.323869], group: 'nouthernbc',url: null, image: "images/IMG_6730.webp"},
-        { id: 'anotherCatinJames', name: "Another Cat to be Distracted", coords: [54.447547, -124.262183], group: 'nouthernbc',url: null, image: "images/IMG_6751.webp"},
         { id: 'jumpingSalmon', name: "Jump the Canyon", coords: [55.014256, -127.328655], group: 'nouthernbc',url: null, image: "images/IMG_6753.webp"},
 
 
@@ -96,7 +86,19 @@ const points = [
         { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
         { id: 'salmonrelease', name: "Salmon Baby Released", coords: [53.926330, -122.742049], group: 'pg', url: null,image: "images/IMG_6394.webp" },
 
+    //FSJames
+        { id: 'anotherCatinJames', name: "Another Cat to be Distracted", coords: [54.447547, -124.262183], group: 'fsjames',url: null, image: "images/IMG_6751.webp"},
+        { id: 'jamesoffice', name: "Owl of Deer Butt (Ecofor Office at FS James)", coords: [54.442779, -124.252169], group: 'fsjames',url: null, image: "images/IMG_6594.webp"},
+        { id: 'onlogs', name: "We're on a bridge", coords: [55.005062, -124.347864], group: 'fsjames',url: null, image: "images/IMG_6544.webp"},
+        { id: 'honeymoonisland', name: "Honeymoon Island on Stuart Lake", coords: [54.499175, -124.389243], group: 'fsjames',url: null, image: "images/IMG_6543.webp"},
 
+    //Smithers
+        { id: 'cohoInTelkwa', name: "Fishing Coho", coords: [54.696266, -127.053933], group: 'smithers',url: null, image: "images/IMG_6729.webp"},
+        { id: 'campnight', name: "Stars above", coords: [54.743338, -127.026573], group: 'smithers',url: null, image: "images/IMG_6728.webp"},
+        { id: 'campingsitetelkwa', name: "Camp Site in Telkwa", coords: [54.6436, -127.2294], group: 'smithers',url: null, image: "images/IMG_6429.webp"},
+        { id: 'bearbonetelkwa', name: "Bear in Telkwa (I don't know the location)", coords: [54.628577, -127.224624], group: 'smithers',url: null, image: "images/IMG_6417.webp"},
+        { id: 'elkintelkwa', name: "Elk in Telkwa", coords: [54.623420, -127.242979], group: 'smithers',url: null, image: "images/IMG_6288.webp"},
+        { id: 'shackpoutine', name: "Shack Food Truck in Smithers", coords: [54.781760, -127.166045], group: 'smithers',url: null, image: "images/IMG_6290.webp"},
 
 
 
@@ -219,6 +221,8 @@ const points = [
         'cowichan',
         'nouthernbc',
         'pg',
+        'fsjames',
+        'smithers',
         'japan',
         'kanto',
         'kanagawa',
@@ -273,8 +277,17 @@ const points = [
             id:'pg',
             zoom:[53.9102, -122.7713],
             size:14
+        },{//FSJames
+            id:'fsjames',
+            zoom:[54.4469, -124.2224],
+            size:11
+        },{//Smithers
+            id:'smithers',
+            zoom:[54.7671, -127.1400],
+            size:11
         },
     
+
         {//Japan
             id: 'japan',
             zoom:[35.9602, 137.8564],
