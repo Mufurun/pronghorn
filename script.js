@@ -205,29 +205,30 @@
                     <button class = 'button' id = 'southernbc'></button>
                   </div>
                   <div class="content">
-                  <div class = 'control-button-wrapper'> 
-                    <button class="collapsible" >Cowichan Area</button>
-                    <button class = 'button' id = 'cowichan'></button>
-                  </div>
-                      <div class="content">
-                          <div id = 'list_cowichan'></div>
-                      </div>
-                  <div class = 'control-button-wrapper'> 
-                    <button class="collapsible" >Victoria</button>
-                    <button class = 'button' id = 'victoria'></button>
-                  </div>
-                      <div class="content">
-                          <div id = 'list_victoria'></div>
-                      </div>
-                  <div class = 'control-button-wrapper'> 
-                    <button class="collapsible" >Vancouver</button>
-                    <button class = 'button' id = 'vancouver'></button>
-                  </div>
-                      <div class="content">
-                          <div id = 'list_vancouver'></div>
-                      </div>
-                      <div id = 'list_southernbc'></div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Cowichan Area</button>
+                      <button class = 'button' id = 'cowichan'></button>
+                    </div>
+                    <div class="content">
+                        <div id = 'list_cowichan'></div>
+                    </div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Victoria</button>
+                      <button class = 'button' id = 'victoria'></button>
+                    </div>
+                    <div class="content">
+                        <div id = 'list_victoria'></div>
+                    </div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Vancouver</button>
+                      <button class = 'button' id = 'vancouver'></button>
+                    </div>
+                    <div class="content">
+                        <div id = 'list_vancouver'></div>
+                    </div>
+                    <div id = 'list_southernbc'></div>
                   </div>  
+
                   <div class = 'control-button-wrapper'> 
                     <button class="collapsible" >Nouthern BC</button>
                     <button class = 'button' id = 'nouthernbc'></button>
@@ -238,34 +239,55 @@
                       <button class = 'button' id = 'pg'></button>
                     </div>
                     <div class="content">
-                        <div id = 'list_pg'></div>
+                      <div id = 'list_pg'></div>
                     </div>
                     <div class = 'control-button-wrapper'> 
                       <button class="collapsible" >Fort Saint James</button>
                       <button class = 'button' id = 'fsjames'></button>
                     </div>
                     <div class="content">
-                        <div id = 'list_fsjames'></div>
+                      <div id = 'list_fsjames'></div>
                     </div>
                     <div class = 'control-button-wrapper'> 
                       <button class="collapsible" >Smithers</button>
                       <button class = 'button' id = 'smithers'></button>
                     </div>
                     <div class="content">
-                        <div id = 'list_smithers'></div>
+                      <div id = 'list_smithers'></div>
                     </div>
                     <div class = 'control-button-wrapper'> 
                       <button class="collapsible" >HWY 37 (North)</button>
                       <button class = 'button' id = 'hwy37'></button>
                     </div>
                     <div class="content">
-                        <div id = 'list_hwy37'></div>
+                      <div id = 'list_hwy37'></div>
                     </div>
-                    <div id = 'list_nouthernbc'></div>
+                    <div id = 'list_nouthernbc'></div> 
                   </div>  
+
+                  <div class = 'control-button-wrapper'> 
+                    <button class="collapsible" >Alberta</button>
+                    <button class = 'button' id = 'alberta'></button>
+                  </div>
+                  <div class="content">
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Jasper</button>
+                      <button class = 'button' id = 'jasper'></button>
+                    </div>
+                    <div class="content">
+                      <div id = 'list_jasper'></div>
+                    </div>
+                    <div class = 'control-button-wrapper'> 
+                      <button class="collapsible" >Banff</button>
+                      <button class = 'button' id = 'banff'></button>
+                    </div>
+                    <div class="content">
+                      <div id = 'list_banff'></div>
+                    </div>
+                    <div id = 'list_alberta'></div>
+                  </div>
                 </div>
-                
-  
+                  
                 <div class = 'control-button-wrapper'> 
                   <button class="collapsible" >Australia</button>
                   <button class = 'button' id = 'australia'></button>

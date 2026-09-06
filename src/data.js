@@ -103,6 +103,11 @@ const points = [
         { id: 'redchris2', name: "Dropped by Heli", coords: [57.773036, -129.753621], group: 'hwy37',url: null, image: "images/IMG_6554.webp"},
 
 
+
+    // Alberta
+        { id: 'burntjasper', name: "Burnt Jasper", coords: [52.714335653891524, -117.87255767160178], group: 'jasper',url: null, image: "images/IMG_6803.webp"},
+
+
     //tokyo
         { id: 'kokubunji', name: "My High School Days", coords: [35.7122, 139.4477], group: 'tokyo', url: "https://www.wikidata.org/wiki/Q11525427", image: "images/149.webp" },
         { id: 'eventskp', name: "Illumination at Showa", coords: [35.7066, 139.3973], group: 'tokyo', url: "https://www.showakinen-koen.jp/guide-english/",image: "images/045.webp" },
@@ -225,6 +230,9 @@ const points = [
         'fsjames',
         'smithers',
         'hwy37',
+        'alberta',
+        'jasper',
+        'banff',
         'japan',
         'kanto',
         'kanagawa',
@@ -291,11 +299,26 @@ const points = [
             id:'hwy37',
             zoom:[57.71039, -129.99298],
             size:9
+        },{//Alberta
+            id:'alberta',
+            zoom:[54.888515, -114.788360],
+            size:6
+        },{//Jasper
+            id:'jasper',
+            zoom:[52.87327765281195, -118.08223187861303],
+            size:9
+        },{//banff
+            id:'banff',
+            zoom:[51.17838087132046, -115.57071321836301],
+            size:9
         },
 
 
 
     
+        'alberta',
+        'jasper',
+        'banff',
 
         {//Japan
             id: 'japan',
