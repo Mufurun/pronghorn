@@ -80,6 +80,12 @@ const points = [
 //        { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
         { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
         { id: 'salmonrelease', name: "Salmon Baby Released", coords: [53.926330, -122.742049], group: 'pg', url: null,image: "images/IMG_6394.webp" },
+        { id: 'barkerville', name: "Weekend in Barkerville", coords: [53.06635559456341, -121.51751013848879], group: 'pg', url: null,image: "images/IMG_6900.webp" },
+        { id: 'ravenlakemonument', name: "Raven Lake Monument (made by us)", coords: [53.75961726481731, -121.56863354926989], group: 'pg', url: null,image: "images/IMG_6908.webp" },
+        { id: 'ravenlakesnow', name: "Raven Lake Snow in September", coords: [53.760173266158034, -121.56617558822565], group: 'pg', url: null,image: "images/IMG_6926.webp" },
+        { id: 'ravenlakelunch', name: "Lunch at Raven Lake", coords: [53.76072619725076, -121.56427634071431], group: 'pg', url: null,image: "images/IMG_6930.webp" },
+
+
 
     //FSJames
         { id: 'onlogs', name: "We're on a bridge", coords: [55.005062, -124.347864], group: 'fsjames',url: null, image: "images/IMG_6544.webp"},
@@ -104,8 +110,25 @@ const points = [
 
 
 
-    // Alberta
+// Alberta
+        { id: 'maycroftcamp', name: "Maycroft Camp site", coords: [49.799320, -114.151790], group: 'alberta',url: null, image: "images/IMG_6824.webp"},
+        { id: 'oldmine', name: "Mine Remain (Leitch)", coords: [49.558558, -114.323892], group: 'alberta',url: null, image: "images/IMG_6827.webp"},
+        { id: 'limecityruin', name: "Lime City Ruins", coords: [49.58667382379264, -114.38291811539126], group: 'alberta',url: null, image: "images/IMG_6831.webp"},
+        { id: 'frankslide', name: "Frank Slide", coords: [49.592401, -114.385698], group: 'alberta',url: null, image: "images/IMG_6839.webp"},
+
+        
+        
+    // Jasper
         { id: 'burntjasper', name: "Burnt Jasper", coords: [52.714335653891524, -117.87255767160178], group: 'jasper',url: null, image: "images/IMG_6803.webp"},
+        { id: 'kerkslincamp', name: "Camp at Kerkslin", coords: [52.634041, -117.868533], group: 'jasper',url: null, image: "images/IMG_6809.webp"},
+        { id: 'sunwaptafall', name: "Sunwapta Fall (Lower)", coords: [52.524707934733065, -117.65787612112608], group: 'jasper',url: null, image: "images/IMG_6880.webp"},
+        { id: 'jasperloco', name: "Jasper Locomotive", coords: [52.87518663370605, -118.08010022757406], group: 'jasper',url: null, image: "images/IMG_6886.webp"},
+
+    //Banff
+        { id: 'handstampatcanmore', name: "Hand Stamp at Three Sisters View Point (I'll be back in a few thousands years)", coords: [51.072823, -115.337844], group: 'banff',url: null, image: "images/IMG_6817.webp"},
+        { id: 'whitemuseum', name: "White Museum", coords: [51.1751836432275, -115.57325093719061], group: 'banff',url: null, image: "images/IMG_6851.webp"},
+        { id: 'nightbanff', name: "Night in Banff", coords: [51.1785184540156, -115.57129740873837], group: 'banff',url: null, image: "images/IMG_6859.webp"},
+        { id: 'bowlake', name: "Bow Lake and Ice Mountains", coords: [51.67485963243296, -116.45133446398623], group: 'banff',url: null, image: "images/IMG_6864.webp"},
 
 
     //tokyo
