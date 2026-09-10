@@ -73,6 +73,10 @@ const points = [
         { id: 'keyohburger', name: "Key-Oh Burger", coords: [54.228177, -125.761974], group: 'nouthernbc',url: "https://www.key-ohburnslake.ca/", image: "images/IMG_6640.webp"},
         { id: 'burnslakeslider', name: "Burns Lake Slider for Kids (US)", coords: [54.22257710406731, -125.76191230743909], group: 'nouthernbc',url: null, image: "images/IMG_6642.webp"},
         { id: 'squirrel', name: "Squirrel in Forest", coords: [54.134846, -125.393363], group: 'nouthernbc',url: null, image: "images/IMG_6706.webp"},
+        { id: 'barkerville', name: "Weekend in Barkerville", coords: [53.06635559456341, -121.51751013848879], group: 'nouthernbc', url: null,image: "images/IMG_6900.webp" },
+        { id: 'ravenlakemonument', name: "Raven Lake Monument (made by us)", coords: [53.75961726481731, -121.56863354926989], group: 'nouthernbc', url: null,image: "images/IMG_6908.webp" },
+        { id: 'ravenlakesnow', name: "Raven Lake Snow in September", coords: [53.760173266158034, -121.56617558822565], group: 'nouthernbc', url: null,image: "images/IMG_6926.webp" },
+        { id: 'ravenlakelunch', name: "Lunch at Raven Lake", coords: [53.76072619725076, -121.56427634071431], group: 'nouthernbc', url: null,image: "images/IMG_6930.webp" },
 
 
 
@@ -80,10 +84,6 @@ const points = [
 //        { id: 'parkpg', name: "Park in Prince George", coords: [53.9202, -122.7982], group: 'pg', url: null,image: "images/IMG_0208.webp" },
         { id: 'bearpg', name: "Bear in Prince George", coords: [53.8986, -122.7485], group: 'pg', url: null,image: "images/IMG_5340.webp" },
         { id: 'salmonrelease', name: "Salmon Baby Released", coords: [53.926330, -122.742049], group: 'pg', url: null,image: "images/IMG_6394.webp" },
-        { id: 'barkerville', name: "Weekend in Barkerville", coords: [53.06635559456341, -121.51751013848879], group: 'pg', url: null,image: "images/IMG_6900.webp" },
-        { id: 'ravenlakemonument', name: "Raven Lake Monument (made by us)", coords: [53.75961726481731, -121.56863354926989], group: 'pg', url: null,image: "images/IMG_6908.webp" },
-        { id: 'ravenlakesnow', name: "Raven Lake Snow in September", coords: [53.760173266158034, -121.56617558822565], group: 'pg', url: null,image: "images/IMG_6926.webp" },
-        { id: 'ravenlakelunch', name: "Lunch at Raven Lake", coords: [53.76072619725076, -121.56427634071431], group: 'pg', url: null,image: "images/IMG_6930.webp" },
 
 
 
